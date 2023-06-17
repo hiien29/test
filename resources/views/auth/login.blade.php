@@ -38,7 +38,8 @@
                     {{ __('パスワードを忘れた方はこちら') }}
                 </a>
             @endif
-
+        </div>
+        <div>
             <x-primary-button class="ml-3">
                 {{ __('ログイン') }}
             </x-primary-button>
