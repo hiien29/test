@@ -18,9 +18,9 @@
 
         <!-- code -->
         <div class="mt-4">
-            <x-input-label for="department_code" :value="__('従業員コード')" />
-            <x-text-input id="department_code" class="block mt-1 w-full" type="text" name="department_code" :value="old('department_code')" autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+            <x-input-label for="department_number" :value="__('従業員コード')" />
+            <x-text-input id="department_number" class="block mt-1 w-full" type="text" name="department_number" :value="old('department_number')" />
+            <x-input-error :messages="$errors->get('department_number')" class="mt-2" />
         </div>
 
         <!-- Password -->
