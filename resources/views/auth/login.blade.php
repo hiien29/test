@@ -1,22 +1,23 @@
+
 <x-guest-layout>
+    {{-- <img src={{ asset('img/login.jpg') }} alt=""> --}}
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
-
     <form method="POST" action="{{ route('login') }}">
         @csrf
 
         <!-- Email Address -->
         <div>
-            <x-input-label for="email" :value="__('メールアドレス')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+            <x-input-label for="email" :value="__('メールアドレス')" class="mt-10"/>
+            <x-text-input id="email" class="block mt-2 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <!-- Password -->
         <div class="mt-4">
-            <x-input-label for="password" :value="__('パスワード')" />
+            <x-input-label for="password" :value="__('パスワード')" class="mt-10" />
 
-            <x-text-input id="password" class="block mt-1 w-full"
+            <x-text-input id="password" class="block mt-2 w-full"
                             type="password"
                             name="password"
                             required autocomplete="current-password" />
@@ -32,22 +33,34 @@
             </label>
         </div> --}}
 
-        <div class="flex items-center justify-end mt-4">
+        {{-- <div class="flex items-center justify-end mt-4">
             @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
+                <a class="underline text-sm text-gray-600 mt-10 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
+                    {{ __('パスワードを忘れた方はこちら') }}
+                </a>
+            @endif
+        </div> --}}
+        <div class="btn">
+            {{-- <x-primary-button class="ml-3">
+                {{ __('ログイン') }}
+            </x-primary-button> --}}
+            <button type="submit" class="btn_">ログイン</button>
+        </div>
+        <div class="pass">
+        {{-- "flex items-center justify-end mt-4" --}}
+            @if (Route::has('password.request'))
+                <a class="underline text-sm text-gray-500 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
                     {{ __('パスワードを忘れた方はこちら') }}
                 </a>
             @endif
         </div>
-        <div>
-            <x-primary-button class="ml-3">
-                {{ __('ログイン') }}
-            </x-primary-button>
-        </div>
     </form>
 
-    <div>
-        <a href="{{ route('register')}}">新規作成はこちら</a>
+    <p class="line"></p>
+
+    <div class="btn__">
+        <p>アカウントをお持ちでない方はこちら</p>
+        <a href="{{ route('register')}}">新規登録</a>
     </div>
 
 

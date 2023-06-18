@@ -46,14 +46,19 @@
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
-        <div class="flex items-center justify-end mt-4">
+        {{-- <div class="flex items-center justify-end mt-4"> --}}
             {{-- <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
                 {{ __('Already registered?') }}
             </a> --}}
 
-            <x-primary-button class="ml-4">
+            {{-- <x-primary-button class="ml-4">
                 {{ __('新規登録') }}
-            </x-primary-button>
+            </x-primary-button> --}}
+        <div class="btn">
+            <button type="submit" class="btn_">新規登録</button>
         </div>
     </form>
+    <div class="btn__">
+        <a href="{{ route('login')}}">戻る</a>
+    </div>
 </x-guest-layout>

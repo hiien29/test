@@ -43,7 +43,11 @@ return [
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
-        ],
+        ],//下記追加
+        // 'admin' => [   
+        //     'driver' => 'session',
+        //     'provider' => 'admins', 
+        // ],
     ],
 
     /*
@@ -68,6 +72,12 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
+        //下記追加
+        // 'admins' => [
+        //     'driver' => 'eloquent',
+        //     'model' => App\Models\Admin::class
+        // ]
+        
 
         // 'users' => [
         //     'driver' => 'database',
