@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 use App\Models\User;
+use App\Models\Admin;
 
 class LoginRequest extends FormRequest
 {
@@ -42,24 +43,41 @@ class LoginRequest extends FormRequest
     {
         $this->ensureIsNotRateLimited();
 
-        $credentials = $this->only('email', 'password');//追加
+        // $credentials = $this->only('email', 'password');//追加
 
-        if (! Auth::attempt($credentials, $this->boolean('remember'))) {
-            RateLimiter::hit($this->throttleKey());
+        // if (! Auth::attempt($credentials, $this->boolean('remember'))) {
+        //     RateLimiter::hit($this->throttleKey());
             
-            if (User::where('email', $credentials['email'])->exists()) {
+        //     if (User::where('email', $credentials['email'])->exists()) {
+        //         throw ValidationException::withMessages([
+        //             'password' => trans('auth.password'),
+        //         ]);
+        //     }
+    
+        //     throw ValidationException::withMessages([
+        //         'email' => trans('auth.failed'),
+        //     ]);
+            
+        // }
+        
+        // RateLimiter::clear($this->throttleKey());
+        $credentials = $this->only('email', 'password');
+
+        if (!Auth::attempt($credentials, $this->boolean('remember'))) {
+            if (!Auth::guard('admin')->attempt($credentials, $this->boolean('remember'))) {
+                RateLimiter::hit($this->throttleKey());
+                if (User::where('email', $credentials['email'])->exists() || Admin::where('email', $credentials['email'])->exists()) {
+                    throw ValidationException::withMessages([
+                        'password' => trans('auth.password'),
+                    ]);
+                }
                 throw ValidationException::withMessages([
-                    'password' => trans('auth.password'),
+                    'email' => trans('auth.failed'),
                 ]);
             }
-    
-            throw ValidationException::withMessages([
-                'email' => trans('auth.failed'),
-            ]);
-            
-        }
-        
-        RateLimiter::clear($this->throttleKey());
+}
+RateLimiter::clear($this->throttleKey());
+
     }
 
 

@@ -44,10 +44,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],//下記追加
-        // 'admin' => [   
-        //     'driver' => 'session',
-        //     'provider' => 'admins', 
-        // ],
+        'admin' => [   
+            'driver' => 'session',
+            'provider' => 'admins', 
+        ],
     ],
 
     /*
@@ -73,10 +73,10 @@ return [
             'model' => App\Models\User::class,
         ],
         //下記追加
-        // 'admins' => [
-        //     'driver' => 'eloquent',
-        //     'model' => App\Models\Admin::class
-        // ]
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class
+        ]
         
 
         // 'users' => [
@@ -108,6 +108,12 @@ return [
         'users' => [
             'provider' => 'users',
             'table' => 'password_reset_tokens',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'admins' => [
+            'provider' => 'admins',
+            'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,
         ],
