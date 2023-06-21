@@ -15,12 +15,9 @@ use App\Http\Controllers\ProfileController as ProfileOfAdminController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('auth.login');
-// });
 Route::get('/', function () {
     return view('toppage');
-});
+})->name('toppage');
 Route::get('/register',function(){
     return view('auth.register');
 })->name('register');
@@ -36,23 +33,28 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/login',function(){
+    return view('auth.login');
+})->name('login');
+Route::get('/admin/login',function(){
+    return view('admin.auth.login');
+})->name('admin.login');
+
 
 
 require __DIR__.'/auth.php';
 
+
 Route::prefix('admin')->name('admin.')->group(function(){
+
+    Route::middleware('auth:admin')->group(function () {
+        Route::get('/profile', [ProfileOfAdminController::class, 'edit'])->name('profile.edit');
+        Route::patch('/profile', [ProfileOfAdminController::class, 'update'])->name('profile.update');
+        Route::delete('/profile', [ProfileOfAdminController::class, 'destroy'])->name('profile.destroy');
+    });
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    })->middleware(['auth:admin'])->name('dashboard');
+
     require __DIR__.'/admin.php';
 });
-// Route::prefix('admin')->name('admin.')->group(function(){
-//     Route::get('/dashboard', function () {
-//         return view('admin.dashboard');
-//     })->middleware(['auth:admin', 'verified'])->name('dashboard');
-
-//     Route::middleware('auth:admin')->group(function () {
-//         Route::get('/profile', [ProfileOfAdminController::class, 'edit'])->name('profile.edit');
-//         Route::patch('/profile', [ProfileOfAdminController::class, 'update'])->name('profile.update');
-//         Route::delete('/profile', [ProfileOfAdminController::class, 'destroy'])->name('profile.destroy');
-//     });
-
-//     require __DIR__.'/admin.php';
-// });

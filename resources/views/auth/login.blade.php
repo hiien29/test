@@ -5,7 +5,7 @@
     <x-auth-session-status class="mb-4" :status="session('status')" />
     <form method="POST" action="{{ route('login') }}">
         @csrf
-
+<p>一般ぴーぽー</p>
         <!-- Email Address -->
         <div>
             <x-input-label for="email" :value="__('メールアドレス')" class="mt-10"/>
@@ -56,11 +56,15 @@
         </div>
     </form>
 
+    <div class="backtop">
+        <a href="{{ route('toppage') }}">←戻る</a>
+    </div>
+
     <p class="line"></p>
 
     <div class="btn__">
-        <p>アカウントをお持ちでない方はこちら</p>
-        <a href="{{ route('register')}}">新規登録</a>
+        <p>アカウントをお持ちでない方は<a href="{{ route('register')}}">こちら</a></p>
+        {{-- <a href="{{ route('register')}}">新規登録</a> --}}
     </div>
 
 

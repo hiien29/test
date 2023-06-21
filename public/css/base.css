@@ -38,3 +38,10 @@
 .image{
     height: 10%;
 }
+.backtop{
+    margin-top: 30px;
+    text-align: center;
+}
+.backtop a:hover{
+    opacity: .6;
+}
