@@ -9,7 +9,9 @@ use App\Http\Controllers\Admin\Auth\PasswordController;
 use App\Http\Controllers\Admin\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Admin\Auth\RegisteredUserController;
 use App\Http\Controllers\Admin\Auth\VerifyEmailController;
+use App\Http\Controllers\Admin\Auth\TestController;
 use Illuminate\Support\Facades\Route;
+
 
 Route::middleware('guest:admin')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])
@@ -56,4 +58,13 @@ Route::middleware('auth:admin')->group(function () {
 
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->name('logout');
+
+    Route::get('test_schedule',[TestController::class,'create'])
+                ->name('schedule');
+    
+    Route::get('test',[TestController::class,'test'])
+                ->name('test');
+
+    Route::get('test_result',[TestController::class,'result'])
+                ->name('result');
 });
