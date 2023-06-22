@@ -45,7 +45,32 @@
 .backtop a:hover{
     opacity: .6;
 }
-.main{
+/* .main{
     width: 80%;
     background-color: white;
+} */
+
+.header{
+    display: flex;
+    justify-content: space-between;
+}
+
+input[type='date']{
+    border-radius: 10px;
+}
+.main{
+    text-align: center;
+    margin: 50px auto;
+    background-color: white;
+    width: 70%;
+    border-radius: 10px;
+}
+
+.main input,
+.main button{
+    margin-top: 40px;
+}
+
+.addbtn{
+    padding-bottom: 40px;
 }

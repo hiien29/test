@@ -157,7 +157,13 @@ return [
         'name' => '氏名',
         'email' => 'メールアドレス',
         'password' => 'パスワード',
-        'password_confirmation' => 'パスワード（確認）'
+        'password_confirmation' => 'パスワード（確認）',
+        'make_day' => '打設日',
+        'test_day' => '試験日',
+        'age' => '材齢',
+        'type' => '配合',
+        'site' => '現場名',
+        'author' => '作成者'
     ],
 
 ];
