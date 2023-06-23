@@ -19,7 +19,9 @@
                 <td>{{ $param->age }}</td>
                 <td>{{ $param->type }}</td>
                 <td>{{ $param->site }}</td>
-                <td>{{ $param->result }}</td>
+                <td>@if ($param->result =null)
+                {{'未実施'}}
+                @endif</td>
                 <td><a href="{{ route('admin.edit', ['id'=>$param->id]) }}">追加</a></td>
                 <td><a href="{{ route('admin.edit', ['id'=>$param->id]) }}">編集</a></td>
                 <td><a href="{{ route('admin.delete', ['id'=>$param->id]) }}" onclick="return confirm('本当に削除しますか？')">削除</a></td>

@@ -12,6 +12,8 @@ use Illuminate\View\View;
 use App\Models\Testlist;
 use App\Models\Result;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Query\JoinClause;
+use Carbon\Carbon;
 
 class TestController extends Controller
 {
@@ -27,9 +29,17 @@ class TestController extends Controller
     public function test(): View
     {
         $params = Testlist::where('test_day','=',today())->get();
-        // $results = Result::whereNULL('result')->get();
+        /
+        $today = Carbon::today();
 
-        return view('admin.test',compact('params'));
+$params = Testlist::join('results', 'testlists.id', '=', 'results.testlist_id')
+    ->select('testlists.*', 'results.result as result')
+    ->whereDate('testlists.test_day', $today)
+    ->whereNull('results.result')
+    ->get();
+
+// dd($params);
+return view('admin.test',compact('params'));
     }
 
     public function result(): View
