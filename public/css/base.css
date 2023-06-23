@@ -67,7 +67,8 @@ input[type='date']{
 }
 
 .main input,
-.main button{
+.main button,
+.main a{
     margin-top: 40px;
 }
 

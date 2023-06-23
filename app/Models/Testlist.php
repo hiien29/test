@@ -18,4 +18,9 @@ class Testlist extends Model
         'site',
         'author'
     ];
+
+    public function results()
+    {
+        return $this->hasMany(Result::class, 'testlist_id');
+    }
 }

@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\Auth\RegisteredUserController;
 use App\Http\Controllers\Admin\Auth\VerifyEmailController;
 use App\Http\Controllers\Admin\Auth\TestController;
 use App\Http\Controllers\Admin\Auth\TestScheduleController;
+use App\Http\Controllers\Admin\Auth\TestTaskController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -59,19 +60,26 @@ Route::middleware('auth:admin')->group(function () {
 
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->name('logout');
-//ここから
-    Route::get('test_schedule',[TestController::class,'create'])
-                ->name('schedule');
     
-    Route::get('test',[TestController::class,'test'])
-                ->name('test');
+    Route::controller(TestController::class)->group(function()
+    {
+        Route::get('test_schedule','create')->name('schedule');
+        Route::get('test','test')->name('test');
+        Route::get('test_result','result')->name('result');
+    });
 
-    Route::get('test_result',[TestController::class,'result'])
-                ->name('result');
+    Route::controller(TestScheduleController::class)->group(function()
+    {
+        Route::get('test_register','create')->name('testregister');
+        Route::post('test_register','store')->name('test_register');
+        Route::get('schedule_edit/{id}','edit')->name('edit');
+        Route::post('update/{id}','update')->name('update');
+        Route::get('delete/{id}','delete')->name('delete');
+    });
+    // Route::controller(TestTaskController::class)->group(function()
+    // {
+        
+    // });
 
-    Route::get('test_register',[TestScheduleController::class,'create'])
-                ->name('testregister');
-                
-    Route::post('test_register', [TestScheduleController::class,'store'])
-                ->name('test_register');
+    
 });

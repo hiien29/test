@@ -13,28 +13,12 @@ use App\Models\Testlist;
 
 class TestScheduleController extends Controller
 {
-    //
-    // public function create(): View
-    // {
-    //     $contacts = Testlist::where('test_day','>',today())
-    //     ->orderBy('test_day', 'asc')
-    //     ->get();
-    //     return view('admin.test_schedule',compact('contacts'));
-    // }
     
-    // public function test(): View
-    // {
-    //     return view('admin.test');
-    // }
-    // public function result(): View
-    // {
-    //     return view('admin.test_result');
-    // }
-
     public function create(): View
     {
         return view('admin.test_register');
     }
+
 
     public function store(Request $request)
     {
@@ -46,7 +30,7 @@ class TestScheduleController extends Controller
             'site' => 'required',
             'author' => 'required',
         ]);
-        Testlist::create([
+        $testlist = Testlist::create([
             'make_day' => $request->make_day,
             'test_day' => $request->test_day,
             'age' => $request->age,
@@ -56,8 +40,44 @@ class TestScheduleController extends Controller
             'created_at' => now(),
             'updated_at' => now()
         ]);
+
+        $testlist->results()->create([
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        
         
         return redirect(route('admin.schedule'));
-
     }
+
+    public function edit($id)
+    {
+        $params = Testlist::find($id);
+        return view('admin.schedule_edit', compact('params'));
+    }
+
+    public function update(Request $request,$id)
+    {
+        $data = Testlist::find($id);
+        $params = $request->validate([
+            'make_day' => 'required', 
+            'test_day' => 'required',
+            'age' => 'required', 
+            'type' => 'required',
+            'site' => 'required',
+            'author' => 'required'
+        ]);
+
+        $data->update($params);
+        return redirect()->route('admin.schedule');
+    }
+
+    public function delete($id)
+    {
+        $data = Testlist::find($id);
+        $data->delete();
+        $data->results()->delete();
+        return redirect()->route('admin.schedule');
+    }
+
 }
