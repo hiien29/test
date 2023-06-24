@@ -39,11 +39,14 @@
                 @enderror
             </div>
             <div>
-                <label for="">作成者</label>
-                <input type="text" name="author" value="{{ old('author') ?? $params->author}}">
-                @error('author')
+                <label for="">コメント</label>
+                <textarea name="comment" id="" cols="30" rows="10" >{{ old('comment') ?? $params->comment}}</textarea>
+                @error('comment')
                 <p>{{$message}}</p>
                 @enderror
+            </div>
+            <div>
+                <input type="hidden" name="editor" value="{{ Auth::user()->name}}">
             </div>
             <div>
                 <button type="submit" onclick="return confirm('変更しますか？')">変更</button>

@@ -2,6 +2,9 @@
     <x-slot name="header">
         <p>当日</p>
     </x-slot>
+    <div>
+        <p>試験件数：{{ $count }}件</p>
+    </div>
     <div class="box">
         <table border="1">
             <tr>
@@ -19,10 +22,10 @@
                 <td>{{ $param->age }}</td>
                 <td>{{ $param->type }}</td>
                 <td>{{ $param->site }}</td>
-                <td>@if ($param->result =null)
+                <td>@if ($param->result === null)
                 {{'未実施'}}
                 @endif</td>
-                <td><a href="{{ route('admin.edit', ['id'=>$param->id]) }}">追加</a></td>
+                <td><a href="{{ route('admin.resultregister', ['id'=>$param->id]) }}">追加</a></td>
                 <td><a href="{{ route('admin.edit', ['id'=>$param->id]) }}">編集</a></td>
                 <td><a href="{{ route('admin.delete', ['id'=>$param->id]) }}" onclick="return confirm('本当に削除しますか？')">削除</a></td>
             </tr>

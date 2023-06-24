@@ -16,9 +16,14 @@ class Testlist extends Model
         'age',
         'type',
         'site',
-        'author'
+        'result',
+        'author',
+        'tester',
+        'editor' ,
+        'test_editor',
+        'comment'
     ];
-
+    
     public function results()
     {
         return $this->hasMany(Result::class, 'testlist_id');

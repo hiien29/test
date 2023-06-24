@@ -18,9 +18,13 @@ return new class extends Migration
             $table->integer('age');
             $table->string('type');
             $table->string('site',20);
+            $table->string('result')->nullable();
             $table->string('author',20);
+            $table->string('editor',20)->nullable();
+            $table->string('tester')->nullable();
+            $table->string('test_editor')->nullable();
+            $table->string('comment')->nullable();
             $table->timestamps();
-
         });
     }
 

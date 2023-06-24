@@ -42,11 +42,7 @@
                 @enderror
             </div>
             <div>
-                <label for="">作成者</label>
-                <input type="text" name="author" value="{{ old('author')}}">
-                @error('author')
-                <p>{{$message}}</p>
-                @enderror
+                <input type="hidden" name="author" value="{{ Auth::user()->name}}">
             </div>
             <div class="addbtn">
                 <button type="submit" onclick="return confirm('登録しますか？')">登録</button>

@@ -75,11 +75,13 @@ Route::middleware('auth:admin')->group(function () {
         Route::get('schedule_edit/{id}','edit')->name('edit');
         Route::post('update/{id}','update')->name('update');
         Route::get('delete/{id}','delete')->name('delete');
+        Route::get('schedule_detail/{id}','detail')->name('detail');
     });
-    // Route::controller(TestTaskController::class)->group(function()
-    // {
-        
-    // });
+    Route::controller(TestTaskController::class)->group(function()
+    {
+        Route::get('result_register/{id}','show')->name('resultregister');
+        Route::post('result_register/{id}','register')->name('result_register');
+    });
 
     
 });

@@ -22,6 +22,7 @@
                 <td>{{ $param->age }}</td>
                 <td>{{ $param->type }}</td>
                 <td>{{ $param->site }}</td>
+                <td><a href="{{ route('admin.detail', ['id'=>$param->id]) }}">詳細</a></td>
                 <td><a href="/admin/schedule_edit/{{ $param->id }}">編集</a></td>
                 <td><a href="{{ route('admin.delete', ['id'=>$param->id]) }}" onclick="return confirm('本当に削除しますか？')">削除</a></td>
             </tr>

@@ -40,11 +40,6 @@ class TestScheduleController extends Controller
             'created_at' => now(),
             'updated_at' => now()
         ]);
-
-        $testlist->results()->create([
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
         
         
         return redirect(route('admin.schedule'));
@@ -65,7 +60,8 @@ class TestScheduleController extends Controller
             'age' => 'required', 
             'type' => 'required',
             'site' => 'required',
-            'author' => 'required'
+            'editor' => 'required',
+            'comment' => 'required'
         ]);
 
         $data->update($params);
@@ -76,8 +72,12 @@ class TestScheduleController extends Controller
     {
         $data = Testlist::find($id);
         $data->delete();
-        $data->results()->delete();
         return redirect()->route('admin.schedule');
     }
 
+    public function detail($id)
+    {
+        $details = Testlist::find($id);
+        return view('admin.schedule_detail',compact('details'));
+    }
 }
