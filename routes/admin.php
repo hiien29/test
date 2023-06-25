@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\Auth\VerifyEmailController;
 use App\Http\Controllers\Admin\Auth\TestController;
 use App\Http\Controllers\Admin\Auth\TestScheduleController;
 use App\Http\Controllers\Admin\Auth\TestTaskController;
+use App\Http\Controllers\Admin\Auth\TestResultController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -63,24 +64,36 @@ Route::middleware('auth:admin')->group(function () {
     
     Route::controller(TestController::class)->group(function()
     {
-        Route::get('test_schedule','create')->name('schedule');
-        Route::get('test','test')->name('test');
-        Route::get('test_result','result')->name('result');
+        Route::get('schedule/index','create')->name('schedule');
+        Route::get('task/index','test')->name('test');
+        Route::get('result/index','result')->name('result');
     });
 
     Route::controller(TestScheduleController::class)->group(function()
     {
-        Route::get('test_register','create')->name('testregister');
+        Route::get('schedule/register','create')->name('testregister');
         Route::post('test_register','store')->name('test_register');
-        Route::get('schedule_edit/{id}','edit')->name('edit');
-        Route::post('update/{id}','update')->name('update');
-        Route::get('delete/{id}','delete')->name('delete');
-        Route::get('schedule_detail/{id}','detail')->name('detail');
+        Route::get('schedule/edit/{id}','edit')->name('edit');
+        Route::post('schedule/update/{id}','update')->name('update');
+        Route::get('schedule/delete/{id}','delete')->name('delete');
+        Route::get('schedule/detail/{id}','detail')->name('detail');
     });
     Route::controller(TestTaskController::class)->group(function()
     {
-        Route::get('result_register/{id}','show')->name('resultregister');
-        Route::post('result_register/{id}','register')->name('result_register');
+        Route::get('task/register/{id}','show')->name('taskregister');
+        Route::post('task/register/{id}','register')->name('task_register');
+        Route::get('task/edit/{id}','edit')->name('task_edit');
+        Route::post('task/update/{id}','update')->name('task_update');
+        Route::get('task/delete/{id}','delete')->name('task_delete');
+        Route::get('task/detail/{id}','detail')->name('task_detail');
+    });
+
+    Route::controller(TestResultController::class)->group(function()
+    {
+        Route::get('result/edit/{id}','edit')->name('result_edit');
+        Route::post('result/update/{id}','update')->name('result_update');
+        Route::get('result/delete/{id}','delete')->name('result_delete');
+        Route::get('result/detail/{id}','detail')->name('result_detail');
     });
 
     

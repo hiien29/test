@@ -16,7 +16,7 @@ class TestScheduleController extends Controller
     
     public function create(): View
     {
-        return view('admin.test_register');
+        return view('admin.schedule.register');
     }
 
 
@@ -48,7 +48,7 @@ class TestScheduleController extends Controller
     public function edit($id)
     {
         $params = Testlist::find($id);
-        return view('admin.schedule_edit', compact('params'));
+        return view('admin.schedule.edit', compact('params'));
     }
 
     public function update(Request $request,$id)
@@ -78,6 +78,6 @@ class TestScheduleController extends Controller
     public function detail($id)
     {
         $details = Testlist::find($id);
-        return view('admin.schedule_detail',compact('details'));
+        return view('admin.schedule.detail',compact('details'));
     }
 }

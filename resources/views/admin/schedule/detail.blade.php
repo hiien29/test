@@ -26,7 +26,10 @@
         </div>
         <div>
             <p>編集者</p>
-            <p>{{ $details->editer }}</p>
+            @if ($details->editor === null)
+                {{ '未編集' }}
+            @endif
+            <p>{{ $details->editor }}</p>
         </div>
         <div>
             <p>コメント</p>

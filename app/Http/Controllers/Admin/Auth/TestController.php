@@ -21,7 +21,7 @@ class TestController extends Controller
         ->orderBy('test_day', 'asc')
         ->orderBy('age')
         ->get();
-        return view('admin.test_schedule',compact('params'));
+        return view('admin.schedule.index',compact('params'));
     }
 
     public function test(): View
@@ -38,7 +38,7 @@ class TestController extends Controller
         ->orderBy('test_day','asc')
         ->get();
 
-        return view('admin.test',compact('params','count','nottasks'));
+        return view('admin.task.index',compact('params','count','nottasks'));
     }
 
     public function result(): View
@@ -46,7 +46,7 @@ class TestController extends Controller
         $params = Testlist::whereNotNull('result')
         ->orderBy('test_day','desc')
         ->get();
-        return view('admin.test_result',compact('params'));
+        return view('admin.result.index',compact('params'));
     }
 
 }

@@ -25,9 +25,10 @@
                         <td>@if ($nottask->result === null)
                         {{'未実施'}}
                         @endif</td>
-                        <td><a href="{{ route('admin.resultregister', ['id'=>$nottask->id]) }}">追加</a></td>
-                        <td><a href="{{ route('admin.edit', ['id'=>$nottask->id]) }}">編集</a></td>
-                        <td><a href="{{ route('admin.delete', ['id'=>$nottask->id]) }}" onclick="return confirm('本当に削除しますか？')">削除</a></td>
+                        <td><a href="{{ route('admin.taskregister', ['id'=>$nottask->id]) }}">結果登録</a></td>
+                        <td><a href="{{ route('admin.task_detail', ['id'=>$param->id]) }}">詳細</a></td>
+                        <td><a href="{{ route('admin.task_edit', ['id'=>$nottask->id]) }}">編集</a></td>
+                        <td><a href="{{ route('admin.task_delete', ['id'=>$nottask->id]) }}" onclick="return confirm('本当に削除しますか？')">削除</a></td>
                     </tr>
                     @endforeach
         @endif
@@ -57,9 +58,10 @@
                 <td>@if ($param->result === null)
                 {{'未実施'}}
                 @endif</td>
-                <td><a href="{{ route('admin.resultregister', ['id'=>$param->id]) }}">追加</a></td>
-                <td><a href="{{ route('admin.edit', ['id'=>$param->id]) }}">編集</a></td>
-                <td><a href="{{ route('admin.delete', ['id'=>$param->id]) }}" onclick="return confirm('本当に削除しますか？')">削除</a></td>
+                <td><a href="{{ route('admin.taskregister', ['id'=>$param->id]) }}">結果登録</a></td>
+                <td><a href="{{ route('admin.task_detail', ['id'=>$param->id]) }}">詳細</a></td>
+                <td><a href="{{ route('admin.task_edit', ['id'=>$param->id]) }}">編集</a></td>
+                <td><a href="{{ route('admin.task_delete', ['id'=>$param->id]) }}" onclick="return confirm('本当に削除しますか？')">削除</a></td>
             </tr>
             @endforeach
         </table>

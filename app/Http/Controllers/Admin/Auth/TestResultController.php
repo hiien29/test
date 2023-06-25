@@ -16,20 +16,42 @@ use App\Models\Result;
 class TestResultController extends Controller
 {
     
-    // public function show($id)
-    // {
-    //     $data = Testlist::find($id);
-    //     return view('admin.result_register',compact('data'));
-    // }
+    public function edit($id)
+    {
+        $params = Testlist::find($id);
+        return view('admin.result.edit', compact('params'));
+    }
 
-    // public function register(Request $request,$id)
-    // {
-    //     $data = Testlist::find($id);
-    //     $params = $request->validate([
-    //         'result' => 'required', 
-    //         'tester' => 'required'
-    //     ]);
-    //     $data->update($params);
-    //     return redirect()->route('admin.test');
-    // }
+    public function update(Request $request,$id)
+    {
+        $data = Testlist::find($id);
+        $params = $request->validate([
+            'make_day' => 'required', 
+            'test_day' => 'required',
+            'age' => 'required', 
+            'type' => 'required',
+            'site' => 'required',
+            'test_editor' => 'required',
+            'comment' => 'required'
+        ]);
+
+        $params['comment'] = $data->comment . PHP_EOL. $params['comment'];
+
+        $data->update($params);
+        return redirect()->route('admin.result');
+    }
+
+    public function delete($id)
+    {
+        $data = Testlist::find($id);
+        $data->delete();
+        return redirect()->route('admin.result');
+        
+    }
+
+    public function detail($id)
+    {
+        $details = Testlist::find($id);
+        return view('admin.result.detail',compact('details'));
+    }
 }

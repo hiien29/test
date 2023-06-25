@@ -19,7 +19,7 @@ class TestTaskController extends Controller
     public function show($id)
     {
         $data = Testlist::find($id);
-        return view('admin.result_register',compact('data'));
+        return view('admin.task.register',compact('data'));
     }
 
     public function register(Request $request,$id)
@@ -31,5 +31,42 @@ class TestTaskController extends Controller
         ]);
         $data->update($params);
         return redirect()->route('admin.test');
+    }
+
+    public function edit($id)
+    {
+        $params = Testlist::find($id);
+        return view('admin.task.edit', compact('params'));
+    }
+
+    public function update(Request $request,$id)
+    {
+        $data = Testlist::find($id);
+        $params = $request->validate([
+            'make_day' => 'required', 
+            'test_day' => 'required',
+            'age' => 'required', 
+            'type' => 'required',
+            'site' => 'required',
+            'editor' => 'required',
+            'comment' => 'required'
+        ]);
+
+        $data->update($params);
+        return redirect()->route('admin.test');
+    }
+
+    public function delete($id)
+    {
+        $data = Testlist::find($id);
+        $data->delete();
+        return redirect()->route('admin.test');
+        
+    }
+
+    public function detail($id)
+    {
+        $details = Testlist::find($id);
+        return view('admin.task.detail',compact('details'));
     }
 }

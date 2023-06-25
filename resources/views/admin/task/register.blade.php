@@ -1,5 +1,5 @@
 <x-admin-layout>
-    <form action="{{ route('admin.result_register',['id'=>$data->id])}}" method="POST">
+    <form action="{{ route('admin.task_register',['id'=>$data->id])}}" method="POST">
         @csrf
         <div>
             <p>打設日</p>
