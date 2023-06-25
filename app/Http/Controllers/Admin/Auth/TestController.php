@@ -33,12 +33,18 @@ class TestController extends Controller
 
         $count = $params->count(); 
 
-        return view('admin.test',compact('params','count'));
+        $nottasks = Testlist::where('test_day','<',today())
+        ->whereNull('result')
+        ->orderBy('test_day','asc')
+        ->get();
+
+        return view('admin.test',compact('params','count','nottasks'));
     }
 
     public function result(): View
     {
         $params = Testlist::whereNotNull('result')
+        ->orderBy('test_day','desc')
         ->get();
         return view('admin.test_result',compact('params'));
     }

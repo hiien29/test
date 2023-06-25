@@ -7,7 +7,7 @@
         </div>
         <div>
             <p>試験日</p>
-            <p>{{ $data->make_day}}</p>
+            <p>{{ $data->test_day}}</p>
         </div>
         <div>
             <p>材齢</p>
