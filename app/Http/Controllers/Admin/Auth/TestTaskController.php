@@ -51,6 +51,7 @@ class TestTaskController extends Controller
             'editor' => 'required',
             'comment' => 'required'
         ]);
+        $params['comment'] = $data->comment . PHP_EOL. $params['comment'];
 
         $data->update($params);
         return redirect()->route('admin.test');

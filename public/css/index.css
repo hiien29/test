@@ -1,0 +1,269 @@
+
+/* dashboardのスタイル */
+.top {
+    background-color: white;
+    padding: 10% 0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.top_btn {
+	padding: 1rem 4rem;
+	border: 2px solid #aaa;
+	color: #999;
+	border-radius: 20px;
+	transition: 0.5s;
+}
+.top_btn:hover {
+	color: #fff;
+	background: #aaa;
+    cursor: pointer;
+}
+
+.top_btn a {
+    font-weight: bold;
+}
+
+/* schedule.indexのスタイル */
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+.header h1 {
+    font-weight: bold;
+}
+
+.table_outer {
+    width: 80%;
+    margin: 5% auto 0;
+    border-radius: 10px;
+    border: 1px solid #aaa;
+}
+
+.table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+.table td,
+.table th {
+    text-align: center;
+    padding: 30px 0;
+}
+
+.table th {
+    background-color: #bbb;
+    color: white;
+}
+.table th:first-child {
+    border-top-left-radius: 10px;
+}
+
+.table th:last-child {
+    border-top-right-radius: 10px;
+}
+
+.table .th_1 {
+    width: 15%;
+}
+.table .th_2 {
+    width: 5%;
+}
+.table .th_3 {
+    width: 32%;
+}
+.table .th_4 {
+    width: 6%;
+}
+.table .th_5 {
+    width: 10%;
+}
+
+.table .th_6 {
+    width: 25%;
+}
+
+.add {
+    font-size: 25px;
+    color: white;
+}
+.add2 {
+    font-size: 23px;
+    color: #888;
+}
+.add2:hover,
+.add:hover {
+    opacity: .5;
+}
+/* task.indexのスタイル */
+
+.test_count {
+    width: 80%;
+    margin: 5% auto 0;
+    text-align: end;
+    padding-right: 2%;
+}
+
+.nottask_header {
+    line-height: 5rem;
+    background-color: rgba(250, 220, 20, .7);
+    border-radius: 5px;
+}
+.nottask_header p {
+    width: 80%;
+    margin: 0 auto;
+    padding-left: 5%;
+    text-decoration: underline;
+}
+
+.nottask_header p:hover {
+    cursor: pointer;
+}
+
+.nottask {
+    visibility: hidden;
+    height: 0;
+    opacity: 0;
+    transition:  all .4s;
+}
+
+.nottask.show {
+    visibility: visible;
+    height: 100%;
+    opacity: 1;
+}
+
+/* deteilのスタイル */
+.indent{
+    white-space: pre-line;
+}
+
+.detail_table {
+    width: 50%;
+    margin: 5% auto 0;
+    border-radius: 10px;
+    border: 1px solid #aaa;
+}
+
+.detail {
+    width: 100%;
+    table-layout: fixed;
+}
+.detail th {
+    width: 30%;
+    background-color: #bbb; 
+    color: white;
+    padding: 1.2rem 0;
+}
+.detail_border {
+    border-bottom: 1px solid white;
+}
+.detail__border {
+    border-bottom: 1px solid #eee;
+}
+
+.detail td {
+    width: 70%;
+    text-align: center;
+    padding: 2% 0;
+}
+.detail_inner {
+    border-top-left-radius: 10px;
+}
+
+.detail__inner {
+    border-bottom-left-radius: 10px;
+}
+
+.detail_back {
+    width: 50%;
+    margin: 2% auto 0;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.detail_back a:hover {
+    color: #666;
+}
+
+/* editのスタイル */
+
+.edit_outer {
+    width: 50%;
+    margin: 2% auto 10%;
+    border: 1px solid #bbb;
+    border-radius: 10px;
+}
+.edit_outer h1 {
+    text-align: center;
+    font-weight: bold;
+    background-color: #bbb;
+    color: white;
+    padding: 3% 0;
+    margin-bottom: 10%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.edit_box {
+    width: 60%;
+    margin: 3% auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.edit_box label {
+    font-weight: 700;
+    color: #666;
+}
+
+.edit_box input,
+.edit_box textarea {
+    border-radius: 5px;
+    margin-top: 3%;
+}
+
+.edit_btn {
+    width: 55%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit__btn,
+.edit___btn  {
+    width: 35%;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 2.7rem;
+    margin: 10% 0;
+    display: block;
+}
+
+.edit__btn {
+    border: 1px solid #888;
+    color: #444;
+    display: block;
+}
+
+.edit___btn {
+    border: 1px solid #888;
+    background-color: #aaa !important;
+    color: white;
+}
+
+.edit__btn:hover,
+.edit___btn:hover {
+    opacity: .7;
+}
+
+label i {
+    color: #b22222;
+}
+
+/* バリデーションのエラーメッセージスタイル */
+.error_msg {
+    color: red;
+}

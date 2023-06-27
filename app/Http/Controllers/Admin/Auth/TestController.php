@@ -45,6 +45,7 @@ class TestController extends Controller
     {
         $params = Testlist::whereNotNull('result')
         ->orderBy('test_day','desc')
+        ->orderBy('age')
         ->get();
         return view('admin.result.index',compact('params'));
     }

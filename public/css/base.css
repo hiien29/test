@@ -45,20 +45,17 @@
 .backtop a:hover{
     opacity: .6;
 }
+
 /* .main{
     width: 80%;
     background-color: white;
 } */
 
-.header{
-    display: flex;
-    justify-content: space-between;
-}
 
 input[type='date']{
     border-radius: 10px;
 }
-.main{
+/* .main{
     text-align: center;
     margin: 50px auto;
     background-color: white;
@@ -70,7 +67,8 @@ input[type='date']{
 .main button,
 .main a{
     margin-top: 40px;
-}
+} */
+
 
 .addbtn{
     padding-bottom: 40px;

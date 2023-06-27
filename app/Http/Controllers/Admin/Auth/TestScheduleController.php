@@ -37,6 +37,7 @@ class TestScheduleController extends Controller
             'type' => $request->type,
             'site' => $request->site,
             'author' => $request->author,
+            'comment' => $request->comment,
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -63,6 +64,7 @@ class TestScheduleController extends Controller
             'editor' => 'required',
             'comment' => 'required'
         ]);
+        $params['comment'] = $data->comment . PHP_EOL. $params['comment'];
 
         $data->update($params);
         return redirect()->route('admin.schedule');

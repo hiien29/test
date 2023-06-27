@@ -1,36 +1,68 @@
 <x-admin-layout>
-    <div>
-        <div>
-            <p>打設日</p>
-            <p>{{ $details->make_day }}</p>
+    <x-slot name="header">
+        <div class="header">
+            <h1>詳細</h1>
         </div>
-        <div>
-            <p>試験日</p>
-            <p>{{ $details->test_day }}</p>
-        </div>
-        <div>
-            <p>材齢</p>
-            <p>{{ $details->age }}日</p>
-        </div>
-        <div>
-            <p>配合</p>
-            <p>{{ $details->test_day }}</p>
-        </div>
-        <div>
-            <p>現場</p>
-            <p>{{ $details->site }}</p>
-        </div>
-        <div>
-            <p>作成者</p>
-            <p>{{ $details->author }}</p>
-        </div>
-        <div>
-            <p>編集者</p>
-            @if ($details->editor === null)
-                <p>{{ '未編集' }}</p>
-            @endif
-            <p>{{ $details->editor }}</p>
-        </div>
+    </x-slot>
+
+    <div class="detail_table">
+        <table class="detail">
+            <tr>
+                <th class="detail_inner detail_border">打設日</th>
+                <td class="detail__border">{{ $details->make_day }}</td>
+            </tr>
+            <tr>
+                <th class="detail_border">試験日</th>
+                <td class="detail__border">{{ $details->test_day }}</td>
+            </tr>
+            <tr>
+                <th class="detail_border">材齢</th>
+                <td class="detail__border">{{ $details->age }}日</td>
+            </tr>
+            <tr>
+                <th class="detail_border">配合</th>
+                <td class="detail__border">{{ $details->type }}</td>
+            </tr>
+            <tr>
+                <th class="detail_border">現場</th>
+                <td class="detail__border">{{ $details->site }}</td>
+            </tr>
+            <tr>
+                <th class="detail_border">作成者</th>
+                <td class="detail__border">{{ $details->author }}</td>
+            </tr>
+            <tr>
+                <th class="detail_border">編集者</th>
+                @if ($details->editor === null)
+                <td class="detail__border">{{ '未編集' }}</td>
+                @endif
+                <td class="detail__border">{{ $details->editor }}</td>
+            </tr>
+            <tr>
+                <th class="detail_border">試験者</th>
+                <td class="detail__border">{{ $details->tester }}</td>
+            </tr>
+            <tr>
+                <th class="detail_border">結果編集者</th>
+                @if ($details->test_editor === null)
+                <td class="detail__border">{{ '未編集' }}</td>
+                @endif
+                <td class="detail__border">{{ $details->test_editor }}</td>
+            </tr>
+            <tr>
+                <th class="detail__inner">コメント</th>
+                <td class="indent">{{ $details->comment }}</td>
+            </tr>
+        </table>
+    </div>
+
+    {{-- <div>
+        
+        
+        
+        
+        
+        
         <div>
             <p>試験者</p>
             <p>{{ $details->tester }}</p>
@@ -42,12 +74,9 @@
             @endif
             <p>{{ $details->test_editor }}</p>
         </div>
-        <div>
-            <p>コメント</p>
-            <p>{{ $details->comment }}</p>
-        </div>
-    </div>
-    <div>
-        <a href="{{ route('admin.result') }}">戻る</a>
+        
+    </div> --}}
+    <div class="detail_back">
+        <a href="{{ route('admin.result') }}"><i class="fa-solid fa-circle-arrow-left"></i>戻る</a>
     </div>
 </x-admin-layout>
