@@ -5,7 +5,7 @@
         </div>
     </x-slot>
 
-    <form action="{{ route('admin.update', ['id'=>$params->id]) }}" method="POST">
+    <form action="{{ route('update', ['id'=>$params->id]) }}" method="POST">
         @csrf
         <div class="edit_outer">
             <h1>編集画面</h1>
@@ -56,7 +56,7 @@
             </div>
 
             <div class="edit_btn">
-                <a href="{{ route('admin.schedule') }}" class="edit__btn">戻る</a>
+                <a href="{{ route('schedule') }}" class="edit__btn">戻る</a>
                 <button type="submit" onclick="return confirm('変更しますか？')" class="edit___btn">変更</button>
             </div>
     

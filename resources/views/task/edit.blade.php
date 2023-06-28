@@ -1,11 +1,11 @@
-<x-admin-layout>
+<x-app-layout>
     <x-slot name="header">
         <div class="header">
             <h1>{{''}}</h1>
         </div>
     </x-slot>
 
-    <form action="{{ route('admin.task_update', ['id'=>$params->id]) }}" method="POST">
+    <form action="{{ route('task_update', ['id'=>$params->id]) }}" method="POST">
         @csrf
         <div class="edit_outer">
             <h1>編集画面</h1>
@@ -55,11 +55,11 @@
                 <input type="hidden" name="editor" value="{{ Auth::user()->name}}">
             </div>
             <div class="edit_btn">
-                <a href="{{ route('admin.test') }}" class="edit__btn">戻る</a>
+                <a href="{{ route('test') }}" class="edit__btn">戻る</a>
                 <button type="submit" onclick="return confirm('変更しますか？')" class="edit___btn">変更</button>
             </div>
             
         </div>
     </form>
 
-</x-admin-layout>
+</x-app-layout>

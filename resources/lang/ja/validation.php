@@ -166,6 +166,7 @@ return [
         'author' => '作成者',
         'result' => '試験結果',
         'comment' => 'コメント',
+        'current_password' => '現在のパスワード'
 
     ],
 

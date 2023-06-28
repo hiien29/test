@@ -1,10 +1,10 @@
-<x-admin-layout>
+<x-app-layout>
     <x-slot name="header">
         <div class="header">
             <h1>{{''}}</h1>
         </div>
     </x-slot>
-    <form action="{{ route('admin.task_register',['id'=>$data->id])}}" method="POST">
+    <form action="{{ route('task_register',['id'=>$data->id])}}" method="POST">
         @csrf
         <div class="edit_outer">
             <h1>試験結果 登録</h1>
@@ -34,9 +34,9 @@
                 <input type="hidden" name="tester" value="{{ Auth::user()->name}}">
             </div>
             <div class="edit_btn">
-                <a href="{{ route('admin.test') }}" class="edit__btn">戻る</a>
+                <a href="{{ route('test') }}" class="edit__btn">戻る</a>
                 <button type="submit" onclick="return confirm('登録しますか？')" class="edit___btn">登録</button>
             </div>
         </div>
     </form>
-</x-admin-layout>
+</x-app-layout>

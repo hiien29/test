@@ -1,4 +1,4 @@
-.btn{
+.btn_{
     border: 1px solid;
     display: block;
     width: 40%;
@@ -9,7 +9,7 @@
     border-radius: 10px;
     margin: 40px auto 30px;
 }
-.btn:hover{
+.btn_:hover{
     background-color: #888;
     cursor: pointer;
 }

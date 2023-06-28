@@ -16,7 +16,7 @@ class TestScheduleController extends Controller
     //未編集
     public function create(): View
     {
-        return view('admin.schedule.register');
+        return view('schedule.register');
     }
 
 
@@ -43,13 +43,13 @@ class TestScheduleController extends Controller
         ]);
         
         
-        return redirect(route('admin.schedule'));
+        return redirect(route('schedule'));
     }
 
     public function edit($id)
     {
         $params = Testlist::find($id);
-        return view('admin.schedule.edit', compact('params'));
+        return view('schedule.edit', compact('params'));
     }
 
     public function update(Request $request,$id)
@@ -67,19 +67,19 @@ class TestScheduleController extends Controller
         $params['comment'] = $data->comment . PHP_EOL. $params['comment'];
 
         $data->update($params);
-        return redirect()->route('admin.schedule');
+        return redirect()->route('schedule');
     }
 
     public function delete($id)
     {
         $data = Testlist::find($id);
         $data->delete();
-        return redirect()->route('admin.schedule');
+        return redirect()->route('schedule');
     }
 
     public function detail($id)
     {
         $details = Testlist::find($id);
-        return view('admin.schedule.detail',compact('details'));
+        return view('schedule.detail',compact('details'));
     }
 }

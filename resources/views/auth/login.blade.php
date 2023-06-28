@@ -8,25 +8,24 @@
         <!-- Email Address -->
         <div>
             <x-input-label for="email" :value="__('メールアドレス')" class="mt-10"/>
-            <x-text-input id="email" class="block mt-2 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
+            <x-text-input id="email" class="block mt-2 w-full" type="email" name="email" :value="old('email')" autofocus autocomplete="username" />
         </div>
 
         <!-- Password -->
         <div class="mt-4">
             <x-input-label for="password" :value="__('パスワード')" class="mt-10" />
-
+            <x-input-error :messages="$errors->get('password')" class="mt-2" />
             <x-text-input id="password" class="block mt-2 w-full"
                             type="password"
                             name="password"
-                            required autocomplete="current-password" />
+                            autocomplete="current-password" />
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+            
         </div>
 
-        <div class="btn">
-            <button type="submit" class="btn_">ログイン</button>
-        </div>
+        <button type="submit" class="btn_">ログイン</button>
+
 
         <div class="pass">
             @if (Route::has('password.request'))

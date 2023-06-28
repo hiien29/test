@@ -40,12 +40,15 @@
                     @endforeach
                 </table>
             </div>
+
+            
+
         </div>
     @endif
     
 
     <div class="test_count">
-        <p>試験件数：{{ $count }}件</p>
+        <p>全試験数：{{ $count }}件（{{ $params->currentPage() }}/{{ $params->lastPage() }}）</p>
     </div>
 
     <div class="table_outer" style="margin-top: 2%;">
@@ -75,6 +78,11 @@
             </tr>
             @endforeach
         </table>
+    </div>
+
+    <div class="page">
+        {{ $params->links() }}
+    </div>
 </x-admin-layout>
 
 <script src="{{ asset('js/hoge.js') }}"></script>

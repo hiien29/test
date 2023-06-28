@@ -19,7 +19,7 @@ class TestResultController extends Controller
     public function edit($id)
     {
         $params = Testlist::find($id);
-        return view('admin.result.edit', compact('params'));
+        return view('result.edit', compact('params'));
     }
 
     public function update(Request $request,$id)
@@ -31,28 +31,27 @@ class TestResultController extends Controller
             'age' => 'required', 
             'type' => 'required',
             'site' => 'required',
-            'test_editor' => 'required',
-            'result' =>  'required',
+            'editor' => 'required',
             'comment' => 'required'
         ]);
 
         $params['comment'] = $data->comment . PHP_EOL. $params['comment'];
 
         $data->update($params);
-        return redirect()->route('admin.result');
+        return redirect()->route('result');
     }
 
     public function delete($id)
     {
         $data = Testlist::find($id);
         $data->delete();
-        return redirect()->route('admin.result');
+        return redirect()->route('result');
         
     }
 
     public function detail($id)
     {
         $details = Testlist::find($id);
-        return view('admin.result.detail',compact('details'));
+        return view('result.detail',compact('details'));
     }
 }

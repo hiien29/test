@@ -1,4 +1,4 @@
-<x-admin-layout>
+<x-app-layout>
     <x-slot name="header">
         <div class="header">
             <h1>詳細</h1>
@@ -32,10 +32,7 @@
                 <td class="detail__border">{{ $details->author }}</td>
             </tr>
             <tr>
-                <th class="detail_border">編集者</th>
-                @if ($details->editor === null)
-                <td class="detail__border">{{ '未編集' }}</td>
-                @endif
+                <th class="detail_border">試験内容編集者</th>
                 <td class="detail__border">{{ $details->editor }}</td>
             </tr>
             <tr>
@@ -44,9 +41,6 @@
             </tr>
             <tr>
                 <th class="detail_border">結果編集者</th>
-                @if ($details->test_editor === null)
-                <td class="detail__border">{{ '未編集' }}</td>
-                @endif
                 <td class="detail__border">{{ $details->test_editor }}</td>
             </tr>
             <tr>
@@ -56,27 +50,7 @@
         </table>
     </div>
 
-    {{-- <div>
-        
-        
-        
-        
-        
-        
-        <div>
-            <p>試験者</p>
-            <p>{{ $details->tester }}</p>
-        </div>
-        <div>
-            <p>結果編集者</p>
-            @if ($details->test_editor === null)
-            <p>{{ '未編集' }}</p>
-            @endif
-            <p>{{ $details->test_editor }}</p>
-        </div>
-        
-    </div> --}}
     <div class="detail_back">
-        <a href="{{ route('admin.result') }}"><i class="fa-solid fa-circle-arrow-left"></i>戻る</a>
+        <a href="{{ route('result') }}"><i class="fa-solid fa-circle-arrow-left"></i>戻る</a>
     </div>
-</x-admin-layout>
+</x-app-layout>

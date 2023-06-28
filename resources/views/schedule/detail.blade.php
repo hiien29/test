@@ -43,7 +43,7 @@
     </div>
 
     <div class="detail_back">
-        <a href="{{ route('admin.schedule') }}"><i class="fa-solid fa-circle-arrow-left"></i>戻る</a>
+        <a href="{{ route('schedule') }}"><i class="fa-solid fa-circle-arrow-left"></i>戻る</a>
     </div>
     
 </x-app-layout>

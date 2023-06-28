@@ -22,7 +22,6 @@ class TestController extends Controller
         ->orderBy('test_day', 'asc')
         ->orderBy('age')
         ->paginate(10);
-        // ->get();
         return view('admin.schedule.index',compact('params'));
     }
 
@@ -31,9 +30,11 @@ class TestController extends Controller
         $params = Testlist::where('test_day','=',today())
         ->whereNull('result')
         ->orderBy('age')
-        ->get();
+        ->paginate(10);
 
-        $count = $params->count(); 
+        $count = Testlist::where('test_day','=',today())
+        ->whereNull('result')
+        ->count(); 
 
         $nottasks = Testlist::where('test_day','<',today())
         ->whereNull('result')
@@ -48,7 +49,8 @@ class TestController extends Controller
         $params = Testlist::whereNotNull('result')
         ->orderBy('test_day','desc')
         ->orderBy('age')
-        ->get();
+        ->paginate(10);
+
         return view('admin.result.index',compact('params'));
     }
 

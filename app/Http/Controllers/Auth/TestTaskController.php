@@ -19,7 +19,7 @@ class TestTaskController extends Controller
     public function show($id)
     {
         $data = Testlist::find($id);
-        return view('admin.task.register',compact('data'));
+        return view('task.register',compact('data'));
     }
 
     public function register(Request $request,$id)
@@ -30,13 +30,13 @@ class TestTaskController extends Controller
             'tester' => 'required'
         ]);
         $data->update($params);
-        return redirect()->route('admin.test');
+        return redirect()->route('test');
     }
 
     public function edit($id)
     {
         $params = Testlist::find($id);
-        return view('admin.task.edit', compact('params'));
+        return view('task.edit', compact('params'));
     }
 
     public function update(Request $request,$id)
@@ -54,20 +54,20 @@ class TestTaskController extends Controller
         $params['comment'] = $data->comment . PHP_EOL. $params['comment'];
 
         $data->update($params);
-        return redirect()->route('admin.test');
+        return redirect()->route('test');
     }
 
     public function delete($id)
     {
         $data = Testlist::find($id);
         $data->delete();
-        return redirect()->route('admin.test');
+        return redirect()->route('test');
         
     }
 
     public function detail($id)
     {
         $details = Testlist::find($id);
-        return view('admin.task.detail',compact('details'));
+        return view('task.detail',compact('details'));
     }
 }

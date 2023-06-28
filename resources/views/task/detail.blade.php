@@ -1,4 +1,4 @@
-<x-admin-layout>
+<x-app-layout>
     <x-slot name="header">
         <div class="header">
             <h1>詳細</h1>
@@ -43,7 +43,7 @@
     </div>
 
     <div class="detail_back">
-        <a href="{{ route('admin.test') }}"><i class="fa-solid fa-circle-arrow-left"></i>戻る</a>
+        <a href="{{ route('test') }}"><i class="fa-solid fa-circle-arrow-left"></i>戻る</a>
     </div>
     
-</x-admin-layout>
+</x-app-layout>

@@ -1,7 +1,7 @@
 <x-admin-layout>
     <x-slot name="header">
         <div class="header">
-            <h1>詳細</h1>
+            <h1 class="detail_header">詳細内容</h1>
         </div>
     </x-slot>
 

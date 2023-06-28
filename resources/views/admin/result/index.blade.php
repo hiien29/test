@@ -31,5 +31,9 @@
             </tr>
             @endforeach
         </table>
+
+        <div class="page">
+            {{ $params->links() }}
+        </div>
     
 </x-admin-layout>

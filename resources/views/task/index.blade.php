@@ -19,8 +19,8 @@
                         <th class="th_1">試験日</th>
                         <th class="th_2">材齢(日)</th>
                         <th class="th_1">配合</th>
-                        <th class="">現場名</th>
-                        <th class="th_5">結果</th>
+                        <th class="th_7">現場名</th>
+                        {{-- <th class="th_5">結果</th> --}}
                         <th class="th_4"></th>
                         <th class="th_4"></th>
                         <th class="th_4"></th>
@@ -32,10 +32,10 @@
                         <td>{{ $nottask->age }}</td>
                         <td>{{ $nottask->type }}</td>
                         <td>{{ $nottask->site }}</td>
-                        <td><a href="{{ route('admin.taskregister', ['id'=>$nottask->id]) }}"><i class="fa-solid fa-plus add2"></i></a></td>
-                        <td><a href="{{ route('admin.task_detail', ['id'=>$nottask->id]) }}"><i class="fa-solid fa-circle-info add2"></i></a></td>
-                        <td><a href="{{ route('admin.task_edit', ['id'=>$nottask->id]) }}"><i class="fa-regular fa-pen-to-square add2"></i></a></td>
-                        <td><a href="{{ route('admin.task_delete', ['id'=>$nottask->id]) }}" onclick="return confirm('本当に削除しますか？')"><i class="fa-regular fa-trash-can add2"></i></a></td>
+                        {{-- <td><a href="{{ route('taskregister', ['id'=>$nottask->id]) }}"><i class="fa-solid fa-plus add2"></i></a></td> --}}
+                        <td><a href="{{ route('task_detail', ['id'=>$nottask->id]) }}"><i class="fa-solid fa-circle-info add2"></i></a></td>
+                        <td><a href="{{ route('task_edit', ['id'=>$nottask->id]) }}"><i class="fa-regular fa-pen-to-square add2"></i></a></td>
+                        <td><a href="{{ route('task_delete', ['id'=>$nottask->id]) }}" onclick="return confirm('本当に削除しますか？')"><i class="fa-regular fa-trash-can add2"></i></a></td>
                     </tr>
                     @endforeach
                 </table>
@@ -45,7 +45,7 @@
     
 
     <div class="test_count">
-        <p>試験件数：{{ $count }}件</p>
+        <p>試験件数：{{ $count }}件（{{ $params->currentPage() }}/{{ $params->lastPage() }}）</p>
     </div>
 
     <div class="table_outer" style="margin-top: 2%;">
@@ -55,8 +55,8 @@
                 <th class="th_1">試験日</th>
                 <th class="th_2">材齢(日)</th>
                 <th class="th_1">配合</th>
-                <th class="">現場名</th>
-                <th class="th_5">結果</th>
+                <th class="th_7">現場名</th>
+                {{-- <th class="th_5">結果</th> --}}
                 <th class="th_4"></th>
                 <th class="th_4"></th>
                 <th class="th_4"></th>
@@ -68,13 +68,18 @@
                 <td>{{ $param->age }}</td>
                 <td>{{ $param->type }}</td>
                 <td>{{ $param->site }}</td>
-                <td><a href="{{ route('admin.taskregister', ['id'=>$param->id]) }}"><i class="fa-solid fa-plus add2"></i></a></td>
-                <td><a href="{{ route('admin.task_detail', ['id'=>$param->id]) }}"><i class="fa-solid fa-circle-info add2"></i></a></td>
-                <td><a href="{{ route('admin.task_edit', ['id'=>$param->id]) }}"><i class="fa-regular fa-pen-to-square add2"></i></a></td>
-                <td><a href="{{ route('admin.task_delete', ['id'=>$param->id]) }}" onclick="return confirm('本当に削除しますか？')"><i class="fa-regular fa-trash-can add2"></i></a></td>
+                {{-- <td><a href="{{ route('taskregister', ['id'=>$param->id]) }}"><i class="fa-solid fa-plus add2"></i></a></td> --}}
+                <td><a href="{{ route('task_detail', ['id'=>$param->id]) }}"><i class="fa-solid fa-circle-info add2"></i></a></td>
+                <td><a href="{{ route('task_edit', ['id'=>$param->id]) }}"><i class="fa-regular fa-pen-to-square add2"></i></a></td>
+                <td><a href="{{ route('task_delete', ['id'=>$param->id]) }}" onclick="return confirm('本当に削除しますか？')"><i class="fa-regular fa-trash-can add2"></i></a></td>
             </tr>
             @endforeach
         </table>
+    </div>
+
+    <div class="page">
+        {{ $params->links() }}
+    </div>
 </x-app-layout>
 
 <script src="{{ asset('js/hoge.js') }}"></script>
