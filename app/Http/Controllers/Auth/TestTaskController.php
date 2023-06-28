@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Auth;
+namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -10,16 +10,33 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 use App\Models\Testlist;
-use App\Models\Result;
 
 
-class TestResultController extends Controller
+
+class TestTaskController extends Controller
 {
-    
+    //未編集
+    public function show($id)
+    {
+        $data = Testlist::find($id);
+        return view('admin.task.register',compact('data'));
+    }
+
+    public function register(Request $request,$id)
+    {
+        $data = Testlist::find($id);
+        $params = $request->validate([
+            'result' => 'required', 
+            'tester' => 'required'
+        ]);
+        $data->update($params);
+        return redirect()->route('admin.test');
+    }
+
     public function edit($id)
     {
         $params = Testlist::find($id);
-        return view('admin.result.edit', compact('params'));
+        return view('admin.task.edit', compact('params'));
     }
 
     public function update(Request $request,$id)
@@ -31,28 +48,26 @@ class TestResultController extends Controller
             'age' => 'required', 
             'type' => 'required',
             'site' => 'required',
-            'test_editor' => 'required',
-            'result' =>  'required',
+            'editor' => 'required',
             'comment' => 'required'
         ]);
-
         $params['comment'] = $data->comment . PHP_EOL. $params['comment'];
 
         $data->update($params);
-        return redirect()->route('admin.result');
+        return redirect()->route('admin.test');
     }
 
     public function delete($id)
     {
         $data = Testlist::find($id);
         $data->delete();
-        return redirect()->route('admin.result');
+        return redirect()->route('admin.test');
         
     }
 
     public function detail($id)
     {
         $details = Testlist::find($id);
-        return view('admin.result.detail',compact('details'));
+        return view('admin.task.detail',compact('details'));
     }
 }

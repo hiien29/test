@@ -12,8 +12,17 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                    <x-nav-link :href="route('dashboard')">
+                        {{ __('TOP') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('schedule')">
+                        {{ __('試験予定') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('test')">
+                        {{ __('当日') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('result')">
+                        {{ __('試験結果') }}
                     </x-nav-link>
                 </div>
             </div>

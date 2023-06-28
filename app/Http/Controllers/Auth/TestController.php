@@ -1,29 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Auth;
+namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 use App\Models\Testlist;
-use Illuminate\Pagination\Paginator;
-use App\Models\Result;
 
 class TestController extends Controller
 {
-    //
+    //未編集
     public function create(): View
     {
         $params = Testlist::where('test_day','>',today())
         ->orderBy('test_day', 'asc')
         ->orderBy('age')
-        ->paginate(10);
-        // ->get();
-        return view('admin.schedule.index',compact('params'));
+        ->get();
+        return view('schedule.index',compact('params'));
     }
 
     public function test(): View
@@ -40,7 +33,7 @@ class TestController extends Controller
         ->orderBy('test_day','asc')
         ->get();
 
-        return view('admin.task.index',compact('params','count','nottasks'));
+        return view('task.index',compact('params','count','nottasks'));
     }
 
     public function result(): View
@@ -49,7 +42,6 @@ class TestController extends Controller
         ->orderBy('test_day','desc')
         ->orderBy('age')
         ->get();
-        return view('admin.result.index',compact('params'));
+        return view('result.index',compact('params'));
     }
-
 }

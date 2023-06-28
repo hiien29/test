@@ -28,6 +28,11 @@
     margin: 30px 0;
 }
 
+.btn__ a {
+    color: #4169e1;
+    font-weight: 600;
+}
+
 .btn__ a:hover{
     opacity: .5;
 }

@@ -33,9 +33,6 @@
             </tr>
             <tr>
                 <th class="detail_border">編集者</th>
-                @if ($details->editor === null)
-                <td class="detail__border">{{ '未編集' }}</td>
-                @endif
                 <td class="detail__border">{{ $details->editor }}</td>
             </tr>
             <tr>

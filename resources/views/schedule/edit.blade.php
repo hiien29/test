@@ -1,11 +1,11 @@
-<x-admin-layout>
+<x-app-layout>
     <x-slot name="header">
         <div class="header">
             <h1>{{''}}</h1>
         </div>
     </x-slot>
 
-    <form action="{{ route('admin.result_update', ['id'=>$params->id]) }}" method="POST">
+    <form action="{{ route('admin.update', ['id'=>$params->id]) }}" method="POST">
         @csrf
         <div class="edit_outer">
             <h1>編集画面</h1>
@@ -45,28 +45,23 @@
                 <input type="text" name="site" value="{{ old('site') ?? $params->site}}">
             </div>
             <div class="edit_box">
-                <label>試験結果(N/㎟)</label>
-                @error('result')
-                <p class="error_msg">{{$message}}</p>
-                @enderror
-                <input type="text" name="result" value="{{ old('result') ?? $params->result}}">
-            </div>
-            <div class="edit_box">
                 <label><i class="fa-duotone fa-asterisk"></i>コメント(編集理由、共有事項等記載してください)</label>
                 @error('comment')
                 <p class="error_msg">{{$message}}</p>
                 @enderror
-                <textarea name="comment" id="" cols="30" rows="10" >{{ old('comment') }}</textarea>
+                <textarea name="comment" cols="40" rows="10" >{{ old('comment') }}</textarea>
             </div>
             <div>
-                <input type="hidden" name="test_editor" value="{{ Auth::user()->name}}">
+                <input type="hidden" name="editor" value="{{ Auth::user()->name}}">
             </div>
 
             <div class="edit_btn">
-                <a href="{{ route('admin.result') }}" class="edit__btn">戻る</a>
+                <a href="{{ route('admin.schedule') }}" class="edit__btn">戻る</a>
                 <button type="submit" onclick="return confirm('変更しますか？')" class="edit___btn">変更</button>
             </div>
+    
         </div>
+
     </form>
 
-</x-admin-layout>
+</x-app-layout>

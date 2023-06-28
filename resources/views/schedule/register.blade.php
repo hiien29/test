@@ -1,4 +1,4 @@
-<x-admin-layout>
+<x-app-layout>
     <x-slot name="header">
         <div class="header">
             <h1>{{'試験予定'}}</h1>
@@ -59,6 +59,6 @@
 
     </form>
     
-</x-admin-layout>
+</x-app-layout>
 
 {{-- <script src="{{ asset('/js/hoge.js') }}"></script> --}}

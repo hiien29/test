@@ -56,28 +56,6 @@ class LoginRequest extends FormRequest
 
         RateLimiter::clear($this->throttleKey());
     }
-//         $credentials = $this->only('email', 'password');
-
-//         if (!Auth::attempt($credentials, $this->boolean('remember'))) {
-//             if (!Auth::guard('admin')->attempt($credentials, $this->boolean('remember'))) {
-//                 RateLimiter::hit($this->throttleKey());
-
-//                 if (User::where('email', $credentials['email'])->exists() || Admin::where('email', $credentials['email'])->exists()) {
-//                     throw ValidationException::withMessages([
-//                         'password' => trans('auth.password'),
-//                     ]);
-//                 }
-//                 throw ValidationException::withMessages([
-//                     'email' => trans('auth.failed'),
-//                 ]);
-//             }
-// }// if (Auth::guard($guard)->attempt) {
-            //     throw ValidationException::withMessages([
-            //         'password' => [trans('auth.password')],
-            //     ]);
-            // } 
-            
-
 
 
 

@@ -165,6 +165,7 @@ return [
         'site' => '現場名',
         'author' => '作成者',
         'result' => '試験結果',
+        'comment' => 'コメント',
 
     ],
 

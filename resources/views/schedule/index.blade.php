@@ -1,4 +1,4 @@
-<x-admin-layout>
+<x-app-layout>
     <x-slot name="header">
         <div class="header">
             <h1>試験予定</h1>
@@ -43,8 +43,5 @@
             @endforeach
         </table>
     </div>
-
-    <div class="page">
-        {{ $params->links() }}
-    </div>
-</x-admin-layout>
+    
+</x-app-layout>

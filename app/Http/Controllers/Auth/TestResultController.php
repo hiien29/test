@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Auth;
+namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -15,7 +15,7 @@ use App\Models\Result;
 
 class TestResultController extends Controller
 {
-    
+    //未編集
     public function edit($id)
     {
         $params = Testlist::find($id);

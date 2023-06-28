@@ -37,7 +37,7 @@
     </form>
 
     <div class="backtop">
-        <a href="{{ route('toppage') }}">←戻る</a>
+        <a href="{{ route('toppage') }}">戻る</a>
     </div>
 
 </x-guest-layout>

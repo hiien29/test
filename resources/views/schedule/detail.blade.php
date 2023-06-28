@@ -1,4 +1,4 @@
-<x-admin-layout>
+<x-app-layout>
     <x-slot name="header">
         <div class="header">
             <h1>詳細</h1>
@@ -17,7 +17,7 @@
             </tr>
             <tr>
                 <th class="detail_border">材齢</th>
-                <td class="detail__border">{{ $details->age }}</td>
+                <td class="detail__border">{{ $details->age }}日</td>
             </tr>
             <tr>
                 <th class="detail_border">配合</th>
@@ -25,7 +25,7 @@
             </tr>
             <tr>
                 <th class="detail_border">現場</th>
-                <td class="detail__border">{{ $details->site }}日</td>
+                <td class="detail__border">{{ $details->site }}</td>
             </tr>
             <tr>
                 <th class="detail_border">作成者</th>
@@ -43,7 +43,7 @@
     </div>
 
     <div class="detail_back">
-        <a href="{{ route('admin.test') }}"><i class="fa-solid fa-circle-arrow-left"></i>戻る</a>
+        <a href="{{ route('admin.schedule') }}"><i class="fa-solid fa-circle-arrow-left"></i>戻る</a>
     </div>
     
-</x-admin-layout>
+</x-app-layout>

@@ -9,6 +9,10 @@ use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\Auth\TestController;
+use App\Http\Controllers\Auth\TestScheduleController;
+use App\Http\Controllers\Auth\TestTaskController;
+use App\Http\Controllers\Auth\TestResultController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
@@ -56,4 +60,38 @@ Route::middleware('auth')->group(function () {
 
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->name('logout');
+
+    Route::controller(TestController::class)->group(function()
+    {
+        Route::get('schedule/index','create')->name('schedule');
+        Route::get('task/index','test')->name('test');
+        Route::get('result/index','result')->name('result');
+    });
+
+    Route::controller(TestScheduleController::class)->group(function()
+    {
+        Route::get('schedule/register','create')->name('testregister');
+        Route::post('test_register','store')->name('test_register');
+        Route::get('schedule/edit/{id}','edit')->name('edit');
+        Route::post('schedule/update/{id}','update')->name('update');
+        Route::get('schedule/delete/{id}','delete')->name('delete');
+        Route::get('schedule/detail/{id}','detail')->name('detail');
+    });
+    Route::controller(TestTaskController::class)->group(function()
+    {
+        Route::get('task/register/{id}','show')->name('taskregister');
+        Route::post('task/register/{id}','register')->name('task_register');
+        Route::get('task/edit/{id}','edit')->name('task_edit');
+        Route::post('task/update/{id}','update')->name('task_update');
+        Route::get('task/delete/{id}','delete')->name('task_delete');
+        Route::get('task/detail/{id}','detail')->name('task_detail');
+    });
+
+    Route::controller(TestResultController::class)->group(function()
+    {
+        Route::get('result/edit/{id}','edit')->name('result_edit');
+        Route::post('result/update/{id}','update')->name('result_update');
+        Route::get('result/delete/{id}','delete')->name('result_delete');
+        Route::get('result/detail/{id}','detail')->name('result_detail');
+    });
 });
