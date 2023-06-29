@@ -24,10 +24,6 @@
 
 
 /* schedule.indexのスタイル */
-.header {
-    display: flex;
-    justify-content: space-between;
-}
 .header h1 {
     font-weight: bold;
 }
@@ -53,6 +49,7 @@
 .table th {
     background-color: #bbb;
     color: white;
+    height: 10%;
 }
 .table th:first-child {
     border-top-left-radius: 10px;
@@ -66,24 +63,12 @@
     width: 15%;
 }
 .table .th_2 {
-    width: 5%;
-}
-.table .th_3 {
-    width: 32%;
-}
-.table .th_4 {
-    width: 6%;
-}
-.table .th_5 {
-    width: 10%;
-}
-
-.table .th_6 {
     width: 25%;
 }
-.table .th_7 {
+.table .th_3 {
     width: 20%;
 }
+
 
 .add {
     font-size: 25px;
@@ -140,8 +125,11 @@
 } 
 
 /* deteilのスタイル */
-.indent{
+.detail tr .indent{
     white-space: pre-line;
+    height: 100%;
+    vertical-align: middle;
+    padding-top: 0;
 }
 
 .detail_table {
@@ -171,7 +159,9 @@
 .detail td {
     width: 70%;
     text-align: center;
-    padding: 2% 0;
+    padding: 1.2rem 0;
+    
+
 }
 .detail_inner {
     border-top-left-radius: 10px;
@@ -278,3 +268,54 @@ label i {
     padding-top: 2%;
 }
 
+/* 絞り込み検索 */
+
+/* .search_outer {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin: 5% auto 0;
+}
+
+.search_outer div {
+    width: calc(100%/3)
+}
+
+.search_type {
+    text-align: center;
+}
+.search_outer label {
+    font-weight: 700;
+    display: block;
+    padding-bottom: 5%;
+}
+
+
+.search_outer input {
+    border-radius: 10px;
+} */
+
+
+/* .search__age label {
+    width: 50%;
+} */
+
+.search_btn {
+    width: 70%;
+    margin:0 auto;
+}
+
+.search_btn button,
+.search_btn a {
+    display: block;
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 1%;
+    margin: 5% auto 0;
+    width: 20%;
+}
+
+.search_btn i {
+    color: #888;
+    padding-right: 5px;
+}

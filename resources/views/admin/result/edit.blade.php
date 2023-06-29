@@ -1,8 +1,5 @@
 <x-admin-layout>
     <x-slot name="header">
-        <div class="header">
-            <h1>{{''}}</h1>
-        </div>
     </x-slot>
 
     <form action="{{ route('admin.result_update', ['id'=>$params->id]) }}" method="POST">

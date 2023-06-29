@@ -1,8 +1,5 @@
 <x-app-layout>
     <x-slot name="header">
-        <div class="header">
-            <h1>{{''}}</h1>
-        </div>
     </x-slot>
 
     <form action="{{ route('result_update', ['id'=>$params->id]) }}" method="POST">
@@ -47,10 +44,6 @@
             <div class="edit_box">
                 <label>試験結果</label>
                 <p>{{ $params->result }}N/㎟</p>
-                {{-- @error('result')
-                <p class="error_msg">{{$message}}</p>
-                @enderror
-                <input type="text" name="result" value="{{ old('result') ?? $params->result}}"> --}}
             </div>
             <div class="edit_box">
                 <label><i class="fa-duotone fa-asterisk"></i>コメント(編集理由、共有事項等記載してください)</label>

@@ -94,6 +94,7 @@ Route::middleware('auth:admin')->group(function () {
         Route::post('result/update/{id}','update')->name('result_update');
         Route::get('result/delete/{id}','delete')->name('result_delete');
         Route::get('result/detail/{id}','detail')->name('result_detail');
+        Route::get('result/search','search')->name('result_search');
     });
 
     

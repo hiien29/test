@@ -60,5 +60,3 @@
     </form>
     
 </x-admin-layout>
-
-{{-- <script src="{{ asset('/js/hoge.js') }}"></script> --}}

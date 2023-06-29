@@ -1,9 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
-        <div class="header">
-            <h1>{{''}}</h1>
-        </div>
     </x-slot>
+    
     <form action="{{ route('task_register',['id'=>$data->id])}}" method="POST">
         @csrf
         <div class="edit_outer">

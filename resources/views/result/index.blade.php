@@ -9,18 +9,18 @@
             <tr>
                 <th class="th_1">打設日</th>
                 <th class="th_1">試験日</th>
-                <th class="th_4">材齢(日)</th>
+                <th>材齢(日)</th>
                 <th class="th_1">配合</th>
-                <th class="th_7">現場名</th>
+                <th class="th_3">現場名</th>
                 <th>試験結果</th>
-                <th class="th_4"></th>
-                <th class="th_4"></th>
+                <th></th>
+                <th></th>
                 {{-- <th class="th_4"></th> --}}
             </tr>
             @foreach ($params as $param)
             <tr>
-                <td>{{ $param->make_day }}</td>
-                <td>{{ $param->test_day }}</td>
+                <td>{{ date('Y/m/d',strtotime($param->make_day)) }}</td>
+                <td>{{ date('Y/m/d',strtotime($param->test_day)) }}</td>
                 <td>{{ $param->age }}</td>
                 <td>{{ $param->type }}</td>
                 <td>{{ $param->site }}</td>

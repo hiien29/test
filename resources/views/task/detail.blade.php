@@ -9,11 +9,11 @@
         <table class="detail">
             <tr>
                 <th class="detail_inner detail_border">打設日</th>
-                <td class="detail__border">{{ $details->make_day }}</td>
+                <td class="detail__border">{{ date('Y/m/d',strtotime($details->make_day)) }}</td>
             </tr>
             <tr>
                 <th class="detail_border">試験日</th>
-                <td class="detail__border">{{ $details->test_day }}</td>
+                <td class="detail__border">{{ date('Y/m/d',strtotime($details->test_day)) }}</td>
             </tr>
             <tr>
                 <th class="detail_border">材齢</th>

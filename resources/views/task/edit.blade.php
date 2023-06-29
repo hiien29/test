@@ -1,8 +1,5 @@
 <x-app-layout>
     <x-slot name="header">
-        <div class="header">
-            <h1>{{''}}</h1>
-        </div>
     </x-slot>
 
     <form action="{{ route('task_update', ['id'=>$params->id]) }}" method="POST">

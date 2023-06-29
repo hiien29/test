@@ -17,18 +17,18 @@
                     <tr>
                         <th class="th_1">打設日</th>
                         <th class="th_1">試験日</th>
-                        <th class="th_2">材齢(日)</th>
+                        <th>材齢(日)</th>
                         <th class="th_1">配合</th>
-                        <th class="">現場名</th>
-                        <th class="th_5">結果</th>
-                        <th class="th_4"></th>
-                        <th class="th_4"></th>
-                        <th class="th_4"></th>
+                        <th class="th_2">現場名</th>
+                        <th>結果</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
                     </tr>
                     @foreach ($nottasks as $nottask)
                     <tr>
-                        <td>{{ $nottask->make_day }}</td>
-                        <td>{{ $nottask->test_day }}</td>
+                        <td>{{ date('Y/m/d',strtotime($nottask->make_day)) }}</td>
+                        <td>{{ date('Y/m/d',strtotime($nottask->test_day)) }}</td>
                         <td>{{ $nottask->age }}</td>
                         <td>{{ $nottask->type }}</td>
                         <td>{{ $nottask->site }}</td>
@@ -48,7 +48,7 @@
     
 
     <div class="test_count">
-        <p>全試験数：{{ $count }}件（{{ $params->currentPage() }}/{{ $params->lastPage() }}）</p>
+        <p>全試験数：{{ $params->count() }}件（{{ $params->currentPage() }}/{{ $params->lastPage() }}）</p>
     </div>
 
     <div class="table_outer" style="margin-top: 2%;">
@@ -56,18 +56,18 @@
             <tr>
                 <th class="th_1">打設日</th>
                 <th class="th_1">試験日</th>
-                <th class="th_2">材齢(日)</th>
+                <th>材齢(日)</th>
                 <th class="th_1">配合</th>
-                <th class="">現場名</th>
-                <th class="th_5">結果</th>
-                <th class="th_4"></th>
-                <th class="th_4"></th>
-                <th class="th_4"></th>
+                <th class="th_2">現場名</th>
+                <th>結果</th>
+                <th></th>
+                <th></th>
+                <th></th>
             </tr>
             @foreach ($params as $param)
             <tr>
-                <td>{{ $param->make_day }}</td>
-                <td>{{ $param->test_day }}</td>
+                <td>{{ date('Y/m/d',strtotime($param->make_day)) }}</td>
+                <td>{{ date('Y/m/d',strtotime($param->test_day)) }}</td>
                 <td>{{ $param->age }}</td>
                 <td>{{ $param->type }}</td>
                 <td>{{ $param->site }}</td>

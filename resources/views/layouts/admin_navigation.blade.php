@@ -37,9 +37,12 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        {{-- <x-dropdown-link :href="route('admin.profile.edit')">
+                        <x-dropdown-link :href="route('admin.profile.edit')">
+                            {{ __('情報追加') }}
+                        </x-dropdown-link>
+                        <x-dropdown-link :href="route('admin.profile.edit')">
                             {{ __('登録情報') }}
-                        </x-dropdown-link> --}}
+                        </x-dropdown-link>
 
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('admin.logout') }}">

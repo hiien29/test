@@ -21,8 +21,6 @@ Route::middleware('guest')->group(function () {
 
     Route::post('register', [RegisteredUserController::class, 'store']);
     
-    // Route::get('login', [AuthenticatedSessionController::class, 'create'])
-    //             ->name('login');
 
     Route::post('login', [AuthenticatedSessionController::class, 'store']);
 
@@ -77,6 +75,7 @@ Route::middleware('auth')->group(function () {
         Route::get('schedule/delete/{id}','delete')->name('delete');
         Route::get('schedule/detail/{id}','detail')->name('detail');
     });
+
     Route::controller(TestTaskController::class)->group(function()
     {
         Route::get('task/register/{id}','show')->name('taskregister');
@@ -94,4 +93,6 @@ Route::middleware('auth')->group(function () {
         Route::get('result/delete/{id}','delete')->name('result_delete');
         Route::get('result/detail/{id}','detail')->name('result_detail');
     });
+
+
 });

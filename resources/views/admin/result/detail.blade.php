@@ -9,11 +9,11 @@
         <table class="detail">
             <tr>
                 <th class="detail_inner detail_border">打設日</th>
-                <td class="detail__border">{{ $details->make_day }}</td>
+                <td class="detail__border">{{ date('Y/m/d',strtotime($details->make_day)) }}</td>
             </tr>
             <tr>
                 <th class="detail_border">試験日</th>
-                <td class="detail__border">{{ $details->test_day }}</td>
+                <td class="detail__border">{{ date('Y/m/d',strtotime($details->test_day)) }}</td>
             </tr>
             <tr>
                 <th class="detail_border">材齢</th>
@@ -32,10 +32,7 @@
                 <td class="detail__border">{{ $details->author }}</td>
             </tr>
             <tr>
-                <th class="detail_border">編集者</th>
-                @if ($details->editor === null)
-                <td class="detail__border">{{ '未編集' }}</td>
-                @endif
+                <th class="detail_border">試験詳細編集者</th>
                 <td class="detail__border">{{ $details->editor }}</td>
             </tr>
             <tr>
@@ -44,9 +41,6 @@
             </tr>
             <tr>
                 <th class="detail_border">結果編集者</th>
-                @if ($details->test_editor === null)
-                <td class="detail__border">{{ '未編集' }}</td>
-                @endif
                 <td class="detail__border">{{ $details->test_editor }}</td>
             </tr>
             <tr>
@@ -56,27 +50,8 @@
         </table>
     </div>
 
-    {{-- <div>
-        
-        
-        
-        
-        
-        
-        <div>
-            <p>試験者</p>
-            <p>{{ $details->tester }}</p>
-        </div>
-        <div>
-            <p>結果編集者</p>
-            @if ($details->test_editor === null)
-            <p>{{ '未編集' }}</p>
-            @endif
-            <p>{{ $details->test_editor }}</p>
-        </div>
-        
-    </div> --}}
     <div class="detail_back">
         <a href="{{ route('admin.result') }}"><i class="fa-solid fa-circle-arrow-left"></i>戻る</a>
     </div>
+    
 </x-admin-layout>

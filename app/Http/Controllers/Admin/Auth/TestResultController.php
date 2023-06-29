@@ -38,6 +38,7 @@ class TestResultController extends Controller
 
         $params['comment'] = $data->comment . PHP_EOL. $params['comment'];
 
+
         $data->update($params);
         return redirect()->route('admin.result');
     }
@@ -54,5 +55,18 @@ class TestResultController extends Controller
     {
         $details = Testlist::find($id);
         return view('admin.result.detail',compact('details'));
+    }
+
+    public function search(Request $request)
+    {
+        $params = Testlist::whereNotNull('result');
+        $searches =$params->whereBetween('test_day',[$request->start_day,$request->end_day])
+        ->where('type',$request->type)
+        ->where('age',$request->age)
+        ->paginate(10);
+
+        $avg = $searches->avg('result');
+
+        return view('admin.result.index',compact('searches','avg'));
     }
 }

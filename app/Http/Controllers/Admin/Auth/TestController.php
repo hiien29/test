@@ -32,16 +32,12 @@ class TestController extends Controller
         ->orderBy('age')
         ->paginate(10);
 
-        $count = Testlist::where('test_day','=',today())
-        ->whereNull('result')
-        ->count(); 
-
         $nottasks = Testlist::where('test_day','<',today())
         ->whereNull('result')
         ->orderBy('test_day','asc')
         ->get();
 
-        return view('admin.task.index',compact('params','count','nottasks'));
+        return view('admin.task.index',compact('params','nottasks'));
     }
 
     public function result(): View
@@ -50,6 +46,7 @@ class TestController extends Controller
         ->orderBy('test_day','desc')
         ->orderBy('age')
         ->paginate(10);
+
 
         return view('admin.result.index',compact('params'));
     }
