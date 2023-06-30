@@ -5,7 +5,7 @@
         </div>
     </x-slot>
 
-    <div class="detail_table">
+    <div class="detail_table" style="margin-top: 1%;">
         <table class="detail">
             <tr>
                 <th class="detail_inner detail_border">打設日</th>

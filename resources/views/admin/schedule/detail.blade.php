@@ -1,8 +1,8 @@
 <x-admin-layout>
     <x-slot name="header">
-        <div class="header">
+        {{-- <div class="header">
             <h1 class="detail_header">詳細内容</h1>
-        </div>
+        </div> --}}
     </x-slot>
 
     <div class="detail_table">
