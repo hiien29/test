@@ -22,6 +22,9 @@
                 <p>現場：{{ $data->site}}</p>
             </div>
             <div class="edit_box">
+                <p>コメント：{{ $data->comment}}</p>
+            </div>
+            <div class="edit_box">
                 <label>試験結果(N/㎟)</label>
                 @error('result')
                 <p class="error_msg">{{$message}}</p>

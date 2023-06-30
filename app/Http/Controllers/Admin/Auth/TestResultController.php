@@ -57,16 +57,36 @@ class TestResultController extends Controller
         return view('admin.result.detail',compact('details'));
     }
 
+    
     public function search(Request $request)
     {
         $params = Testlist::whereNotNull('result');
-        $searches =$params->whereBetween('test_day',[$request->start_day,$request->end_day])
-        ->where('type',$request->type)
-        ->where('age',$request->age)
-        ->paginate(10);
 
-        $avg = $searches->avg('result');
+        if(isset($request->start_day) && isset($request->end_day))
+        {
+            $params->whereBetween('test_day',[$request->start_day,$request->end_day]);
+        }
+        if(isset($request->type))
+        {
+            $params->where('type',$request->type);
+        }
+        if(isset($request->age))
+        {
+            $params->where('age',$request->age);
+        }
+        if (isset($request->site)) 
+        {
+            $params->where('site', $request->site );
+        }
 
-        return view('admin.result.index',compact('searches','avg'));
+        if (!isset($request->start_day) && !isset($request->end_day) && !isset($request->type) && !isset($request->age) && !isset($request->site)) {
+            $params->whereRaw('1 = 0');
+        }
+
+        $searches = $params->paginate(10);
+
+        $avg = $searches->avg('result',1);
+
+        return view('admin.result.index',compact('searches','avg','request'));
     }
 }
