@@ -31,7 +31,7 @@
                 font-family: ipaexm;
             }
         </style>
-        <link href="{{ asset('css/index.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/pdf.css') }}" rel="stylesheet">
     </head>
 <body>
     <div class="header_pdf">

@@ -13,7 +13,7 @@ use App\Models\Testlist;
 
 class TestScheduleController extends Controller
 {
-    //未編集
+
     public function create(): View
     {
         return view('schedule.register');

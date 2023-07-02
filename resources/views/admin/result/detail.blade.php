@@ -1,11 +1,15 @@
 <x-admin-layout>
     <x-slot name="header">
-        <div class="header">
+        {{-- <div class="header">
             <h1>詳細</h1>
-        </div>
+        </div> --}}
     </x-slot>
 
-    <div class="detail_table" style="margin-top: 1%;">
+    <div class="detail_header">
+        <h1>試験詳細</h1>
+    </div>
+    
+    <div class="detail_table">
         <table class="detail">
             <tr>
                 <th class="detail_inner detail_border">打設日</th>

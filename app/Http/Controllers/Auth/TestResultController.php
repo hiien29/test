@@ -15,7 +15,7 @@ use App\Models\Result;
 
 class TestResultController extends Controller
 {
-    //未編集
+
     public function edit($id)
     {
         $params = Testlist::find($id);

@@ -5,6 +5,10 @@
         </div> --}}
     </x-slot>
 
+    <div class="detail_header">
+        <h1>試験詳細</h1>
+    </div>
+    
     <div class="detail_table">
         <table class="detail">
             <tr>

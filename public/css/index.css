@@ -29,7 +29,7 @@
 }
 
 .table_outer {
-    width: 80%;
+    width: 85%;
     margin: 5% auto 3%;
     border-radius: 10px;
     border: 1px solid #aaa;
@@ -68,6 +68,10 @@
 .table .th_3 {
     width: 20%;
 }
+.table .th_4 {
+    width: 10%;
+}
+
 
 
 .add {
@@ -135,7 +139,7 @@
 
 .detail_table {
     width: 50%;
-    margin: 5% auto 0;
+    margin: 2% auto 0;
     border-radius: 10px;
     border: 1px solid #aaa;
 }
@@ -184,7 +188,7 @@
     color: #666;
 }
 
-.detail_header {
+/* .detail_header {
     padding-left: 20%;
 }
 
@@ -197,6 +201,15 @@
 .pdf i {
     font-size: 1.5rem;
     color: #444;
+} */
+
+.detail_header {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 2%;
+    font-weight: 800;
+    color: #666;
 }
 
 /* editのスタイル */
@@ -346,36 +359,4 @@ label i {
 .avg p{
     margin-top: 2%;
     margin-left: 1%;
-}
-
-
-/* pdf */
-.header_pdf h1 {
-    text-align: center;
-}
-.header_pdf p {
-    text-align: right;
-    margin-top: 50px;
-}
-
-th {
-    width: 250px;
-    font-weight: bold;
-    padding: 30px 0;
-    border-right: 1px solid #aaa;
-}
-
-td {
-    width: 450px;
-    text-align: center;
-    border-left: 1px solid #aaa;
-}
-
-.table_pdf {
-    margin-top: 100px;
-    border: 1px solid #aaa;
-}
-
-.pdf_border {
-    border-bottom: 1px solid #aaa;
 }

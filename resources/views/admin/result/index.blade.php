@@ -47,7 +47,7 @@
                     <th>材齢(日)</th>
                     <th class="th_1">配合</th>
                     <th class="th_3">現場名</th>
-                    <th>試験結果</th>
+                    <th class="th_4">試験結果</th>
                     <th></th>
                     <th></th>
                     <th></th>
@@ -64,7 +64,7 @@
                     <td><a href="{{ route('admin.result_detail', ['id'=>$param->id]) }}"><i class="fa-solid fa-circle-info add2"></i></a></a></td>
                     <td><a href="{{ route('admin.result_edit', ['id'=>$param->id]) }}"><i class="fa-regular fa-pen-to-square add2"></i></a></td>
                     <td><a href="{{ route('admin.result_delete', ['id'=>$param->id]) }}" onclick="return confirm('本当に削除しますか？')"><i class="fa-regular fa-trash-can add2"></i></a></td>
-                    <td><a href="{{ route('admin.result_pdf',['id'=>$param->id]) }}"><i class="fa-solid fa-file-arrow-down add2"></i></a></td>
+                    <td><a href="{{ route('admin.result_pdf',['id'=>$param->id]) }}"  target="_blank"><i class="fa-solid fa-file-arrow-down add2"></i></a></td>
                 </tr>
                 @endforeach
             </table>
@@ -133,7 +133,8 @@
             </div>
         
 
-            <div class="table_outer" style="margin-top: 2%;">
+            <div class="table_outer" style="width: 90%">
+            {{-- style="margin-top: 2%; widht: 90%;" --}}
                 <table class="table">
                     <tr>
                         <th class="th_1">打設日</th>
@@ -141,7 +142,7 @@
                         <th>材齢(日)</th>
                         <th class="th_1">配合</th>
                         <th class="th_3">現場名</th>
-                        <th>試験結果</th>
+                        <th class="th_4">試験結果</th>
                         <th></th>
                         <th></th>
                         <th></th>
@@ -158,7 +159,7 @@
                         <td><a href="{{ route('admin.result_detail', ['id'=>$search->id]) }}"><i class="fa-solid fa-circle-info add2"></i></a></a></td>
                         <td><a href="{{ route('admin.result_edit', ['id'=>$search->id]) }}"><i class="fa-regular fa-pen-to-square add2"></i></a></td>
                         <td><a href="{{ route('admin.result_delete', ['id'=>$search->id]) }}" onclick="return confirm('本当に削除しますか？')"><i class="fa-regular fa-trash-can add2"></i></a></td>
-                        <td><a href=""><i class="fa-solid fa-file-arrow-down add2"></i></a></td>
+                        <td><a href="{{ route('admin.result_pdf',['id'=>$search->id]) }}"  target="_blank"><i class="fa-solid fa-file-arrow-down add2"></i></a></td>
                     </tr>
                     @endforeach
                 </table>
