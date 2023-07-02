@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\Auth\TestController;
 use App\Http\Controllers\Admin\Auth\TestScheduleController;
 use App\Http\Controllers\Admin\Auth\TestTaskController;
 use App\Http\Controllers\Admin\Auth\TestResultController;
+use App\Http\Controllers\PdfController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -97,5 +98,5 @@ Route::middleware('auth:admin')->group(function () {
         Route::get('result/search','search')->name('result_search');
     });
 
-    
+    Route::get('result_pdf/{id}', [PdfController::class, 'pdfCreate'])->name('result_pdf');
 });

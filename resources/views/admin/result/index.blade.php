@@ -64,7 +64,7 @@
                     <td><a href="{{ route('admin.result_detail', ['id'=>$param->id]) }}"><i class="fa-solid fa-circle-info add2"></i></a></a></td>
                     <td><a href="{{ route('admin.result_edit', ['id'=>$param->id]) }}"><i class="fa-regular fa-pen-to-square add2"></i></a></td>
                     <td><a href="{{ route('admin.result_delete', ['id'=>$param->id]) }}" onclick="return confirm('本当に削除しますか？')"><i class="fa-regular fa-trash-can add2"></i></a></td>
-                    <td><a href=""><i class="fa-solid fa-file-arrow-down add2"></i></a></td>
+                    <td><a href="{{ route('admin.result_pdf',['id'=>$param->id]) }}"><i class="fa-solid fa-file-arrow-down add2"></i></a></td>
                 </tr>
                 @endforeach
             </table>
