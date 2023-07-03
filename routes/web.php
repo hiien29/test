@@ -49,6 +49,11 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
     Route::middleware('auth:admin')->group(function () {
         Route::get('/profile', [ProfileOfAdminController::class, 'edit'])->name('profile.edit');
+        Route::get('/profile/register', [ProfileOfAdminController::class, 'show'])->name('profile.register');
+        Route::post('/profile/register/d', [ProfileOfAdminController::class, 'register'])->name('departments.register');
+        Route::get('/profile/register/d/{id}', [ProfileOfAdminController::class, 'delete'])->name('departments.delete');
+        Route::post('/profile/register', [ProfileOfAdminController::class, 'adminRegister'])->name('admin.register');
+        Route::get('/profile/register/{id}', [ProfileOfAdminController::class, 'adminDelete'])->name('admin.delete');
         Route::patch('/profile', [ProfileOfAdminController::class, 'update'])->name('profile.update');
         Route::delete('/profile', [ProfileOfAdminController::class, 'destroy'])->name('profile.destroy');
     });

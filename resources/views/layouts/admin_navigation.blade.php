@@ -37,8 +37,8 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('admin.profile.edit')">
-                            {{ __('情報追加') }}
+                        <x-dropdown-link :href="route('admin.profile.register')">
+                            {{ __('設定') }}
                         </x-dropdown-link>
                         <x-dropdown-link :href="route('admin.profile.edit')">
                             {{ __('登録情報') }}
