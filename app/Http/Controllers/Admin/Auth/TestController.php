@@ -51,7 +51,6 @@ class TestController extends Controller
         ->orderBy('age')
         ->paginate(10);
 
-
         return view('admin.result.index',compact('params'));
     }
 

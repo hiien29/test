@@ -85,21 +85,21 @@
             <div class="search_outer">
                 <div>
                     <label class="block font-bold text-gray-700">期間（試験日）</label>
-                    <input type="date" name="start_day" value="{{ old('start_day') ?? $request->start_day}}" class="rounded-lg" id="make_day">
+                    <input type="date" name="start_day" value="{{ old('start_day') ?? $rq->start_day }}" class="rounded-lg" id="make_day">
                     <span>~</span>
-                    <input type="date" name="end_day" value="{{ old('end_day') ?? $request->end_day}}" class="rounded-lg" id="test_day">
+                    <input type="date" name="end_day" value="{{ old('end_day') ?? $rq->end_day }}" class="rounded-lg" id="test_day">
                 </div>
                 <div>
                     <label class="block font-bold text-gray-700">配合</label>
-                    <input type="text" name="type" value="{{ old('type') ?? $request->type }}" class="rounded-lg">
+                    <input type="text" name="type" value="{{ old('type') ?? $rq->type }}" class="rounded-lg">
                 </div>
                 <div>
                     <label class="block font-bold text-gray-700">材齢</label>
-                    <input type="text" name="age" value="{{ old('age') ?? $request->age }}" class="rounded-lg"> 日
+                    <input type="text" name="age" value="{{ old('age') ?? $rq->age }}" class="rounded-lg"> 日
                 </div>
                 <div>
                     <label class="block font-bold text-gray-700">現場名</label>
-                    <input type="text" name="site" value="{{ old('site') ?? $request->site }}" class="rounded-lg">
+                    <input type="text" name="site" value="{{ old('site') ?? $rq->site }}" class="rounded-lg">
                 </div>
             </div>
 
@@ -112,14 +112,14 @@
     {{-- 一覧表示 --}}
 
     {{-- 検索条件未記入 --}}
-        @if( !$request->anyFilled(['start_day', 'end_day', 'type', 'age', 'site']))
+        @if( !$rq->anyFilled(['start_day', 'end_day', 'type', 'age', 'site']))
         <p class="text-center pt text-xl font-medium">検索条件を指定してください。</p>
         @endif
 
     
     
     {{-- 検索結果該当なし --}}
-        @if( $request->anyFilled(['start_day', 'end_day', 'type', 'age', 'site']) && $searches->count() === 0 )
+        @if( $rq->anyFilled(['start_day', 'end_day', 'type', 'age', 'site']) && $searches->count() === 0 )
         <p class="text-center pt text-xl font-medium">該当する試験結果はありませんでした。</p>
         @endif
 
@@ -133,12 +133,10 @@
                     <p class="text-xl font-bold text-gray-800" style="width:50%">最小値：{{ $min }}N/㎟</p>
                     <p class="text-xl font-bold text-gray-800" style="width:50%">最大値：{{ $max }}N/㎟</p>
                 </div>
-                <p>全試験数：{{ $count }}件（{{ $searches->currentPage() }}/{{ $searches->lastPage() }}）</p>
+                <p>全試験数：{{ $searches->total() }}件（{{ $searches->currentPage() }}/{{ $searches->lastPage() }}）</p>
             </div>
         
-
             <div class="table_outer" style="width: 90%">
-            {{-- style="margin-top: 2%; widht: 90%;" --}}
                 <table class="table">
                     <tr>
                         <th class="th_1">打設日</th>
@@ -170,7 +168,7 @@
             </div>
 
             <div class="page">
-                {{ $searches->links() }}
+                {{ $searches->appends(request()->query())->links() }}
             </div>
         @endif
 
