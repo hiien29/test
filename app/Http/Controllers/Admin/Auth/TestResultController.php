@@ -42,6 +42,7 @@ class TestResultController extends Controller
 
         $data->update($params);
         return redirect()->route('admin.result');
+        // return Redirect::back();
     }
 
     public function delete($id)
@@ -106,84 +107,4 @@ class TestResultController extends Controller
         return view('admin.result.index',compact('searches','rq','avg','min','max'));
     }
 }
-        // if(isset($request->start_day) && isset($request->end_day))
-        // {
-        //     $results->whereBetween('test_day',[$request->start_day,$request->end_day]);
-            
-        // }
-        // if(isset($request->type))
-        // {
-        //     $results->where('type',$request->type);
-            
-        // }
-        // if(isset($request->age))
-        // {
-        //     $results->where('age',$request->age);
-            
-        // }
-        // if (isset($request->site)) 
-        // {
-        //     $results->where('site', $request->site );
-        //     $request->session()->put('site',$request->input('site'));
-        // }
-
-        // if (!isset($request->start_day) && !isset($request->end_day) && !isset($request->type) && !isset($request->age) && !isset($request->site)) {
-        //     $results->whereRaw('1 = 0');
-        // }
-
         
-        // $searches =$results->paginate(10)->appends($request->except('page'));
-
-
-        // $count = $results->count();
-
-        // $avg = $results->avg('result');
-        // $min = $results->min('result');
-        // $max = $results->max('result');
-
-// dd($searches);
-        // return view('admin.result.index',compact('searches','avg','request','count','min','max'));
-        // return view('admin.result.index',compact('searches'));
-        // return view('admin.result.index');
-    // }
-
-    // public function search(Request $rq)
-    // {
-    //     $query = Testlist::query();
-    //     $query->whereNotNull('result');
-
-    //     $start_day = $rq->input('start_day');
-    //     $end_day = $rq->input('end_day');
-    //     $type = $rq->input('type');
-    //     $age = $rq->input('age');
-    //     $site = $rq->input('site');
-
-    //     if(isset($start_day) && isset($end_day))
-    //     {
-    //         $query->whereBetween('test_day',[$start_day,$end_day]);
-    //     }
-
-    //     if(isset($type))
-    //     {
-    //         $query->where('type',$type);
-    //     }
-
-    //     if(isset($age))
-    //     {
-    //         $query->where('age',$age);
-    //     }
-    //     if(isset($site))
-    //     {
-    //         $query->where('site',$site);
-
-    //     }
-
-    //     $searches = $query->paginate(10);
-
-    //     $avg = $query->avg('result');
-    //     $min = $query->min('result');
-    //     $max = $query->max('result');
-
-    //     return view('admin.result.search',compact('searches','avg','min','max'));
-    // }
-

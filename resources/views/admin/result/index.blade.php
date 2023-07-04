@@ -127,16 +127,16 @@
     {{-- 検索結果該当あり --}}
         @if( $searches->count() > 0)
 
-            <div class="test_count flex justify-between" style="margin-top: 3%;">
-                <div class="flex">
-                    <p class="text-xl font-bold text-gray-800" style="width:50%">平均結果：{{ round($avg,1) }}N/㎟</p>
-                    <p class="text-xl font-bold text-gray-800" style="width:50%">最小値：{{ $min }}N/㎟</p>
-                    <p class="text-xl font-bold text-gray-800" style="width:50%">最大値：{{ $max }}N/㎟</p>
-                </div>
-                <p>全試験数：{{ $searches->total() }}件（{{ $searches->currentPage() }}/{{ $searches->lastPage() }}）</p>
+<p>検索後</p>
+            <div class="flex test_count">
+                <p class="text-xl font-bold text-gray-800" style="margin-right: 24px;">平均結果：{{ round($avg,1) }}N/㎟</p>
+                <p class="text-xl font-bold text-gray-800 mx-6">最小値：{{ $min }}N/㎟</p>
+                <p class="text-xl font-bold text-gray-800 mx-6">最大値：{{ $max }}N/㎟</p>
             </div>
+
+            <p class="mt-6 text-right" style="margin-right: 5%;">全試験数：{{ $searches->total() }}件（{{ $searches->currentPage() }}/{{ $searches->lastPage() }}）</p>
         
-            <div class="table_outer" style="width: 90%">
+            <div class="table_outer" style="width: 90%;margin-top: 2%;">
                 <table class="table">
                     <tr>
                         <th class="th_1">打設日</th>

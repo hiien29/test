@@ -13,6 +13,7 @@ use App\Models\Testlist;
 use Illuminate\Pagination\Paginator;
 use App\Models\Result;
 
+
 class TestController extends Controller
 {
     //
@@ -44,12 +45,18 @@ class TestController extends Controller
         return view('admin.task.index',compact('params','nottasks','count'));
     }
 
-    public function result(): View
+    public function result(Request $rq): View
     {
         $params = Testlist::whereNotNull('result')
         ->orderBy('test_day','desc')
         ->orderBy('age')
         ->paginate(10);
+
+        $rq->session()->pull('start_day');
+        $rq->session()->pull('end_day');
+        $rq->session()->pull('age');
+        $rq->session()->pull('type');
+        $rq->session()->pull('site');
 
         return view('admin.result.index',compact('params'));
     }
