@@ -26,7 +26,7 @@ class TestTaskController extends Controller
     {
         $data = Testlist::find($id);
         $params = $request->validate([
-            'result' => 'required', 
+            'result' => ['required','numeric'] ,
             'tester' => 'required'
         ]);
         $data->update($params);

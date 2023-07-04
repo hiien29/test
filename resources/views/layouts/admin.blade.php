@@ -37,5 +37,6 @@
                 {{ $slot }}
             </main>
         </div>
+        <script src="{{ asset('js/register.js') }}"></script> 
     </body>
 </html>

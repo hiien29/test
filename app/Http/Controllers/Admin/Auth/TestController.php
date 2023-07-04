@@ -37,7 +37,11 @@ class TestController extends Controller
         ->orderBy('test_day','asc')
         ->get();
 
-        return view('admin.task.index',compact('params','nottasks'));
+        $count = Testlist::where('test_day','=',today())
+        ->whereNull('result')
+        ->count();
+
+        return view('admin.task.index',compact('params','nottasks','count'));
     }
 
     public function result(): View

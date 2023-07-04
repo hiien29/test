@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 use App\Models\Testlist;
+use App\Rules\TypeRule;
 
 class TestScheduleController extends Controller
 {

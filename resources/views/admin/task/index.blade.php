@@ -48,7 +48,7 @@
     
 
     <div class="test_count">
-        <p>全試験数：{{ $params->count() }}件（{{ $params->currentPage() }}/{{ $params->lastPage() }}）</p>
+        <p>全試験数：{{ $count }}件（{{ $params->currentPage() }}/{{ $params->lastPage() }}）</p>
     </div>
 
     <div class="table_outer" style="margin-top: 2%;">

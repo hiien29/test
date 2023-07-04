@@ -14,21 +14,21 @@
                 @error('make_day')
                 <p class="error_msg">{{$message}}</p>
                 @enderror
-                <input type="date" name="make_day" value="{{ old('make_day')}}">
+                <input type="date" name="make_day" value="{{ old('make_day')}}" id="make_day">
             </div>
             <div class="edit_box">
                 <label>試験日</label>
                 @error('test_day')
                 <p class="error_msg">{{$message}}</p>
                 @enderror
-                <input type="date" name="test_day" value="{{ old('test_day')}}">
+                <input type="date" name="test_day" value="{{ old('test_day')}}" id="test_day">
             </div>
             <div class="edit_box">
                 <label>材齢(日)</label>
                 @error('age')
                 <p class="error_msg">{{$message}}</p>
                 @enderror
-                <input type="text" name="age" value="{{ old('age')}}">
+                <input type="text" name="age" value="{{ old('age')}}" id="age">
             </div>
             <div class="edit_box">
                 <label>配合</label>
@@ -60,4 +60,5 @@
     </form>
     
 </x-app-layout>
+<script src="{{ asset('js/register.js') }}"></script>
 

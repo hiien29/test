@@ -15,9 +15,9 @@
             <div class="search_outer">
                 <div>
                     <label class="block font-bold text-gray-700">期間（試験日）</label>
-                    <input type="date" name="start_day" value="{{ old('start_day') }}" class="rounded-lg">
+                    <input type="date" name="start_day" value="{{ old('start_day') }}" class="rounded-lg" id="make_day">
                     <span>~</span>
-                    <input type="date" name="end_day" value="{{ old('end_day') }}" class="rounded-lg">
+                    <input type="date" name="end_day" value="{{ old('end_day') }}" class="rounded-lg" id="test_day">
                 </div>
                 <div>
                     <label class="block font-bold text-gray-700">配合</label>
@@ -85,9 +85,9 @@
             <div class="search_outer">
                 <div>
                     <label class="block font-bold text-gray-700">期間（試験日）</label>
-                    <input type="date" name="start_day" value="{{ old('start_day') ?? $request->start_day}}" class="rounded-lg">
+                    <input type="date" name="start_day" value="{{ old('start_day') ?? $request->start_day}}" class="rounded-lg" id="make_day">
                     <span>~</span>
-                    <input type="date" name="end_day" value="{{ old('end_day') ?? $request->end_day}}" class="rounded-lg">
+                    <input type="date" name="end_day" value="{{ old('end_day') ?? $request->end_day}}" class="rounded-lg" id="test_day">
                 </div>
                 <div>
                     <label class="block font-bold text-gray-700">配合</label>
@@ -128,8 +128,12 @@
         @if( $searches->count() > 0)
 
             <div class="test_count flex justify-between" style="margin-top: 3%;">
-                <p class="text-xl font-bold text-gray-800" style="padding-left: 2%;">平均結果：{{ round($avg,1) }}N/㎟</p>
-                <p>全試験数：{{ $searches->count() }}件（{{ $searches->currentPage() }}/{{ $searches->lastPage() }}）</p>
+                <div class="flex">
+                    <p class="text-xl font-bold text-gray-800" style="width:50%">平均結果：{{ round($avg,1) }}N/㎟</p>
+                    <p class="text-xl font-bold text-gray-800" style="width:50%">最小値：{{ $min }}N/㎟</p>
+                    <p class="text-xl font-bold text-gray-800" style="width:50%">最大値：{{ $max }}N/㎟</p>
+                </div>
+                <p>全試験数：{{ $count }}件（{{ $searches->currentPage() }}/{{ $searches->lastPage() }}）</p>
             </div>
         
 
@@ -174,3 +178,4 @@
 
     
 </x-admin-layout>
+<script src="{{ asset('js/register.js') }}"></script>
