@@ -35,10 +35,10 @@ class TestResultController extends Controller
             'site' => 'required',
             'test_editor' => 'required',
             'result' =>  'required',
-            // 'comment' => 'required'
+            'comment' => 'required'
         ]);
 
-        // $params['comment'] = $data->comment . PHP_EOL. $params['comment'];
+        $params['comment'] = $data->comment . PHP_EOL. $params['comment'];
 
 
         $data->update($params);

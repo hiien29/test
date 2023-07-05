@@ -4,6 +4,8 @@
             <h1>試験結果</h1>
         </div>
     </x-slot>
+
+    <p class="mt-6 text-right" style="margin-right: 10%; margin-top: 3%;">全試験数：{{ $params->total() }}件（{{ $params->currentPage() }}/{{ $params->lastPage() }}）</p>
     <div class="table_outer">
         <table class="table">
             <tr>

@@ -40,7 +40,7 @@
 
     {{-- 一覧表示 --}}
 
-        <p class="mt-6 text-right" style="margin-right: 10%;">（{{ $params->currentPage() }}/{{ $params->lastPage() }}）</p>
+        <p class="mt-6 text-right" style="margin-right: 10%;">全試験数：{{ $params->total() }}件（{{ $params->currentPage() }}/{{ $params->lastPage() }}）</p>
         <div class="table_outer">
             <table class="table">
                 <tr>

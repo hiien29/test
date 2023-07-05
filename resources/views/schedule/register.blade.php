@@ -28,7 +28,7 @@
                 @error('age')
                 <p class="error_msg">{{$message}}</p>
                 @enderror
-                <input type="text" name="age" value="{{ old('age')}}" id="age">
+                <input type="text" name="age" value="{{ old('age')}}" id="age" readonly>
             </div>
             <div class="edit_box">
                 <label>配合</label>
