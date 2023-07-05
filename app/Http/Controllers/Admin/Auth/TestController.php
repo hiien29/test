@@ -52,11 +52,7 @@ class TestController extends Controller
         ->orderBy('age')
         ->paginate(10);
 
-        $rq->session()->pull('start_day');
-        $rq->session()->pull('end_day');
-        $rq->session()->pull('age');
-        $rq->session()->pull('type');
-        $rq->session()->pull('site');
+        $searches = $rq->session()->pull('searches');
 
         return view('admin.result.index',compact('params'));
     }

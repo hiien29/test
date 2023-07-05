@@ -10,6 +10,7 @@
 
     {{-- 検索画面 --}}
     @if(empty($searches))
+    {{ var_dump(session('searches'))}}
         <form action="{{ route('admin.result_search') }}" method="GET">
             @csrf
             <div class="search_outer">
@@ -85,21 +86,21 @@
             <div class="search_outer">
                 <div>
                     <label class="block font-bold text-gray-700">期間（試験日）</label>
-                    <input type="date" name="start_day" value="{{ old('start_day') ?? $rq->start_day }}" class="rounded-lg" id="make_day">
+                    <input type="date" name="start_day" value="{{ old('start_day') ?? $session['start_day'] ?? '' }}" class="rounded-lg" id="make_day">
                     <span>~</span>
-                    <input type="date" name="end_day" value="{{ old('end_day') ?? $rq->end_day }}" class="rounded-lg" id="test_day">
+                    <input type="date" name="end_day" value="{{ old('end_day') ?? $session['end_day'] ?? ''}}" class="rounded-lg" id="test_day">
                 </div>
                 <div>
                     <label class="block font-bold text-gray-700">配合</label>
-                    <input type="text" name="type" value="{{ old('type') ?? $rq->type }}" class="rounded-lg">
+                    <input type="text" name="type" value="{{ old('type') ?? $session['type'] ?? '' }}" class="rounded-lg">
                 </div>
                 <div>
                     <label class="block font-bold text-gray-700">材齢</label>
-                    <input type="text" name="age" value="{{ old('age') ?? $rq->age }}" class="rounded-lg"> 日
+                    <input type="text" name="age" value="{{ old('age') ?? $session['age'] ?? ''}}" class="rounded-lg"> 日
                 </div>
                 <div>
                     <label class="block font-bold text-gray-700">現場名</label>
-                    <input type="text" name="site" value="{{ old('site') ?? $rq->site }}" class="rounded-lg">
+                    <input type="text" name="site" value="{{ old('site') ?? $session['site'] ?? ''}}" class="rounded-lg">
                 </div>
             </div>
 
@@ -112,20 +113,21 @@
     {{-- 一覧表示 --}}
 
     {{-- 検索条件未記入 --}}
-        @if( !$rq->anyFilled(['start_day', 'end_day', 'type', 'age', 'site']))
-        <p class="text-center pt text-xl font-medium">検索条件を指定してください。</p>
-        @endif
+        {{-- @if(!isset($session)) --}}
+        {{-- <p class="text-center pt text-xl font-medium">検索条件を指定してください。</p> --}}
+        {{-- @endif --}}
+
 
     
     
     {{-- 検索結果該当なし --}}
-        @if( $rq->anyFilled(['start_day', 'end_day', 'type', 'age', 'site']) && $searches->count() === 0 )
-        <p class="text-center pt text-xl font-medium">該当する試験結果はありませんでした。</p>
+        {{-- @if( $rq->anyFilled(['start_day', 'end_day', 'type', 'age', 'site']) && $searches->count() === 0 ) --}}
+        @if( $searches->count() === 0 )
+        <p class="text-center pt text-xl font-medium">該当する試験結果はありませんでした。<br>再度検索条件を入力してください。</p>
         @endif
 
-
     {{-- 検索結果該当あり --}}
-        @if( $searches->count() > 0)
+        @if( $searches->count() > 0 )
 
 <p>検索後</p>
             <div class="flex test_count">

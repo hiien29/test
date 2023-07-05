@@ -2,6 +2,7 @@
     <x-slot name="header">
     </x-slot>
 
+
     <form action="{{ route('admin.result_update', ['id'=>$params->id]) }}" method="POST">
         @csrf
         <div class="edit_outer">
@@ -60,7 +61,7 @@
             </div>
 
             <div class="edit_btn">
-                <a href="{{ route('admin.result') }}" class="edit__btn">戻る</a>
+                <a href="#" onclick="history.back()" class="edit__btn">戻る</a>
                 <button type="submit" onclick="return confirm('変更しますか？')" class="edit___btn">変更</button>
             </div>
         </div>

@@ -34,15 +34,46 @@ class TestResultController extends Controller
             'site' => 'required',
             'test_editor' => 'required',
             'result' =>  'required',
-            'comment' => 'required'
+            // 'comment' => 'required'
         ]);
 
-        $params['comment'] = $data->comment . PHP_EOL. $params['comment'];
+        // $params['comment'] = $data->comment . PHP_EOL. $params['comment'];
 
 
         $data->update($params);
+
+        $searches = $request->session()->get('searches');
+        if(isset($searches))
+        {
+            $query = Testlist::query();
+            if (isset($searches['start_day']) && isset($searches['end_day'])) 
+            {
+                $query->whereBetween('test_day', [$searches['start_day'], $searches['end_day']]);
+            }
+            if (isset($searches['type'])) 
+            {
+                $query->where('type', $searches['type']);
+            }
+            if (isset($searches['age'])) 
+            {
+                $query->where('age', $searches['age']);
+            }
+            if (isset($searches['site'])) 
+            {
+                $query->where('site', $searches['site']);
+            }
+            $results = $query->get();
+            $avg = $results->avg('result');
+            $min = $results->min('result');
+            $max = $results->max('result');
+            $searches = $query->paginate(10);
+            $session = $request->session()->get('searches');
+            return view('admin.result.index')->with(compact('searches','session','avg','min','max','request'));
+        }
+        else
+        {
         return redirect()->route('admin.result');
-        // return Redirect::back();
+        }
     }
 
     public function delete($id)
@@ -63,6 +94,7 @@ class TestResultController extends Controller
 
     public function search(Request $rq)
     {
+
         $query = Testlist::query();
         $query->whereNotNull('result')->orderBy('test_day','desc')->orderBy('age');
 
@@ -89,7 +121,7 @@ class TestResultController extends Controller
         }
         if(isset($site))
         {
-            $query->where('site',$site);
+            $query->where('site','like','%'.$site.'%');
         }
 
         if (!isset($start_day) && !isset($end_day) && !isset($type) && !isset($age) && !isset($site)) {
@@ -102,9 +134,11 @@ class TestResultController extends Controller
         $min = $results->min('result');
         $max = $results->max('result');
         $searches = $query->paginate(10);
+        $rq->session()->put('searches', $rq->query());
+        $session = $rq->session()->get('searches');
         
 
-        return view('admin.result.index',compact('searches','rq','avg','min','max'));
+
+        return view('admin.result.index',compact('searches','rq','avg','min','max','session'));
     }
 }
-        
