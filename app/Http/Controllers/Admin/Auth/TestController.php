@@ -52,7 +52,9 @@ class TestController extends Controller
         ->orderBy('age')
         ->paginate(10);
 
+        $rq->session()->put('resultUrl', $rq->fullUrl());
         $searches = $rq->session()->pull('searches');
+        $url = $rq->session()->pull('searchUrl');
 
         return view('admin.result.index',compact('params'));
     }

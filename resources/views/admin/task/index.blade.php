@@ -48,10 +48,10 @@
     
 
     <div class="test_count">
-        <p>全試験数：{{ $count }}件（{{ $params->currentPage() }}/{{ $params->lastPage() }}）</p>
+        <p class="text-right">全試験数：{{ $count }}件（{{ $params->currentPage() }}/{{ $params->lastPage() }}）</p>
     </div>
 
-    <div class="table_outer" style="margin-top: 2%;">
+    <div class="table_outer">
         <table class="table">
             <tr>
                 <th class="th_1">打設日</th>

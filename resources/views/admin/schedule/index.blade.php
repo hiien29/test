@@ -5,6 +5,7 @@
         </div>
     </x-slot>
 
+    <p class="mt-6 text-right" style="margin-right: 10%; margin-top: 3%;">（{{ $params->currentPage() }}/{{ $params->lastPage() }}）</p>
     <div class="table_outer">
         <table class="table">
             <tr>

@@ -10,7 +10,6 @@
 
     {{-- 検索画面 --}}
     @if(empty($searches))
-    {{ var_dump(session('searches'))}}
         <form action="{{ route('admin.result_search') }}" method="GET">
             @csrf
             <div class="search_outer">
@@ -35,11 +34,13 @@
             </div>
 
             <div class="search_btn">
-                <button class="search__btn"><i class="fa-solid fa-magnifying-glass"></i>詳細検索</button>
+                <button class="search__btn"><i class="fa-solid fa-magnifying-glass"></i>検索</button>
             </div>
         </form>
 
     {{-- 一覧表示 --}}
+
+        <p class="mt-6 text-right" style="margin-right: 10%;">（{{ $params->currentPage() }}/{{ $params->lastPage() }}）</p>
         <div class="table_outer">
             <table class="table">
                 <tr>
@@ -106,30 +107,28 @@
 
             <div class="search_btn flex justify-center">
                 <a href="{{ route('admin.result') }}" class="searct___btn">検索解除</a>
-                <button class="searct___btn"><i class="fa-solid fa-magnifying-glass"></i>詳細検索</button>
+                <button class="searct___btn"><i class="fa-solid fa-magnifying-glass"></i>検索</button>
             </div>
         </form>
 
     {{-- 一覧表示 --}}
 
     {{-- 検索条件未記入 --}}
-        {{-- @if(!isset($session)) --}}
-        {{-- <p class="text-center pt text-xl font-medium">検索条件を指定してください。</p> --}}
-        {{-- @endif --}}
+        @if(!empty($nosearch))
+        <p class="text-center pt text-xl font-medium">検索条件を指定してください。</p>
+        @endif
 
 
     
     
     {{-- 検索結果該当なし --}}
         {{-- @if( $rq->anyFilled(['start_day', 'end_day', 'type', 'age', 'site']) && $searches->count() === 0 ) --}}
-        @if( $searches->count() === 0 )
+        @if( $searches->count() === 0 && empty($nosearch))
         <p class="text-center pt text-xl font-medium">該当する試験結果はありませんでした。<br>再度検索条件を入力してください。</p>
         @endif
 
     {{-- 検索結果該当あり --}}
         @if( $searches->count() > 0 )
-
-<p>検索後</p>
             <div class="flex test_count">
                 <p class="text-xl font-bold text-gray-800" style="margin-right: 24px;">平均結果：{{ round($avg,1) }}N/㎟</p>
                 <p class="text-xl font-bold text-gray-800 mx-6">最小値：{{ $min }}N/㎟</p>

@@ -5,6 +5,7 @@
 
     <form action="{{ route('admin.result_update', ['id'=>$params->id]) }}" method="POST">
         @csrf
+        <input type="hidden" name="previous" value="{{ request('previous') }}">
         <div class="edit_outer">
             <h1>編集画面</h1>
             <div class="edit_box">
