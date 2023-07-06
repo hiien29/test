@@ -12,16 +12,16 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')">
+                    <x-nav-link :href="route('dashboard')"  :active="request()->routeIs('dashboard')">
                         {{ __('TOP') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('schedule')">
+                    <x-nav-link :href="route('schedule')" :active="request()->routeIs('schedule')">
                         {{ __('試験予定') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('test')">
+                    <x-nav-link :href="route('test')" :active="request()->routeIs('test')">
                         {{ __('当日') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('result')">
+                    <x-nav-link :href="route('result')" :active="request()->routeIs('result')">
                         {{ __('試験結果') }}
                     </x-nav-link>
                 </div>

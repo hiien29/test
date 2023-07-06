@@ -32,6 +32,10 @@
                 <td class="detail__border">{{ $details->site }}</td>
             </tr>
             <tr>
+                <th class="detail_border">試験結果</th>
+                <td class="detail__border">{{ $details->result }}N/㎟</td>
+            </tr>
+            <tr>
                 <th class="detail_border">作成者</th>
                 <td class="detail__border">{{ $details->author }}</td>
             </tr>

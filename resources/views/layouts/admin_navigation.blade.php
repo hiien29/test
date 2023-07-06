@@ -9,13 +9,13 @@
                     <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
                         {{ __('TOP') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('admin.schedule')">
+                    <x-nav-link :href="route('admin.schedule')" :active="request()->routeIs('admin.schedule')">
                         {{ __('試験予定') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('admin.test')">
+                    <x-nav-link :href="route('admin.test')" :active="request()->routeIs('admin.test')">
                         {{ __('当日') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('admin.result')">
+                    <x-nav-link :href="route('admin.result')" :active="request()->routeIs('admin.result')">
                         {{ __('試験結果') }}
                     </x-nav-link>
                 </div>

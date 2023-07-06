@@ -11,7 +11,7 @@
             x-show="show"
             x-transition
             x-init="setTimeout(() => show = false, 2000)"
-            class="text-sm text-gray-600"
+            class="text-xl text-gray-600"
             style="padding-top: 2%;;">{{ session('message') }}</p>
         @endif
     </div>
@@ -70,5 +70,5 @@
     </form>
     
 </x-admin-layout>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 <script src="{{ asset('js/register.js') }}"></script>

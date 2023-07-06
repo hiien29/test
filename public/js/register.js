@@ -22,3 +22,4 @@ function calculateAge() {
     const days = timeDiff / (1000 * 3600 * 24);
     age.value = days;
 }
+
