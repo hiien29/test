@@ -43,7 +43,7 @@ class TestScheduleController extends Controller
         ]);
         
         
-        return redirect(route('schedule'));
+        return redirect(route('testregister'))->with('message', '登録が完了しました。');
     }
 
     public function edit($id)

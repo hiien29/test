@@ -5,6 +5,17 @@
         </div>
     </x-slot>
 
+    <div class="text-center"  style="height: 70px;">
+        @if(session('message'))
+        <p  x-data="{ show: true }"
+            x-show="show"
+            x-transition
+            x-init="setTimeout(() => show = false, 2000)"
+            class="text-sm text-gray-600"
+            style="padding-top: 2%;;">{{ session('message') }}</p>
+        @endif
+    </div>
+    
     <form action="{{ route('test_register') }}" method="POST">
         @csrf
         <div class="edit_outer">

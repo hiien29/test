@@ -61,8 +61,7 @@ class TestResultController extends Controller
     {
         $data = Testlist::find($id);
         $data->delete();
-        return redirect()->route('admin.result');
-        
+        return redirect()->back();
     }
 
     public function detail($id)
