@@ -50,10 +50,10 @@
                     <th class="th_1">配合</th>
                     <th class="th_3">現場名</th>
                     <th class="th_4">試験結果</th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
+                    <th>詳細</th>
+                    <th>編集</th>
+                    <th>削除</th>
+                    <th>PDF</th>
                 </tr>
                 @foreach ($params as $param)
                 <tr>
@@ -146,10 +146,10 @@
                         <th class="th_1">配合</th>
                         <th class="th_3">現場名</th>
                         <th class="th_4">試験結果</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
+                        <th>詳細</th>
+                        <th>編集</th>
+                        <th>削除</th>
+                        <th>PDF</th>
                     </tr>
                     @foreach ($searches as $search)
                     <tr>

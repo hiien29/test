@@ -21,9 +21,9 @@
                         <th class="th_1">配合</th>
                         <th class="th_2">現場名</th>
                         <th>結果</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
+                        <th>詳細</th>
+                        <th>編集</th>
+                        <th>削除</th>
                     </tr>
                     @foreach ($nottasks as $nottask)
                     <tr>
@@ -60,9 +60,9 @@
                 <th class="th_1">配合</th>
                 <th class="th_2">現場名</th>
                 <th>結果</th>
-                <th></th>
-                <th></th>
-                <th></th>
+                <th>詳細</th>
+                <th>編集</th>
+                <th>削除</th>
             </tr>
             @foreach ($params as $param)
             <tr>

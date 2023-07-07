@@ -72,6 +72,50 @@
     width: 10%;
 }
 
+.addbtn a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 1em;
+    width: 110%;
+    color: #666;
+    font-size: 1rem;
+    font-weight: 700;
+    border: 2px solid #888;
+    border-radius: 10px;
+}
+.addbtn {
+    width: 10%;
+}
+.addbtn i {
+    color: #666;
+}
+
+.addbtn a:hover i {
+    color: white;
+}
+
+/* .addbtn a::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-top: 3px solid #666;
+    border-right: 3px solid #666;
+    transform: rotate(45deg);
+} */
+
+.addbtn a:hover {
+color: white;
+background-color: #aaa;
+border: 2px solid #aaa;
+}
+
+/* .addbtn a:hover::after {
+border-top: 3px solid white;
+border-right: 3px solid white;
+} */
+
 
 
 .add {

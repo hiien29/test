@@ -48,7 +48,7 @@
         </div>
 
         <div>
-            <x-input-label for="name" :value="__('従業員コード')" />
+            <x-input-label for="name" :value="__('部署コード')" />
             <x-input-error class="mt-2" :messages="$errors->get('department_number')" />
             <x-text-input id="department_number" name="department_number" type="text" class="mt-1 block w-full" :value="old('department_number', $user->department_number)" autofocus  />
         </div>
