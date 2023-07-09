@@ -33,11 +33,11 @@ class TestResultController extends Controller
             'site' => 'required',
             'result' => 'required',
             'comment' => 'required',
-            // 'editor' => 'max:20',
+            'editor' => 'max:20',
             // 'test_editor' => 'max:20',
         ]);
 
-        $params['comment'] = $data->comment . PHP_EOL. $params['comment'];
+        $params['comment'] = $data->comment . PHP_EOL. $params['comment'].'（'.$params['editor'].' '.date("Y/m/d H:i:s").'）';
 
         $data->update($params);
 

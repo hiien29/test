@@ -24,8 +24,8 @@
                         <th class="th_5">結果</th>
                         @endif
                         <th>詳細</th>
-                        <th>削除</th>
                         <th>編集</th>
+                        <th>削除</th>
                     </tr>
                     @foreach ($nottasks as $nottask)
                     <tr>

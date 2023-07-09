@@ -50,7 +50,6 @@
                 <p class="error_msg">{{$message}}</p>
                 @enderror
                 <input type="text" name="result" value="{{ old('site') ?? $params->result}}">
-                {{-- <input type="hidden" name="test_editor" value="{{ Auth::user()->name}}"> --}}
             </div>
             @endif
             
@@ -59,7 +58,6 @@
             <div class="edit_box">
                 <label>試験結果</label>
                 <p>{{ $params->result }}N/㎟</p>
-                {{-- <input type="hidden" name="editor" value="{{ Auth::user()->name}}"> --}}
                 <input type="hidden" name="result" value="{{ $params->result }}">
             </div>
             @endif
@@ -72,6 +70,8 @@
                 <textarea name="comment" id="" cols="30" rows="10" >{{ old('comment') }}</textarea>
             </div>
             
+            {{-- 編集者の名前を格納 --}}
+            <input type="hidden" name="editor" value="{{ Auth::user()->name}}">
 
             <div class="edit_btn">
                 <a href="#" onclick="history.back()" class="edit__btn">戻る</a>

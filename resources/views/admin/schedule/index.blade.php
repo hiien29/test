@@ -7,7 +7,7 @@
 
     
     <div style="width: 85%;margin: 5% auto 0;">
-        <p class="addbtn"><a href="{{ route('admin.testregister') }}">予定追加<i class="fa-solid fa-plus add"></i></p>
+        <p class="addbtn"><a href="{{ route('admin.testregister') }}">予定追加<i class="fa-solid fa-plus add"></i></a></p>
     </div>
     <div style="width: 85%; margin: 0 auto;">
         <p style="text-align: right">全試験数：{{ $params->total() }}件（{{ $params->currentPage() }}/{{ $params->lastPage() }}）</p>

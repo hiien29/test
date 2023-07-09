@@ -37,7 +37,8 @@
             </tr>
             <tr>
                 <th class="detail_border">作成者</th>
-                <td class="detail__border">{{ $details->author }}</td>
+                <td class="detail__border">{{ $details->author }}<br>
+                （{{date('Y/m/d H:i:m',strtotime($details->created_at))}}）</td>
             </tr>
             {{-- <tr>
                 <th class="detail_border">試験詳細編集者</th>
@@ -45,7 +46,7 @@
             </tr> --}}
             <tr>
                 <th class="detail_border">試験者</th>
-                <td class="detail__border">{{ $details->tester }}</td>
+                <td class="detail__border indent_">{{ $details->tester }}</td>
             </tr>
             {{-- <tr>
                 <th class="detail_border">結果編集者</th>

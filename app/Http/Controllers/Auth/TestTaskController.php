@@ -29,6 +29,7 @@ class TestTaskController extends Controller
             'result' => ['required','numeric'] ,
             'tester' => 'required'
         ]);
+        $params['tester'] = $params['tester'].PHP_EOL.'（'.date("Y/m/d H:i:s").'）';
         $data->update($params);
         return redirect()->route('test');
     }
@@ -51,7 +52,7 @@ class TestTaskController extends Controller
             'editor' => 'required',
             'comment' => 'required'
         ]);
-        $params['comment'] = $data->comment . PHP_EOL. $params['comment'];
+        $params['comment'] = $data->comment . PHP_EOL. $params['comment'].'（'.$params['editor'].' '.date("Y/m/d H:i:s").'）';
 
         $data->update($params);
         return redirect()->route('test');

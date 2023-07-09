@@ -58,7 +58,7 @@
                 <textarea name="comment" id="" cols="30" rows="10" >{{ old('comment') }}</textarea>
             </div>
             <div>
-                <input type="hidden" name="test_editor" value="{{ Auth::user()->name}}">
+                <input type="hidden" name="editor" value="{{ Auth::user()->name}}">
             </div>
 
             <div class="edit_btn">

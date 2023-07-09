@@ -33,12 +33,13 @@
             </tr>
             <tr>
                 <th class="detail_border">作成者</th>
-                <td class="detail__border">{{ $details->author }}</td>
+                <td class="detail__border">{{ $details->author }}<br>
+                （{{date('Y/m/d H:i:m',strtotime($details->created_at))}}）</td>
             </tr>
-            <tr>
+            {{-- <tr>
                 <th class="detail_border">編集者</th>
                 <td class="detail__border">{{ $details->editor }}</td>
-            </tr>
+            </tr> --}}
             <tr>
                 <th class="detail__inner">コメント</th>
                 <td class="indent">{{ $details->comment }}</td>
