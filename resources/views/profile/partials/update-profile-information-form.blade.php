@@ -52,6 +52,13 @@
             <x-input-error class="mt-2" :messages="$errors->get('department_number')" />
             <x-text-input id="department_number" name="department_number" type="text" class="mt-1 block w-full" :value="old('department_number', $user->department_number)" autofocus  />
         </div>
+        <div>
+            <x-input-label for="name" :value="__('部署名')" />
+            <p style="padding-top: 1%;font-size:1.1rem;">{{ $department }}</p>
+            {{-- <x-text-input id="department" name="department" type="text" class="mt-1 block w-full" :value="$department" autofocus readonly /> --}}
+        </div>
+
+        {{-- <div>{{ $department->name}}</div> --}}
 
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('変更') }}</x-primary-button>

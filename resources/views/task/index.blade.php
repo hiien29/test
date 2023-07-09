@@ -20,10 +20,12 @@
                         <th>材齢(日)</th>
                         <th class="th_1">配合</th>
                         <th class="th_2">現場名</th>
-                        {{-- <th class="th_5">結果</th> --}}
-                        <th></th>
-                        <th></th>
-                        <th></th>
+                        @if(auth()->user()->department_number === '001')
+                        <th class="th_5">結果</th>
+                        @endif
+                        <th>詳細</th>
+                        <th>削除</th>
+                        <th>編集</th>
                     </tr>
                     @foreach ($nottasks as $nottask)
                     <tr>
@@ -32,7 +34,9 @@
                         <td>{{ $nottask->age }}</td>
                         <td>{{ $nottask->type }}</td>
                         <td>{{ $nottask->site }}</td>
-                        {{-- <td><a href="{{ route('taskregister', ['id'=>$nottask->id]) }}"><i class="fa-solid fa-plus add2"></i></a></td> --}}
+                        @if(auth()->user()->department_number === '001')
+                        <td><a href="{{ route('taskregister', ['id'=>$nottask->id]) }}"><i class="fa-solid fa-plus add2"></i></a></td>
+                        @endif
                         <td><a href="{{ route('task_detail', ['id'=>$nottask->id]) }}"><i class="fa-solid fa-circle-info add2"></i></a></td>
                         <td><a href="{{ route('task_edit', ['id'=>$nottask->id]) }}"><i class="fa-regular fa-pen-to-square add2"></i></a></td>
                         <td><a href="{{ route('task_delete', ['id'=>$nottask->id]) }}" onclick="return confirm('本当に削除しますか？')"><i class="fa-regular fa-trash-can add2"></i></a></td>
@@ -56,10 +60,12 @@
                 <th>材齢(日)</th>
                 <th class="th_1">配合</th>
                 <th class="th_2">現場名</th>
-                {{-- <th class="th_5">結果</th> --}}
-                <th></th>
-                <th></th>
-                <th></th>
+                @if(auth()->user()->department_number === '001')
+                <th class="th_5">結果</th>
+                @endif
+                <th>詳細</th>
+                <th>編集</th>
+                <th>削除</th>
             </tr>
             @foreach ($params as $param)
             <tr>
@@ -68,7 +74,10 @@
                 <td>{{ $param->age }}</td>
                 <td>{{ $param->type }}</td>
                 <td>{{ $param->site }}</td>
-                {{-- <td><a href="{{ route('taskregister', ['id'=>$param->id]) }}"><i class="fa-solid fa-plus add2"></i></a></td> --}}
+                
+                @if(auth()->user()->department_number === '001')
+                <td><a href="{{ route('taskregister', ['id'=>$param->id]) }}"><i class="fa-solid fa-plus add2"></i></a></td>
+                @endif
                 <td><a href="{{ route('task_detail', ['id'=>$param->id]) }}"><i class="fa-solid fa-circle-info add2"></i></a></td>
                 <td><a href="{{ route('task_edit', ['id'=>$param->id]) }}"><i class="fa-regular fa-pen-to-square add2"></i></a></td>
                 <td><a href="{{ route('task_delete', ['id'=>$param->id]) }}" onclick="return confirm('本当に削除しますか？')"><i class="fa-regular fa-trash-can add2"></i></a></td>

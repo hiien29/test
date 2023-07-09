@@ -5,7 +5,13 @@
         </div>
     </x-slot>
 
-    <p class="mt-6 text-right" style="margin-right: 10%; margin-top: 3%;">全試験数：{{ $params->total() }}件（{{ $params->currentPage() }}/{{ $params->lastPage() }}）</p>
+    <div style="width: 85%;margin: 5% auto 0;">
+        <p class="addbtn"><a href="{{ route('testregister') }}">予定追加<i class="fa-solid fa-plus add"></i></a></p>
+    </div>
+    <div style="width: 85%; margin: 0 auto;">
+        <p style="text-align: right">全試験数：{{ $params->total() }}件（{{ $params->currentPage() }}/{{ $params->lastPage() }}）</p>
+    </div>
+
     <div class="table_outer">
         <table class="table">
             <tr>
@@ -14,9 +20,9 @@
                 <th>材齢(日)</th>
                 <th class="th_1">配合</th>
                 <th class="th_2">現場名</th>
-                <th></th>
-                <th></th>
-                <th><a href="{{ route('testregister') }}"><i class="fa-solid fa-plus add"></i></a></th>
+                <th>詳細</th>
+                <th>編集</th>
+                <th>削除</th>
             </tr>
             @foreach ($params as $param)
             <tr>
