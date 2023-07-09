@@ -106,7 +106,8 @@ class TestResultController extends Controller
         }
         $nosearch = '';
         //GETが全てからであればNULLを返す
-        if (!isset($start_day) && !isset($end_day) && !isset($type) && !isset($age) && !isset($site)) {
+        if (!isset($start_day) && !isset($end_day) && !isset($type) && !isset($age) && !isset($site)) 
+        {
             $nosearch = $query->whereRaw('1 = 0');
         }
 

@@ -32,21 +32,25 @@
                 <td class="detail__border">{{ $details->site }}</td>
             </tr>
             <tr>
+                <th class="detail_border">試験結果</th>
+                <td class="detail__border">{{ $details->result }}N/㎟</td>
+            </tr>
+            <tr>
                 <th class="detail_border">作成者</th>
                 <td class="detail__border">{{ $details->author }}</td>
             </tr>
-            <tr>
-                <th class="detail_border">試験内容編集者</th>
+            {{-- <tr>
+                <th class="detail_border">試験詳細編集者</th>
                 <td class="detail__border">{{ $details->editor }}</td>
-            </tr>
+            </tr> --}}
             <tr>
                 <th class="detail_border">試験者</th>
                 <td class="detail__border">{{ $details->tester }}</td>
             </tr>
-            <tr>
+            {{-- <tr>
                 <th class="detail_border">結果編集者</th>
                 <td class="detail__border">{{ $details->test_editor }}</td>
-            </tr>
+            </tr> --}}
             <tr>
                 <th class="detail__inner">コメント</th>
                 <td class="indent">{{ $details->comment }}</td>
@@ -55,6 +59,6 @@
     </div>
 
     <div class="detail_back">
-        <a href="{{ route('result') }}"><i class="fa-solid fa-circle-arrow-left"></i>戻る</a>
+        <a href="#" onclick="history.back()"><i class="fa-solid fa-circle-arrow-left"></i>戻る</a>
     </div>
 </x-app-layout>

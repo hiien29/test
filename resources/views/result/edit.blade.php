@@ -41,10 +41,29 @@
                 @enderror
                 <input type="text" name="site" value="{{ old('site') ?? $params->site}}">
             </div>
+
+            {{-- 試験員であれば編集可能 --}}
+            @if(Auth::user()->department_number === '001')
+            <div class="edit_box">
+                <label>試験結果（N/㎟）</label>
+                @error('result')
+                <p class="error_msg">{{$message}}</p>
+                @enderror
+                <input type="text" name="result" value="{{ old('site') ?? $params->result}}">
+                {{-- <input type="hidden" name="test_editor" value="{{ Auth::user()->name}}"> --}}
+            </div>
+            @endif
+            
+            {{-- 試験員以外は結果編集不可 --}}
+            @if(Auth::user()->department_number !== '001')
             <div class="edit_box">
                 <label>試験結果</label>
                 <p>{{ $params->result }}N/㎟</p>
+                {{-- <input type="hidden" name="editor" value="{{ Auth::user()->name}}"> --}}
+                <input type="hidden" name="result" value="{{ $params->result }}">
             </div>
+            @endif
+
             <div class="edit_box">
                 <label><i class="fa-duotone fa-asterisk"></i>コメント(編集理由、共有事項等記載してください)</label>
                 @error('comment')
@@ -52,12 +71,10 @@
                 @enderror
                 <textarea name="comment" id="" cols="30" rows="10" >{{ old('comment') }}</textarea>
             </div>
-            <div>
-                <input type="hidden" name="editor" value="{{ Auth::user()->name}}">
-            </div>
+            
 
             <div class="edit_btn">
-                <a href="{{ route('result') }}" class="edit__btn">戻る</a>
+                <a href="#" onclick="history.back()" class="edit__btn">戻る</a>
                 <button type="submit" onclick="return confirm('変更しますか？')" class="edit___btn">変更</button>
             </div>
         </div>

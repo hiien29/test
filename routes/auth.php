@@ -13,6 +13,7 @@ use App\Http\Controllers\Auth\TestController;
 use App\Http\Controllers\Auth\TestScheduleController;
 use App\Http\Controllers\Auth\TestTaskController;
 use App\Http\Controllers\Auth\TestResultController;
+use App\Http\Controllers\Auth\PdfController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
@@ -92,7 +93,10 @@ Route::middleware('auth')->group(function () {
         Route::post('result/update/{id}','update')->name('result_update');
         Route::get('result/delete/{id}','delete')->name('result_delete');
         Route::get('result/detail/{id}','detail')->name('result_detail');
+        Route::get('result/search','search')->name('result_search');
     });
+
+    Route::get('result_pdf/{id}', [PdfController::class, 'pdfCreate'])->name('result_pdf');
 
 
 });

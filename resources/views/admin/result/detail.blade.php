@@ -39,18 +39,18 @@
                 <th class="detail_border">作成者</th>
                 <td class="detail__border">{{ $details->author }}</td>
             </tr>
-            <tr>
+            {{-- <tr>
                 <th class="detail_border">試験詳細編集者</th>
                 <td class="detail__border">{{ $details->editor }}</td>
-            </tr>
+            </tr> --}}
             <tr>
                 <th class="detail_border">試験者</th>
                 <td class="detail__border">{{ $details->tester }}</td>
             </tr>
-            <tr>
+            {{-- <tr>
                 <th class="detail_border">結果編集者</th>
                 <td class="detail__border">{{ $details->test_editor }}</td>
-            </tr>
+            </tr> --}}
             <tr>
                 <th class="detail__inner">コメント</th>
                 <td class="indent">{{ $details->comment }}</td>

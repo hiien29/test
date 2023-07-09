@@ -20,7 +20,7 @@
                         <th>材齢(日)</th>
                         <th class="th_1">配合</th>
                         <th class="th_2">現場名</th>
-                        @if(auth()->user()->department_number === '001')
+                        @if(Auth::user()->department_number === '001')
                         <th class="th_5">結果</th>
                         @endif
                         <th>詳細</th>
@@ -34,7 +34,7 @@
                         <td>{{ $nottask->age }}</td>
                         <td>{{ $nottask->type }}</td>
                         <td>{{ $nottask->site }}</td>
-                        @if(auth()->user()->department_number === '001')
+                        @if(Auth::user()->department_number === '001')
                         <td><a href="{{ route('taskregister', ['id'=>$nottask->id]) }}"><i class="fa-solid fa-plus add2"></i></a></td>
                         @endif
                         <td><a href="{{ route('task_detail', ['id'=>$nottask->id]) }}"><i class="fa-solid fa-circle-info add2"></i></a></td>
@@ -60,7 +60,7 @@
                 <th>材齢(日)</th>
                 <th class="th_1">配合</th>
                 <th class="th_2">現場名</th>
-                @if(auth()->user()->department_number === '001')
+                @if(Auth::user()->department_number === '001')
                 <th class="th_5">結果</th>
                 @endif
                 <th>詳細</th>
@@ -75,7 +75,7 @@
                 <td>{{ $param->type }}</td>
                 <td>{{ $param->site }}</td>
                 
-                @if(auth()->user()->department_number === '001')
+                @if(Auth::user()->department_number === '001')
                 <td><a href="{{ route('taskregister', ['id'=>$param->id]) }}"><i class="fa-solid fa-plus add2"></i></a></td>
                 @endif
                 <td><a href="{{ route('task_detail', ['id'=>$param->id]) }}"><i class="fa-solid fa-circle-info add2"></i></a></td>

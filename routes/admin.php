@@ -13,7 +13,7 @@ use App\Http\Controllers\Admin\Auth\TestController;
 use App\Http\Controllers\Admin\Auth\TestScheduleController;
 use App\Http\Controllers\Admin\Auth\TestTaskController;
 use App\Http\Controllers\Admin\Auth\TestResultController;
-use App\Http\Controllers\PdfController;
+use App\Http\Controllers\Admin\Auth\PdfController;
 use Illuminate\Support\Facades\Route;
 
 
