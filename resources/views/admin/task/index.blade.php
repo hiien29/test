@@ -15,6 +15,7 @@
             <div class="nottask table_outer" style="margin-top: 2%;" id="nottask">
                 <table class="table">
                     <tr>
+                        <th>試験ID</th>
                         <th class="th_1">打設日</th>
                         <th class="th_1">試験日</th>
                         <th>材齢(日)</th>
@@ -27,6 +28,7 @@
                     </tr>
                     @foreach ($nottasks as $nottask)
                     <tr>
+                        <td>{{ $nottask->id }}</td>
                         <td>{{ date('Y/m/d',strtotime($nottask->make_day)) }}</td>
                         <td>{{ date('Y/m/d',strtotime($nottask->test_day)) }}</td>
                         <td>{{ $nottask->age }}</td>
@@ -55,6 +57,7 @@
         <div class="table_outer">
             <table class="table">
                 <tr>
+                    <th>試験ID</th>
                     <th class="th_1">打設日</th>
                     <th class="th_1">試験日</th>
                     <th>材齢(日)</th>
@@ -67,6 +70,7 @@
                 </tr>
                 @foreach ($params as $param)
                 <tr>
+                    <td>{{ $param->id }}</td>
                     <td>{{ date('Y/m/d',strtotime($param->make_day)) }}</td>
                     <td>{{ date('Y/m/d',strtotime($param->test_day)) }}</td>
                     <td>{{ $param->age }}</td>

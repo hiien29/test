@@ -73,6 +73,7 @@ Route::middleware('auth:admin')->group(function () {
     Route::controller(TestScheduleController::class)->group(function()
     {
         Route::get('schedule/register','create')->name('testregister');
+        Route::get('test_register','store')->name('test_register');
         Route::post('test_register','store')->name('test_register');
         Route::get('schedule/edit/{id}','edit')->name('edit');
         Route::post('schedule/update/{id}','update')->name('update');

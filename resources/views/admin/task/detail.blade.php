@@ -12,7 +12,11 @@
     <div class="detail_table">
         <table class="detail">
             <tr>
-                <th class="detail_inner detail_border">打設日</th>
+                <th class="detail_inner detail_border">試験ID</th>
+                <td class="detail__border">{{ $details->id }}</td>
+            </tr>
+            <tr>
+                <th class="detail_border">打設日</th>
                 <td class="detail__border">{{ date('Y/m/d',strtotime($details->make_day)) }}</td>
             </tr>
             <tr>

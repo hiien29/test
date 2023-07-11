@@ -11,6 +11,8 @@ class Log extends Model
     protected $table = 'logs';
 
     protected $fillable =[
+        'user_id',
+        'testlist_id',    
         'action',
         'description'
     ];
