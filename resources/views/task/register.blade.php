@@ -13,7 +13,7 @@
                 <p>試験日：{{ $data->test_day}}</p>
             </div>
             <div class="edit_box">
-                <p>材齢：{{ $data->age}}</p>
+                <p>材齢：{{ $data->age}}日</p>
             </div>
             <div class="edit_box">
                 <p>配合：{{ $data->type}}</p>

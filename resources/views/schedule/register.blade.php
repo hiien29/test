@@ -11,8 +11,8 @@
             x-show="show"
             x-transition
             x-init="setTimeout(() => show = false, 2000)"
-            class="text-sm text-gray-600"
-            style="padding-top: 2%;;">{{ session('message') }}</p>
+            class="text-lg text-gray-600"
+            style="padding-top: 2%;">{{ session('message') }}</p>
         @endif
     </div>
     

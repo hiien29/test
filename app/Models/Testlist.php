@@ -24,8 +24,11 @@ class Testlist extends Model
         'comment'
     ];
     
-    public function results()
+
+    public function logs()
     {
-        return $this->hasMany(Result::class, 'testlist_id');
+    return $this->hasMany('App\Models\Log');
     }
+
+    
 }

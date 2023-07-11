@@ -31,19 +31,20 @@ class TestScheduleController extends Controller
             'author' => 'required',
         ]);
 
-
-        $testlist = Testlist::create([
+        $testlist = [
             'make_day' => $request->make_day,
             'test_day' => $request->test_day,
             'age' => $request->age,
             'type' => $request->type,
             'site' => $request->site,
             'author' => $request->author,
-            'comment' => PHP_EOL.$request->comment.'（'.$request->author.' '.date("Y/m/d H:i:s").'）',
             'created_at' => now(),
             'updated_at' => now()
-        ]);
-        
+        ];
+        if($request->comment) {
+            $testlist['comment'] = PHP_EOL.$request->comment.'（'.$request->author.' '.date("Y/m/d H:i:s").'）';
+        }      
+        Testlist::create($testlist);
         
         return redirect(route('testregister'))->with('message', '登録が完了しました。');
     }
