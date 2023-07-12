@@ -27,8 +27,8 @@
             <div class="edit_box">
                 <p class="indent_">共有事項：</p>
                 @foreach ($comments as $comment)
-                <p class="indent_">{{ $comment->enterer }}（{{ date('Y/m/d H:i',strtotime($comment->created_at)) }}）</p>
-                <p class="indent_">{{ $comment->comment }}</p>
+                <p class="indent_  comment_user">{{ $comment->enterer }}（{{ date('Y/m/d H:i',strtotime($comment->created_at)) }}）</p>
+                <p class="indent_ comment_detail">{{ $comment->comment }}</p>
                 @endforeach
             </div>
             <div class="edit_box">

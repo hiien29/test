@@ -13,6 +13,7 @@ use App\Models\Testlist;
 use App\Models\Result;
 use Illuminate\Session\Store;
 use Illuminate\Support\Facades\Redirect;
+use App\Models\Comment;
 
 class TestResultController extends Controller
 {
@@ -33,12 +34,19 @@ class TestResultController extends Controller
             'age' => 'required', 
             'type' => 'required',
             'site' => 'required',
-            'editor' => 'required',
             'result' =>  'required',
-            'comment' => 'required'
         ]);
 
-        $params['comment'] = $data->comment . PHP_EOL. $params['comment'].'（'.$params['editor'].' '.date("Y/m/d H:i:s").'）';
+        $request->validate([
+            'comment' => 'required',
+            'editor' => 'required',
+        ]);
+        $comment =[
+            'testlist_id' => $id,
+            'enterer' => $request->editor,
+            'comment' => $request->comment,
+        ];
+        Comment::create($comment);
 
 
         $data->update($params);
@@ -67,7 +75,8 @@ class TestResultController extends Controller
     public function detail($id)
     {
         $details = Testlist::find($id);
-        return view('admin.result.detail',compact('details'));
+        $comments = Comment::where('testlist_id', $details->id)->orderBy('created_at','DESC')->get();
+        return view('admin.result.detail',compact('details','comments'));
     }
 
     

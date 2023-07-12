@@ -11,6 +11,7 @@ use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 use App\Models\Testlist;
 use App\Rules\TypeRule;
+use App\Models\Comment;
 
 class TestScheduleController extends Controller
 {
@@ -42,10 +43,20 @@ class TestScheduleController extends Controller
             'updated_at' => now()
         ];
 
-        if($request->comment) {
-            $testlist['comment'] = PHP_EOL.$request->comment.'（'.$request->author.' '.date("Y/m/d H:i:s").'）';
-        }      
-        Testlist::create($testlist);
+        $createTestlist = Testlist::create($testlist);
+
+        if(isset($request->comment))
+        {
+        $comment = [
+            'testlist_id' => $createTestlist->id,
+            'enterer' => $request->author,
+            'comment' => $request->comment,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ];
+        Comment::create($comment);
+        }
+
         
         return redirect(route('admin.testregister'))->with('message', '登録が完了しました。');
     }
@@ -66,10 +77,18 @@ class TestScheduleController extends Controller
             'age' => 'required', 
             'type' => 'required',
             'site' => 'required',
-            'editor' => 'required',
-            'comment' => 'required'
         ]);
-        $params['comment'] = $data->comment . PHP_EOL. $params['comment'].'（'.$params['editor'].' '.date("Y/m/d H:i:s").'）';
+
+        $request->validate([
+            'comment' => 'required',
+            'editor' => 'required',
+        ]);
+        $comment =[
+            'testlist_id' => $id,
+            'comment' => $request->comment,
+            'enterer' => $request->editor,
+        ];
+        Comment::create($comment);
 
         $data->update($params);
         return redirect()->route('admin.schedule');
@@ -78,13 +97,15 @@ class TestScheduleController extends Controller
     public function delete($id)
     {
         $data = Testlist::find($id);
+
         $data->delete();
-        return redirect()->route('admin.schedule');
+        return redirect()->back();
     }
 
     public function detail($id)
     {
         $details = Testlist::find($id);
-        return view('admin.schedule.detail',compact('details'));
+        $comments = Comment::where('testlist_id', $details->id)->orderBy('created_at','DESC')->get();
+        return view('admin.schedule.detail',compact('details','comments'));
     }
 }

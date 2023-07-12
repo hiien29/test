@@ -433,3 +433,15 @@ label i {
 .edit_box .indent_ {
     white-space: pre-line;
 }
+
+.edit_box .comment_user {
+    font-weight: 600;
+    padding-left: .3rem;
+    padding-bottom: .3rem;
+}
+
+.edit_box .comment_detail {
+    padding-left: 1rem;
+    padding-bottom: .5rem;
+}
+

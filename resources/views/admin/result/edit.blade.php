@@ -9,7 +9,7 @@
         <div class="edit_outer">
             <h1>編集画面</h1>
             <div class="edit_box">
-                <label>試験ID : {{$params->id}}</label>
+                <label class="test_id">試験ID : {{$params->id}}</label>
             </div>
             <div class="edit_box">
                 <label>打設日</label>

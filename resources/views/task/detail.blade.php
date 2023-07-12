@@ -1,8 +1,5 @@
 <x-app-layout>
     <x-slot name="header">
-        {{-- <div class="header">
-            <h1>詳細</h1>
-        </div> --}}
     </x-slot>
 
     <div class="detail_header">

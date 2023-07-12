@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 use App\Models\Testlist;
+use App\Models\Comment;
 use App\Models\Result;
 
 
@@ -19,7 +20,8 @@ class TestTaskController extends Controller
     public function show($id)
     {
         $data = Testlist::find($id);
-        return view('admin.task.register',compact('data'));
+        $comments = Comment::where('testlist_id', $data->id)->orderBy('created_at','DESC')->get();
+        return view('admin.task.register',compact('data','comments'));
     }
 
     public function register(Request $request,$id)
@@ -29,7 +31,20 @@ class TestTaskController extends Controller
             'result' => ['required','numeric'] ,
             'tester' => 'required'
         ]);
-        $params['tester'] = $params['tester'].PHP_EOL.'（'.date("Y/m/d H:i:s").'）';
+        $params['tester'] = $params['tester'].PHP_EOL.'（登録日時：'.date("Y/m/d H:i").'）';
+
+        if(isset($request->comment))
+        {
+        $comment = [
+            'testlist_id' => $id,
+            'enterer' => $request->tester,
+            'comment' => $request->comment,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ];
+        Comment::create($comment);
+        }
+
         $data->update($params);
         return redirect()->route('admin.test');
     }
@@ -49,10 +64,17 @@ class TestTaskController extends Controller
             'age' => 'required', 
             'type' => 'required',
             'site' => 'required',
-            'editor' => 'required',
-            'comment' => 'required'
         ]);
-        $params['comment'] = $data->comment . PHP_EOL. $params['comment'].'（'.$params['editor'].' '.date("Y/m/d H:i:s").'）';
+        $request->validate([
+            'comment' => 'required',
+            'editor' => 'required',
+        ]);
+        $comment =[
+            'testlist_id' => $id,
+            'comment' => $request->comment,
+            'enterer' => $request->editor,
+        ];
+        Comment::create($comment);
 
         $data->update($params);
         return redirect()->route('admin.test');
@@ -69,6 +91,7 @@ class TestTaskController extends Controller
     public function detail($id)
     {
         $details = Testlist::find($id);
-        return view('admin.task.detail',compact('details'));
+        $comments = Comment::where('testlist_id', $details->id)->orderBy('created_at','DESC')->get();
+        return view('admin.task.detail',compact('details','comments'));
     }
 }

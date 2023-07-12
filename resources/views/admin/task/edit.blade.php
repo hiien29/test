@@ -7,7 +7,7 @@
         <div class="edit_outer">
             <h1>編集画面</h1>
             <div class="edit_box">
-                <label>試験ID : {{$params->id}}</label>
+                <label class="test_id">試験ID : {{$params->id}}</label>
             </div>
             <div class="edit_box">
                 <label>打設日</label>
@@ -55,7 +55,7 @@
                 <input type="hidden" name="editor" value="{{ Auth::user()->name}}">
             </div>
             <div class="edit_btn">
-                <a href="{{ route('admin.test') }}" class="edit__btn">戻る</a>
+                <a href="#" onclick="history.back()" class="edit__btn">戻る</a>
                 <button type="submit" onclick="return confirm('変更しますか？')" class="edit___btn">変更</button>
             </div>
             

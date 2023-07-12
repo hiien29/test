@@ -21,7 +21,7 @@ class TestTaskController extends Controller
     public function show($id)
     {
         $data = Testlist::find($id);
-        $comments = Comment::where('testlist_id', $data->id)->get();
+        $comments = Comment::where('testlist_id', $data->id)->orderBy('created_at','DESC')->get();
         return view('task.register',compact('data','comments'));
     }
 
