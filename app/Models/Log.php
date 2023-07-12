@@ -12,21 +12,14 @@ class Log extends Model
 
     protected $fillable =[
         'user_id',
-        'testlist_id',    
-        'action',
-        'description'
+        'testlist_id',
+        'action',    
+        'description',
     ];
+
 
     public function user()
     {
-        return $this->belongsTo('App\Models\User');
-    }
-    public function testlist()
-    {
-        return $this->belongsTo('App\Models\Testlist');
+        return $this->belongsTo(User::class);
     }
 }
-
-
-
-

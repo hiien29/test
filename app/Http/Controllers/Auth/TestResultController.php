@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 use App\Models\Testlist;
-use App\Models\Result;
+use App\Models\Comment;
+use App\Models\Log;
 
 
 class TestResultController extends Controller
@@ -32,13 +33,63 @@ class TestResultController extends Controller
             'type' => 'required',
             'site' => 'required',
             'result' => 'required',
-            'comment' => 'required',
-            'editor' => 'max:20',
-            // 'test_editor' => 'max:20',
         ]);
 
-        $params['comment'] = $data->comment . PHP_EOL. $params['comment'].'（'.$params['editor'].' '.date("Y/m/d H:i:s").'）';
 
+        $data->make_day = $params['make_day'];
+        $data->test_day = $params['test_day'];
+        $data->age = $params['age'];
+        $data->type = $params['type'];
+        $data->site = $params['site'];
+        $data->result = $params['result'];
+        $data->save();
+
+        $request->validate([
+            'comment' => 'required',
+            'editor' => 'required',
+        ]);
+        $comment =[
+            'testlist_id' => $id,
+            'enterer' => $request->editor,
+            'comment' => $request->comment,
+        ];
+        Comment::create($comment);
+
+        //logsテーブル作成
+        $changes = $data->getChanges();
+        if (!empty($changes)) {
+            unset($changes['updated_at']);
+            $logDescription = '試験ID:' . $id . 'の';
+            foreach ($changes as $column => $newValue) {
+                if ($column === 'make_day') {
+                    $columnName = '打設日';
+                } elseif ($column === 'test_day') {
+                    $columnName = '試験日';
+                } elseif ($column === 'age') {
+                    $columnName = '材齢';
+                } elseif ($column === 'type') {
+                    $columnName = '配合';
+                } elseif ($column === 'site') {
+                    $columnName = '現場名';
+                } elseif ($column === 'result') {
+                    $columnName = '試験結果';
+                } else {
+                    $columnName = $column;
+                }
+                $modifiedColumns[] = $columnName;
+            }
+            
+            $logDescription .= implode('、', $modifiedColumns) . 'を変更しました。';
+
+            $log = [
+                'user_id' => Auth::id(),
+                'action' => '編集',
+                'description' => $logDescription,
+                'created_at' => now(),
+                'updated_at' => now()
+            ];
+            Log::create($log);
+        }
         $data->update($params);
 
         $url = $request->session()->get('searchUrl');
@@ -58,6 +109,14 @@ class TestResultController extends Controller
     public function delete($id)
     {
         $data = Testlist::find($id);
+        $log = [
+            'user_id' => Auth::id(),
+            'action' => '削除',
+            'description' => '試験ID:' . $id.'を削除しました。'.PHP_EOL.'（試験日：'.$data->test_day.',材齢：'.$data->age.',配合：'.$data->type.',現場：'.$data->site.'）',
+            'created_at' => now(),
+            'updated_at' => now()
+        ];
+        Log::create($log);
         $data->delete();
         return redirect()->back();
         
@@ -66,7 +125,8 @@ class TestResultController extends Controller
     public function detail($id)
     {
         $details = Testlist::find($id);
-        return view('result.detail',compact('details'));
+        $comments = Comment::where('testlist_id', $details->id)->orderBy('created_at','DESC')->get();
+        return view('result.detail',compact('details','comments'));
     }
     public function search(Request $rq)
     {

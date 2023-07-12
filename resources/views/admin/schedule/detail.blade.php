@@ -38,7 +38,7 @@
             <tr>
                 <th class="detail_border">作成者</th>
                 <td class="detail__border">{{ $details->author }}<br>
-                （{{date('Y/m/d H:i:m',strtotime($details->created_at))}}）</td>
+                （作成日：{{date('Y/m/d',strtotime($details->created_at))}}）</td>
             </tr>
             {{-- <tr>
                 <th class="detail_border">編集者</th>

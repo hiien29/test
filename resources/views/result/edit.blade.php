@@ -7,28 +7,28 @@
         <div class="edit_outer">
             <h1>編集画面</h1>
             <div class="edit_box">
-                <label>試験ID : {{$params->id}}</label>
+                <label class="test_id">試験ID : {{$params->id }}</label>
             </div>
             <div class="edit_box">
                 <label>打設日</label>
                 @error('make_day')
                 <p class="error_msg">{{$message}}</p>
                 @enderror
-                <input type="date" name="make_day" value="{{ old('make_day') ?? $params->make_day}}" id="make_day">
+                <input type="date" name="make_day" value="{{ old('make_day') ?? $params->make_day }}" id="make_day">
             </div>
             <div class="edit_box">
                 <label>試験日</label>
                 @error('test_day')
                 <p class="error_msg">{{$message}}</p>
                 @enderror
-                <input type="date" name="test_day" value="{{ old('test_day') ?? $params->test_day}}" id="test_day">
+                <input type="date" name="test_day" value="{{ old('test_day') ?? $params->test_day }}" id="test_day">
             </div>
             <div class="edit_box">
                 <label>材齢(日)</label>
                 @error('age')
                 <p class="error_msg">{{$message}}</p>
                 @enderror
-                <input type="text" name="age" value="{{ old('age') ?? $params->age}}" id="age" readonly>
+                <input type="text" name="age" value="{{ old('age') ?? $params->age }}" id="age" readonly>
             </div>
             <div class="edit_box">
                 <label>配合</label>
@@ -42,7 +42,7 @@
                 @error('site')
                 <p class="error_msg">{{$message}}</p>
                 @enderror
-                <input type="text" name="site" value="{{ old('site') ?? $params->site}}">
+                <input type="text" name="site" value="{{ old('site') ?? $params->site }}">
             </div>
 
             {{-- 試験員であれば編集可能 --}}
@@ -52,7 +52,7 @@
                 @error('result')
                 <p class="error_msg">{{$message}}</p>
                 @enderror
-                <input type="text" name="result" value="{{ old('site') ?? $params->result}}">
+                <input type="text" name="result" value="{{ old('site') ?? $params->result }}">
             </div>
             @endif
             
@@ -74,7 +74,7 @@
             </div>
             
             {{-- 編集者の名前を格納 --}}
-            <input type="hidden" name="editor" value="{{ Auth::user()->name}}">
+            <input type="hidden" name="editor" value="{{ Auth::user()->name }}">
 
             <div class="edit_btn">
                 <a href="#" onclick="history.back()" class="edit__btn">戻る</a>

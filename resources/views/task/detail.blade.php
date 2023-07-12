@@ -38,7 +38,7 @@
             <tr>
                 <th class="detail_border">作成者</th>
                 <td class="detail__border">{{ $details->author }}<br>
-                （{{date('Y/m/d H:i:m',strtotime($details->created_at))}}）</td>
+                （作成日時：{{date('Y/m/d H:i',strtotime($details->created_at))}}）</td>
             </tr>
             {{-- <tr>
                 <th class="detail_border">編集者</th>
@@ -46,13 +46,20 @@
             </tr> --}}
             <tr>
                 <th class="detail__inner">コメント</th>
-                <td class="indent">{{ $details->comment }}</td>
+                <td>
+                    @foreach ($comments as $comment)
+                    <div class="comment_box">
+                        <p class="comment_user">{{ $comment->enterer }}（{{ date('Y/m/d H:i',strtotime($comment->created_at)) }}）</p>
+                        <p class="comment_detail">{{ $comment->comment }}</p>
+                    </div>
+                    @endforeach
+                </td>
             </tr>
         </table>
     </div>
 
     <div class="detail_back">
-        <a href="{{ route('test') }}"><i class="fa-solid fa-circle-arrow-left"></i>戻る</a>
+        <a href="#" onclick="history.back()" ><i class="fa-solid fa-circle-arrow-left"></i>戻る</a>
     </div>
     
 </x-app-layout>

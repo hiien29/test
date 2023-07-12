@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 use App\Models\Testlist;
+use App\Models\Log;
+use App\Models\Comment;
 
 class TestScheduleController extends Controller
 {
@@ -39,21 +41,45 @@ class TestScheduleController extends Controller
             'site' => $request->site,
             'author' => $request->author,
             'created_at' => now(),
+            'updated_at' => now(),
+        ];
+
+        
+        $createTestlist = Testlist::create($testlist);
+
+        if(isset($request->comment))
+        {
+        $comment = [
+            'testlist_id' => $createTestlist->id,
+            'enterer' => $request->author,
+            'comment' => $request->comment,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ];
+        Comment::create($comment);
+        }
+
+        $log = [
+            'user_id' => Auth::id(),
+            'action' => '作成',
+            'description' => '試験ID:' . $createTestlist->id.'を作成しました。',
+            'created_at' => now(),
             'updated_at' => now()
         ];
-        if($request->comment) {
-            $testlist['comment'] = PHP_EOL.$request->comment.'（'.$request->author.' '.date("Y/m/d H:i:s").'）';
-        }      
-        Testlist::create($testlist);
+        Log::create($log);
         
         return redirect(route('testregister'))->with('message', '登録が完了しました。');
     }
+
+
 
     public function edit($id)
     {
         $params = Testlist::find($id);
         return view('schedule.edit', compact('params'));
     }
+
+
 
     public function update(Request $request,$id)
     {
@@ -64,25 +90,89 @@ class TestScheduleController extends Controller
             'age' => 'required', 
             'type' => 'required',
             'site' => 'required',
-            'editor' => 'required',
-            'comment' => 'required'
         ]);
-        $params['comment'] = $data->comment . PHP_EOL. $params['comment'].'（'.$params['editor'].' '.date("Y/m/d H:i:s").'）';
+
+        $data->make_day = $params['make_day'];
+        $data->test_day = $params['test_day'];
+        $data->age = $params['age'];
+        $data->type = $params['type'];
+        $data->site = $params['site'];
+
+        $data->save();
+
+        $request->validate([
+            'comment' => 'required',
+            'editor' => 'required',
+        ]);
+        $comment =[
+            'testlist_id' => $id,
+            'comment' => $request->comment,
+            'enterer' => $request->editor,
+        ];
+        Comment::create($comment);
+
+        //logsテーブル作成
+        $changes = $data->getChanges();
+        if (!empty($changes)) {
+            unset($changes['updated_at']);
+            $logDescription = '試験ID:' . $id . 'の';
+            foreach ($changes as $column => $newValue) {
+                if ($column === 'make_day') {
+                    $columnName = '打設日';
+                } elseif ($column === 'test_day') {
+                    $columnName = '試験日';
+                } elseif ($column === 'age') {
+                    $columnName = '材齢';
+                } elseif ($column === 'type') {
+                    $columnName = '配合';
+                } elseif ($column === 'site') {
+                    $columnName = '現場名';
+                } else {
+                    $columnName = $column;
+                }
+                $modifiedColumns[] = $columnName;
+            }
+            
+            $logDescription .= implode('、', $modifiedColumns) . 'を変更しました。';
+            $log = [
+                'user_id' => Auth::id(),
+                'action' => '編集',
+                'description' => $logDescription,
+                'created_at' => now(),
+                'updated_at' => now()
+            ];
+            Log::create($log);
+        }
 
         $data->update($params);
+
+        
+
         return redirect()->route('schedule');
     }
 
     public function delete($id)
     {
         $data = Testlist::find($id);
+        $log = [
+            'user_id' => Auth::id(),
+            'action' => '削除',
+            'description' => '試験ID:' . $id.'を削除しました。'.PHP_EOL.'（試験日：'.$data->test_day.',材齢：'.$data->age.',配合：'.$data->type.',現場：'.$data->site.'）',
+            'created_at' => now(),
+            'updated_at' => now()
+        ];
+        Log::create($log);
+        
         $data->delete();
-        return redirect()->route('schedule');
+        return redirect()->back();
     }
+
+
 
     public function detail($id)
     {
         $details = Testlist::find($id);
-        return view('schedule.detail',compact('details'));
+        $comments = Comment::where('testlist_id', $details->id)->orderBy('created_at','DESC')->get();
+        return view('schedule.detail',compact('details','comments'));
     }
 }

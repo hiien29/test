@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('testlists', function (Blueprint $table) {
+        Schema::table('logs', function (Blueprint $table) {
             //
-            $table->dropColumn('test_editor');
+            $table->dropForeign('logs_testlist_id_foreign');
+            $table->dropColumn('testlist_id'); 
         });
     }
 
@@ -22,9 +23,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('testlists', function (Blueprint $table) {
+        Schema::table('logs', function (Blueprint $table) {
             //
-            $table->string('test_editor')->nullable();
+            $table->unsignedBigInteger('testlist_id')->nullable();
+            $table->foreign('testlist_id')->references('id')->on('testlists')->onDelete('set null');
         });
     }
 };
