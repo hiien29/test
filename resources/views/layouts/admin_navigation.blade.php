@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('admin.result')" :active="request()->routeIs('admin.result')">
                         {{ __('試験結果') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('admin.set')" :active="request()->routeIs('admin.set')">
+                        {{ __('設定') }}
+                    </x-nav-link>
                 </div>
             </div>
 

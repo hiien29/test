@@ -82,13 +82,13 @@ class ProfileController extends Controller
             'updated_at' => now()
         ]);
 
-        return Redirect::route('admin.profile.register')->with('message', '部署を追加しました。');
+        return Redirect::back()->with('message', '追加しました。');
     }
 
     public function delete($id) {
         $data = Department::find($id);
         $data->delete();
-        return Redirect::route('admin.profile.register')->with('message_', '部署を削除しました。');
+        return Redirect::back()->with('message_', '削除しました。');
     }
 
     public function adminRegister(Request $request) {
@@ -105,12 +105,12 @@ class ProfileController extends Controller
             'updated_at' => now()
         ]);
 
-        return Redirect::route('admin.profile.register')->with('message___', '管理者を追加しました。');
+        return Redirect::back()->with('message___', '管理者を追加しました。');
     }
 
     public function adminDelete($id) {
         $data = Admin::find($id);
         $data->delete();
-        return Redirect::route('admin.profile.register')->with('message___', '管理者を削除しました。');
+        return Redirect::back()->with('message___', '管理者を削除しました。');
     }
 }

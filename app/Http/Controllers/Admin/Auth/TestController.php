@@ -59,4 +59,9 @@ class TestController extends Controller
         return view('admin.result.index',compact('params'));
     }
 
+    public function set(): View
+    {
+        return view('admin.set.index');
+    }
+
 }

@@ -8,6 +8,7 @@
                 <a href="{{ route('admin.schedule') }}" class="top_btn">試験予定</a>
                 <a href="{{ route('admin.test') }}" class="top_btn">当日</a>
                 <a href="{{ route('admin.result') }}" class="top_btn">試験結果</a>
+                <a href="{{ route('admin.set') }}" class="top_btn">設定</a>
             </div>
         </div>
     </div>

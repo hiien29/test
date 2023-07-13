@@ -58,6 +58,7 @@ class TestResultController extends Controller
         //logsテーブル作成
         $changes = $data->getChanges();
         if (!empty($changes)) {
+            
             unset($changes['updated_at']);
             $logDescription = '試験ID:' . $id . 'の';
             foreach ($changes as $column => $newValue) {
@@ -72,7 +73,7 @@ class TestResultController extends Controller
                 } elseif ($column === 'site') {
                     $columnName = '現場名';
                 } elseif ($column === 'result') {
-                    $columnName = '試験結果';
+                    $columnName = "試験結果";
                 } else {
                     $columnName = $column;
                 }
@@ -83,7 +84,7 @@ class TestResultController extends Controller
 
             $log = [
                 'user_id' => Auth::id(),
-                'action' => '編集',
+                'action' => "編集",
                 'description' => $logDescription,
                 'created_at' => now(),
                 'updated_at' => now()
@@ -112,7 +113,7 @@ class TestResultController extends Controller
         $log = [
             'user_id' => Auth::id(),
             'action' => '削除',
-            'description' => '試験ID:' . $id.'を削除しました。'.PHP_EOL.'（試験日：'.$data->test_day.',材齢：'.$data->age.',配合：'.$data->type.',現場：'.$data->site.'）',
+            'description' => '試験ID:' . $id.'を削除しました。'.PHP_EOL.'（試験日：'.$data->test_day.'、材齢：'.$data->age.'日、配合：'.$data->type.'、現場：'.$data->site.'）',
             'created_at' => now(),
             'updated_at' => now()
         ];

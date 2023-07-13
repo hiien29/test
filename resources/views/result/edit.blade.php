@@ -52,7 +52,7 @@
                 @error('result')
                 <p class="error_msg">{{$message}}</p>
                 @enderror
-                <input type="text" name="result" value="{{ old('site') ?? $params->result }}">
+                <input type="text" name="result" value="{{ old('result') ?? $params->result }}">
             </div>
             @endif
             

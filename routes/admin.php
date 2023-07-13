@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\Auth\TestScheduleController;
 use App\Http\Controllers\Admin\Auth\TestTaskController;
 use App\Http\Controllers\Admin\Auth\TestResultController;
 use App\Http\Controllers\Admin\Auth\PdfController;
+use App\Http\Controllers\Admin\Auth\TestSetController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -68,6 +69,7 @@ Route::middleware('auth:admin')->group(function () {
         Route::get('schedule/index','create')->name('schedule');
         Route::get('task/index','test')->name('test');
         Route::get('result/index','result')->name('result');
+        Route::get('set/index','set')->name('set');
     });
 
     Route::controller(TestScheduleController::class)->group(function()
@@ -100,4 +102,13 @@ Route::middleware('auth:admin')->group(function () {
     });
 
     Route::get('result_pdf/{id}', [PdfController::class, 'pdfCreate'])->name('result_pdf');
+
+    Route::controller(TestSetController::class)->group(function()
+    {
+        Route::get('set/log','log')->name('log');
+        Route::get('set/user','user')->name('user');
+        Route::get('set/admin','admin')->name('admin');
+        Route::get('set/department','department')->name('department');
+        Route::get('set/user_delete/{id}','user_delete')->name('user_delete');
+    });
 });

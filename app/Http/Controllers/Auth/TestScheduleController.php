@@ -157,7 +157,7 @@ class TestScheduleController extends Controller
         $log = [
             'user_id' => Auth::id(),
             'action' => '削除',
-            'description' => '試験ID:' . $id.'を削除しました。'.PHP_EOL.'（試験日：'.$data->test_day.',材齢：'.$data->age.',配合：'.$data->type.',現場：'.$data->site.'）',
+            'description' => '試験ID:' . $id.'を削除しました。'.PHP_EOL.'（試験日：'.$data->test_day.'、材齢：'.$data->age.'日、配合：'.$data->type.'、現場：'.$data->site.'）',
             'created_at' => now(),
             'updated_at' => now()
         ];
