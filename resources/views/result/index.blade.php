@@ -104,8 +104,8 @@
                 </div>
 
                 <div class="search_btn flex justify-center">
-                    <a href="{{ route('result') }}" class="searct___btn">検索解除</a>
-                    <button class="searct___btn"><i class="fa-solid fa-magnifying-glass"></i>検索</button>
+                    <a href="{{ route('result') }}" class="search___btn">検索解除</a>
+                    <button class="search____btn"><i class="fa-solid fa-magnifying-glass"></i>検索</button>
                 </div>
             </form>
         {{-- 一覧表示 --}}
@@ -124,9 +124,9 @@
 
             @if( $searches->count() > 0 )
             <div class="flex test_count">
-                <p class="text-xl font-bold text-gray-800" style="margin-right: 24px;">平均結果：{{ round($avg,1) }}N/㎟</p>
-                <p class="text-xl font-bold text-gray-800 mx-6">最小値：{{ $min }}N/㎟</p>
-                <p class="text-xl font-bold text-gray-800 mx-6">最大値：{{ $max }}N/㎟</p>
+                <p class="text-xl font-bold statistic_font" style="margin-right: 24px;">平均結果：{{ round($avg,1) }}N/㎟</p>
+                <p class="text-xl font-bold statistic_font mx-6">最小値：{{ $min }}N/㎟</p>
+                <p class="text-xl font-bold statistic_font mx-6">最大値：{{ $max }}N/㎟</p>
             </div>
 
             <p class="mt-6 text-right" style="margin-right: 5%;">全試験数：{{ $searches->total() }}件（{{ $searches->currentPage() }}/{{ $searches->lastPage() }}）</p>
