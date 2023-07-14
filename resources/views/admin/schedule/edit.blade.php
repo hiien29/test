@@ -51,9 +51,9 @@
                 @enderror
                 <textarea name="comment" cols="40" rows="10" >{{ old('comment') }}</textarea>
             </div>
-            <div>
+
                 <input type="hidden" name="editor" value="{{ Auth::user()->name}}">
-            </div>
+                <input type="hidden" name="url" value="{{ $url }}">
 
             <div class="edit_btn">
                 <a href="#" onclick="history.back()" class="edit__btn">戻る</a>

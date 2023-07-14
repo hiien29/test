@@ -62,10 +62,12 @@ class TestScheduleController extends Controller
     }
 
 
-    public function edit($id)
+    public function edit(Request $rq,$id)
     {
         $params = Testlist::find($id);
-        return view('admin.schedule.edit', compact('params'));
+        $url = $rq->headers->get('referer');
+        
+        return view('admin.schedule.edit', compact('params','url'));
     }
 
     public function update(Request $request,$id)
@@ -90,8 +92,10 @@ class TestScheduleController extends Controller
         ];
         Comment::create($comment);
 
+        $url = $request->url;
+        
         $data->update($params);
-        return redirect()->route('admin.schedule');
+        return redirect($url);
     }
 
     public function delete($id)

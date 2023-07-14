@@ -17,11 +17,12 @@ use App\Models\Result;
 class TestTaskController extends Controller
 {
     
-    public function show($id)
+    public function show(Request $rq,$id)
     {
         $data = Testlist::find($id);
         $comments = Comment::where('testlist_id', $data->id)->orderBy('created_at','DESC')->get();
-        return view('admin.task.register',compact('data','comments'));
+        $url = $rq->headers->get('referer');
+        return view('admin.task.register',compact('data','comments','url'));
     }
 
     public function register(Request $request,$id)
@@ -45,14 +46,16 @@ class TestTaskController extends Controller
         Comment::create($comment);
         }
 
+        $url = $request->url;
         $data->update($params);
-        return redirect()->route('admin.test');
+        return redirect($url);
     }
 
-    public function edit($id)
+    public function edit(Request $rq,$id)
     {
         $params = Testlist::find($id);
-        return view('admin.task.edit', compact('params'));
+        $url = $rq->headers->get('referer');
+        return view('admin.task.edit', compact('params','url'));
     }
 
     public function update(Request $request,$id)
@@ -76,8 +79,9 @@ class TestTaskController extends Controller
         ];
         Comment::create($comment);
 
+        $url = $request->url;
         $data->update($params);
-        return redirect()->route('admin.test');
+        return redirect($url);
     }
 
     public function delete($id)

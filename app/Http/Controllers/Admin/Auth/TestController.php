@@ -17,12 +17,13 @@ use App\Models\Result;
 class TestController extends Controller
 {
     //
-    public function create(): View
+    public function create(Request $rq): View
     {
         $params = Testlist::where('test_day','>',today())
         ->orderBy('test_day', 'asc')
         ->orderBy('age')
         ->paginate(10);
+
         return view('admin.schedule.index',compact('params'));
     }
 
@@ -52,16 +53,12 @@ class TestController extends Controller
         ->orderBy('age')
         ->paginate(10);
 
-        $rq->session()->put('resultUrl', $rq->fullUrl());
-        $searches = $rq->session()->pull('searches');
-        $url = $rq->session()->pull('searchUrl');
-
         return view('admin.result.index',compact('params'));
     }
 
-    public function set(): View
-    {
-        return view('admin.set.index');
-    }
+    // public function set(): View
+    // {
+    //     return view('admin.set.index');
+    // }
 
 }

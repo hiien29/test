@@ -72,11 +72,11 @@ class ProfileController extends Controller
 
     public function register(Request $request) {
         $request -> validate([
-            'depart_number' => 'required',
+            'number' => ['required','unique:'.Department::class],
             'depart_name' => 'required'
         ]);
         $departments = Department::create([
-            'number' => $request->depart_number,
+            'number' => $request->number,
             'name' => $request->depart_name,
             'created_at' => now(),
             'updated_at' => now()

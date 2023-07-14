@@ -75,6 +75,7 @@
             
             {{-- 編集者の名前を格納 --}}
             <input type="hidden" name="editor" value="{{ Auth::user()->name }}">
+            <input type="hidden" name="url" value="{{ $url }}">
 
             <div class="edit_btn">
                 <a href="#" onclick="history.back()" class="edit__btn">戻る</a>

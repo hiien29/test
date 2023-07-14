@@ -1,6 +1,6 @@
 
 /* dashboardのスタイル */
-.top {
+/* .top {
     background-color: white;
     padding: 10% 0;
     border-radius: 10px;
@@ -20,12 +20,15 @@
 .top_btn:hover {
 	color: #fff;
 	background: #aaa;
+} */
+input:focus {
+    outline: none;
 }
-
 
 /* indexのスタイル */
 .header h1 {
     font-weight: bold;
+    color: #666;
 }
 
 .table_outer {
@@ -52,11 +55,11 @@
     height: 10%;
 }
 .table th:first-child {
-    border-top-left-radius: 10px;
+    border-top-left-radius: 8px;
 }
 
 .table th:last-child {
-    border-top-right-radius: 10px;
+    border-top-right-radius: 8px;
 }
 
 .th_1 {
@@ -71,26 +74,30 @@
 .th_4 {
     width: 10%;
 }
+.th_5 {
+    width: 5%;
+}
 
 
 .addbtn a {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     margin: 0 auto;
     padding: 1em;
     width: 110%;
-    color: #666;
+    color: #777;
     font-size: 1rem;
-    font-weight: 700;
-    border: 2px solid #888;
+    font-weight: 600;
+    border: 1.5px solid #9fa0a0;
     border-radius: 10px;
+    transition: 0.3s;
 }
 .addbtn {
     width: 10%;
 }
 .addbtn i {
-    color: #666;
+    color: #888;
 }
 
 .addbtn a:hover i {
@@ -98,37 +105,21 @@
 }
 
 .table_outer tr {
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #f2f2f2;
 }
 
 .table_outer tr:last-child {
     border-bottom: none;
 }
 
-/* .addbtn a::after {
-    content: '';
-    width: 10px;
-    height: 10px;
-    border-top: 3px solid #666;
-    border-right: 3px solid #666;
-    transform: rotate(45deg);
-} */
 
 .addbtn a:hover {
 color: white;
-background-color: #aaa;
-border: 2px solid #aaa;
+background-color: #9fa0a0;
 }
 
-/* .addbtn a:hover::after {
-border-top: 3px solid white;
-border-right: 3px solid white;
-} */
-
-
-
 .add {
-    font-size: 25px;
+    font-size: 18px;
     color: white;
 }
 .add2 {
@@ -188,8 +179,6 @@ border-right: 3px solid white;
     padding-bottom: 0;
     padding-right: 1%;
     text-align: left;
-    /* padding-left: 2em;
-    text-indent: -1em; */
 }
 
 .detail tr .indent_{
@@ -209,7 +198,7 @@ border-right: 3px solid white;
 }
 .detail th {
     width: 30%;
-    background-color: #bbb; 
+    background-color: #9fa0a0; 
     color: white;
     padding: 1.2rem 0;
 }
@@ -283,7 +272,7 @@ border-right: 3px solid white;
 .edit_outer h1 {
     text-align: center;
     font-weight: bold;
-    background-color: #bbb;
+    background-color: #9fa0a0;
     color: white;
     padding: 3% 0;
     margin-bottom: 10%;
@@ -334,7 +323,7 @@ border-right: 3px solid white;
 
 .edit___btn {
     border: 1px solid #888;
-    background-color: #aaa !important;
+    background-color: #9fa0a0 !important;
     color: white;
 }
 
@@ -349,6 +338,10 @@ label i {
 
 .edit_box .test_id {
     font-size: 1.2rem;
+}
+
+.edit_outer input[name="age"] {
+    background-color: #f5f5f5;
 }
 /* バリデーションのエラーメッセージスタイル */
 .error_msg {
@@ -389,6 +382,18 @@ label i {
     text-align: center;
 }
 
+.search_outer label {
+    color: #555;
+}
+
+.search_outer div:last-child {
+    width: 30%;  
+}
+
+.search_outer input[name="site"] {
+    width: 100%; 
+}
+
 .searct___btn {
     display: block;
     width: 20%;
@@ -403,7 +408,7 @@ label i {
     padding-top: 5%;
 }
 
-.search_word {
+/* .search_word {
     width: 70%;
     margin: 0 auto;
 }
@@ -413,7 +418,7 @@ label i {
 }
 .search__word p{
     margin: 1% 3% 1% 1%;
-}
+} */
 
 .avg {
     width: 70%;
@@ -462,7 +467,7 @@ label i {
 }
 
 .nav_list:hover {
-    background-color: #949495;
+    background-color: #88bfbf;
     color: white;
     font-weight: 700;
 }
@@ -472,12 +477,13 @@ label i {
 }
 
 .nav_list.active {
-    background-color: #949495;
+    background-color: #88bfbf;
     color: white;
     font-weight: 700;
 }
 .nav_list.active i {
-    background-color: #949495;
+    background-color: #88bfbf;
+    /* #67b5b7 */
     color: white;
     font-weight: 700;
     /* transform: translateX(2px); */
@@ -497,10 +503,6 @@ label i {
 }
 
     /* admin登録 */
-/* .admin_input {
-    width: 40%;
-    margin: 0 auto;
-} */
 .admin_register {
     width: 30%;
     margin: 0 auto;
@@ -520,7 +522,7 @@ label i {
     margin: 5% auto 0;
     text-align: center;
     border: 1px solid #aaa;
-    border-radius: 5px;
+    border-radius: 10px;
     margin-bottom: 5%;
 }
 
@@ -538,13 +540,31 @@ label i {
 }
 
 .log_outer tr {
-    border-bottom: 1px solid #bbb;
+    border-bottom: 1px solid #f5f5f5;
 }
 
 .log_outer tr:last-child {
     border-bottom: none;
 }
 
-/* .log_outer td:last-child {
-    border-bottom: none
-} */
+.log_outer th {
+    background-color: #9fa0a0;
+    color: white;
+    height: 10%;
+}
+.log_outer th:first-child {
+    border-top-left-radius: 9px;
+}
+
+.log_outer th:last-child {
+    border-top-right-radius: 9px;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+.edit_box textarea:focus {
+    border: 1px solid #67b5b7;
+    box-shadow: 0 0 0 2px #67b5b7;
+}

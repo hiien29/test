@@ -67,16 +67,18 @@ class TestScheduleController extends Controller
             'updated_at' => now()
         ];
         Log::create($log);
+
         
         return redirect(route('testregister'))->with('message', '登録が完了しました。');
     }
 
 
 
-    public function edit($id)
+    public function edit(Request $rq,$id)
     {
         $params = Testlist::find($id);
-        return view('schedule.edit', compact('params'));
+        $url = $rq->headers->get('referer');
+        return view('schedule.edit', compact('params','url'));
     }
 
 
@@ -145,10 +147,9 @@ class TestScheduleController extends Controller
         }
 
         $data->update($params);
+        $url = $request->url;
 
-        
-
-        return redirect()->route('schedule');
+        return redirect($url);
     }
 
     public function delete($id)

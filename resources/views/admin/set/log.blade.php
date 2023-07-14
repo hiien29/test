@@ -1,5 +1,6 @@
 <x-admin-layout>
     <x-slot name="header">
+        <h1>設定</h1>
     </x-slot>
 
     @include('admin.set.nav')

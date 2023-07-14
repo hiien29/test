@@ -18,10 +18,11 @@ use App\Models\Comment;
 class TestResultController extends Controller
 {
     
-    public function edit($id)
+    public function edit(Request $rq,$id)
     {
         $params = Testlist::find($id);
-        return view('admin.result.edit', compact('params'));
+        $url = $rq->headers->get('referer');
+        return view('admin.result.edit', compact('params','url'));
     }
 
 
@@ -48,21 +49,10 @@ class TestResultController extends Controller
         ];
         Comment::create($comment);
 
-
+        $url = $request->url;
         $data->update($params);
-
-        $url = $request->session()->get('searchUrl');
-        $resultUrl = $request->session()->get('resultUrl');
-        $request->session()->pull('resultUrl');
-        
-        if(isset($url))
-        {
-            return redirect($url);
-        }
-        else
-        {
-            return redirect($resultUrl);
-        }
+    
+        return redirect($url);
     }
 
     public function delete($id)

@@ -69,7 +69,7 @@ Route::middleware('auth:admin')->group(function () {
         Route::get('schedule/index','create')->name('schedule');
         Route::get('task/index','test')->name('test');
         Route::get('result/index','result')->name('result');
-        Route::get('set/index','set')->name('set');
+        // Route::get('set/index','set')->name('set');
     });
 
     Route::controller(TestScheduleController::class)->group(function()

@@ -1,5 +1,6 @@
 <x-admin-layout>
     <x-slot name="header">
+        <h1>設定</h1>
     </x-slot>
 
     
@@ -11,12 +12,12 @@
             <div>
                 <x-input-label for="depart_name" :value="__('部署名')" />
                 <x-input-error class="mt-2" :messages="$errors->get('depart_name')" />
-                <x-text-input id="depart_name" name="depart_name" type="text" class="mt-1 block" />
+                <x-text-input id="depart_name" name="depart_name" type="text" class="mt-1 block" value="{{ old('depart_name') }}" />
             </div>
             <div>
-                <x-input-label for="depart_number" :value="__('部署コード')" />
-                <x-input-error class="mt-2" :messages="$errors->get('depart_number')" />
-                <x-text-input id="depart_number" name="depart_number" type="text" class="mt-1 block"  />
+                <x-input-label for="number" :value="__('部署コード')" />
+                <x-input-error class="mt-2" :messages="$errors->get('number')" />
+                <x-text-input id="number" name="number" type="text" class="mt-1 block" value="{{ old('number') }}" />
             </div>
             <div class="depart_btn">
                 <x-primary-button onclick="return confirm('追加しますか？')">{{ __('追加') }}</x-primary-button>

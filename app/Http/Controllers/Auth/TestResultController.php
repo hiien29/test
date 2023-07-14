@@ -17,10 +17,11 @@ use App\Models\Log;
 class TestResultController extends Controller
 {
 
-    public function edit($id)
+    public function edit(Request $rq,$id)
     {
+        $url = $rq->headers->get('referer');
         $params = Testlist::find($id);
-        return view('result.edit', compact('params'));
+        return view('result.edit', compact('params','url'));
     }
 
     public function update(Request $request,$id)
@@ -92,19 +93,10 @@ class TestResultController extends Controller
             Log::create($log);
         }
         $data->update($params);
+        $url = $request->url;
 
-        $url = $request->session()->get('searchUrl');
-        $resultUrl = $request->session()->get('resultUrl');
-        $request -> session() ->pull('resultUrl');
+        return redirect($url);
 
-        if(isset($url))
-        {
-            return redirect($url);
-        }
-        else
-        {
-            return redirect($resultUrl);
-        }
     }
 
     public function delete($id)

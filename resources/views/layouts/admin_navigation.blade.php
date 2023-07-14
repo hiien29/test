@@ -6,9 +6,9 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
+                    {{-- <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
                         {{ __('TOP') }}
-                    </x-nav-link>
+                    </x-nav-link> --}}
                     <x-nav-link :href="route('admin.schedule')" :active="request()->routeIs('admin.schedule')">
                         {{ __('試験予定') }}
                     </x-nav-link>
@@ -18,7 +18,7 @@
                     <x-nav-link :href="route('admin.result')" :active="request()->routeIs('admin.result')">
                         {{ __('試験結果') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('admin.set')" :active="request()->routeIs('admin.set')">
+                    <x-nav-link :href="route('admin.user')" :active="request()->is('admin/set/*')">
                         {{ __('設定') }}
                     </x-nav-link>
                 </div>
@@ -40,9 +40,9 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('admin.profile.register')">
+                        {{-- <x-dropdown-link :href="route('admin.profile.register')">
                             {{ __('設定') }}
-                        </x-dropdown-link>
+                        </x-dropdown-link> --}}
                         <x-dropdown-link :href="route('admin.profile.edit')">
                             {{ __('登録情報') }}
                         </x-dropdown-link>

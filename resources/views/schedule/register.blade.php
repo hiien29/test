@@ -59,9 +59,9 @@
                 <label>コメント(共有事項等あれば記載してください)</label>
                 <textarea name="comment" cols="40" rows="10" >{{ old('comment') }}</textarea>
             </div>
-            <div>
-                <input type="hidden" name="author" value="{{ Auth::user()->name}}">
-            </div>
+
+            <input type="hidden" name="author" value="{{ Auth::user()->name }}">
+            
             <div class="edit_btn">
                 <a href="{{ route('schedule') }}" class="edit__btn">戻る</a>
                 <button type="submit" onclick="return confirm('登録しますか？')" class="edit___btn">登録</button>

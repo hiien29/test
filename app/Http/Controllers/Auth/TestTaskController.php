@@ -18,11 +18,12 @@ use App\Models\Log;
 class TestTaskController extends Controller
 {
     
-    public function show($id)
+    public function show(Request $rq,$id)
     {
         $data = Testlist::find($id);
         $comments = Comment::where('testlist_id', $data->id)->orderBy('created_at','DESC')->get();
-        return view('task.register',compact('data','comments'));
+        $url = $rq->headers->get('referer');
+        return view('task.register',compact('data','comments','url'));
     }
 
     public function register(Request $request,$id)
@@ -55,14 +56,16 @@ class TestTaskController extends Controller
         Comment::create($comment);
         }
 
+        $url = $request->url;
         $data->update($params);
-        return redirect()->route('test');
+        return redirect($url);
     }
 
-    public function edit($id)
+    public function edit(Request $rq,$id)
     {
+        $url = $rq->headers->get('referer');
         $params = Testlist::find($id);
-        return view('task.edit', compact('params'));
+        return view('task.edit', compact('params','url'));
     }
 
     public function update(Request $request,$id)
@@ -128,8 +131,9 @@ class TestTaskController extends Controller
             Log::create($log);
         }
 
+        $url = $request->url;
         $data->update($params);
-        return redirect()->route('test');
+        return redirect($url);
     }
 
     public function delete($id)
