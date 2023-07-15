@@ -1,32 +1,7 @@
+/* 共通部分 */
 body{
-    font-size: 17px;
-}
-
-
-/* dashboardのスタイル */
-/* .top {
-    background-color: white;
-    padding: 10% 0;
-    border-radius: 10px;
-    display: flex;
-    justify-content: space-around;
-}
-
-.top_btn {
-    display: block;
-    font-weight: bold;
-	padding: 1rem 4rem;
-	border: 2px solid #aaa;
-	color: #999;
-	border-radius: 20px;
-	transition: 0.5s;
-}
-.top_btn:hover {
-	color: #fff;
-	background: #aaa;
-} */
-input:focus {
-    outline: none;
+    font-size: 18px;
+    color: #595959;
 }
 
 /* indexのスタイル */
@@ -50,11 +25,12 @@ input:focus {
 .table td,
 .table th {
     text-align: center;
-    padding: 30px 0;
+    padding: 1.7rem 0;
 }
 
 .table th {
-    background-color: #9fa0a0;
+    /* background-color: #9fa0a0; */
+    background-color: #888a8a;
     /* background-color: #7c8585; */
     /* background-color: #889090; */
     color: white;
@@ -82,33 +58,7 @@ input:focus {
 }
 .th_5 {
     width: 5%;
-}
-
-
-.addbtn a {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 0 auto;
-    padding: 1em;
-    width: 110%;
-    color: #777;
-    font-size: 1rem;
-    font-weight: 600;
-    border: 1.5px solid #9fa0a0;
-    border-radius: 10px;
-    transition: 0.3s;
-}
-.addbtn {
-    width: 10%;
-}
-.addbtn i {
-    color: #888;
-}
-
-.addbtn a:hover i {
-    color: white;
-}
+}    
 
 .table_outer tr {
     border-bottom: 1px solid #f2f2f2;
@@ -116,12 +66,6 @@ input:focus {
 
 .table_outer tr:last-child {
     border-bottom: none;
-}
-
-
-.addbtn a:hover {
-color: white;
-background-color: #9fa0a0;
 }
 
 .add {
@@ -136,6 +80,44 @@ background-color: #9fa0a0;
 .add:hover {
     opacity: .5;
 }
+
+
+    /* 予定追加ボタン */
+.addbtn {
+    width: 10%;
+}    
+
+.addbtn a {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    padding: 1em;
+    width: 110%;
+    color: #69a5a1;
+    font-size: 1rem;
+    font-weight: 600;
+    border: 1.5px solid #69a5a1;
+    border-radius: 10px;
+    transition: 0.3s;
+}  
+
+.addbtn i {
+    color: #69a5a1;
+}    
+
+.addbtn a:hover {
+color: white;    
+background-color: #79b5b1;
+border: 1.5px solid #79b5b1;
+}
+
+.addbtn a:hover i {
+    color: white;
+}    
+
+
+
 
 .test_count {
     width: 60%;
@@ -202,7 +184,7 @@ background-color: #9fa0a0;
     width: 60%;
     margin: 2% auto 0;
     border-radius: 10px;
-    border: 1px solid #aaa;
+    border: 2px solid #aaa;
     text-align: left;
 }
 .detail_inner {
@@ -224,10 +206,10 @@ background-color: #9fa0a0;
 }
 
 .detail_header {
-    /* background-color: #eee; */
-    /* color: white; */
+    background-color: #888a8a;
+    color: white;
     width: 20%;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #d9d9d9;
     border-right: 1px solid #ccc;
 }
 
@@ -241,7 +223,7 @@ background-color: #9fa0a0;
 }
 
 .detail_inner {
-    border-top-left-radius: 9px;
+    border-top-left-radius: 8px;
 }
 
 .detail_comment {
@@ -254,7 +236,9 @@ background-color: #9fa0a0;
     width: 100%;
     padding: 0 0 1.5rem 1.5rem;
 }
-
+.comment_box {
+    padding-left: 1.5rem;
+}
 .comment_user {
     font-weight: 600;
     padding-bottom: .3rem;
@@ -264,97 +248,28 @@ background-color: #9fa0a0;
     padding-bottom: .5rem;
 } 
 
-
-/* ここまで */
-/* .detail tr .indent{
+.detail_inner .indent {
     white-space: pre-line;
-    height: 100%;
-    vertical-align: middle;
-    padding-bottom: 0;
-    padding-right: 1%;
-    text-align: left;
-}
-
-.detail tr .indent_{
-    white-space: pre-line;
-} */
-
-/* .detail_table {
-    width: 50%;
-    margin: 2% auto 0;
-    border-radius: 10px;
-    border: 1px solid #aaa;
-} */
-
-/* .detail {
-    width: 100%;
-    table-layout: fixed;
-}
-.detail th {
-    width: 30%;
-    background-color: #9fa0a0; 
-    color: white;
-    padding: 1.2rem 0;
-}
-.detail_border {
-    border-bottom: 1px solid white;
-}
-.detail__border {
-    border-bottom: 1px solid #eee;
-}
-
-.detail td {
-    width: 70%;
-    text-align: center;
-    padding: 1.2rem 0;
-    
-
-}
-.detail_inner {
-    border-top-left-radius: 10px;
-}
-
-.detail__inner {
-    border-bottom-left-radius: 10px;
 }
 
 .detail_back {
-    width: 50%;
-    margin: 2% auto ;
-    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    margin: 3rem 0 5rem 0;
+}
+.detail_back a {
+    display: inline-flex;
     text-align: center;
-    font-size: 1.1rem;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    color: #696969;
+    font-size: 20px;
 }
 
-.detail_back a:hover {
-    color: #666;
+..detail_back i {
+    padding-right: 10rem;
 }
-
-
-.detail_header {
-    width: 50%;
-    margin: 0 auto;
-    text-align: center;
-    margin-top: 2%;
-    font-weight: 800;
-    color: #666;
-}
-
-.detail tr .comment_box {
-    text-align: left;
-    padding-left: .7rem;
-    padding-right: .7rem;
-    padding-bottom :0;
-}
-.detail tr .comment_user {
-    font-weight: 600;
-    padding-bottom: .3rem;
-}
-.detail tr .comment_detail {
-    padding-left: 1rem;
-    padding-bottom: .5rem;
-} */
-
 /* editのスタイル */
 
 .edit_outer {
@@ -366,7 +281,7 @@ background-color: #9fa0a0;
 .edit_outer h1 {
     text-align: center;
     font-weight: bold;
-    background-color: #9fa0a0;
+    background-color: #888a8a;
      /* #889090 */
     color: white;
     padding: 3% 0;
@@ -418,7 +333,7 @@ background-color: #9fa0a0;
 
 .edit___btn {
     border: 1px solid #888;
-    background-color: #9fa0a0 !important;
+    background-color: #888a8a !important;
     color: white;
 }
 
@@ -459,7 +374,7 @@ label i {
     margin:0 auto;
 }
 
-/* 削除前の検索ボタン */
+/* 検索前の検索ボタン */
 .search__btn {
     display: block;
     border: 1px solid #67b5b7;
@@ -600,7 +515,6 @@ label i {
 }
 .nav_list:hover i {
     color: white;
-    /* transform: translateX(-2px); */
 }
 
 .nav_list.active {
@@ -613,7 +527,6 @@ label i {
     /* #67b5b7 */
     color: white;
     font-weight: 700;
-    /* transform: translateX(2px); */
 }
 
 
@@ -675,7 +588,7 @@ label i {
 }
 
 .log_outer th {
-    background-color: #9fa0a0;
+    background-color: #888a8a;
     color: white;
     height: 10%;
 }
@@ -692,15 +605,47 @@ input[type="date"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus,
 .edit_box textarea:focus {
-
+    outline: none;
     border: 1px solid #67b5b7;
     box-shadow: 0 0 0 2px #67b5b7;
     /* background: white; */
 }
+
 input[type="text"]:required:valid,
 input[type="date"]:required:valid,
 input[type="email"]:required:valid,
 input[type="password"]:required:valid,
 .edit_box textarea:required:valid {
     background-color: white;
+}
+
+
+.selectbox-003 {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+}
+
+.selectbox-003::after {
+    position: absolute;
+    right: 15px;
+    /* width: 10px; */
+    height: 7px;
+    background-color: #909090;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    content: '';
+    pointer-events: none;
+}
+
+.selectbox-003 select {
+    appearance: none;
+    min-width: 130px;
+    height: 2.5em;
+    padding: .4em calc(.8em + 30px) .4em .8em;
+    border: 1.3px solid #999;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #707070;
+    font-size: 1em;
+    cursor: pointer;
 }

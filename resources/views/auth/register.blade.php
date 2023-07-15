@@ -59,6 +59,6 @@
         </div>
     </form>
     <div class="btn__">
-        <a href="{{ route('login')}}">戻る</a>
+        <a href="{{ route('login')}}" style="color:#555;">戻る</a>
     </div>
 </x-guest-layout>

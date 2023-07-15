@@ -32,7 +32,7 @@ class TestTaskController extends Controller
             'result' => ['required','numeric'] ,
             'tester' => 'required'
         ]);
-        $params['tester'] = $params['tester'].PHP_EOL.'（登録日時：'.date("Y/m/d H:i").'）';
+        $params['tester'] = $params['tester'].PHP_EOL.'(登録日時：'.date("Y/m/d H:i").')';
 
         if(isset($request->comment))
         {

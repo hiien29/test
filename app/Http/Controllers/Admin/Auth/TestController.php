@@ -19,12 +19,13 @@ class TestController extends Controller
     //
     public function create(Request $rq): View
     {
+        $limit = $rq->input('limit',10);
         $params = Testlist::where('test_day','>',today())
         ->orderBy('test_day', 'asc')
         ->orderBy('age')
-        ->paginate(10);
+        ->paginate($limit);
 
-        return view('admin.schedule.index',compact('params'));
+        return view('admin.schedule.index',compact('params','limit'));
     }
 
     public function test(): View
@@ -56,9 +57,5 @@ class TestController extends Controller
         return view('admin.result.index',compact('params'));
     }
 
-    // public function set(): View
-    // {
-    //     return view('admin.set.index');
-    // }
 
 }
