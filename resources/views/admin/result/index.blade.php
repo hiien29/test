@@ -39,7 +39,21 @@
 
     {{-- 一覧表示 --}}
 
-        <p class="mt-6 text-right" style="margin-right: 10%;">全試験数：{{ $params->total() }}件（{{ $params->currentPage() }}/{{ $params->lastPage() }}）</p>
+        <div style="width: 85%; margin: 2% auto 0; flex" class="flex justify-between items-end">
+            <form action="{{ route('admin.result') }}" method="GET">
+                <p style="font-size: .9rem;">表示件数</p>
+                <label class="selectbox-003">
+                    <select name="limit" onchange="this.form.submit()">
+                        <option value="10" {{ $limit == 10 ? 'selected' : '' }}>10件</option>
+                        <option value="20" {{ $limit == 20 ? 'selected' : '' }}>20件</option>
+                        <option value="30" {{ $limit == 30 ? 'selected' : '' }}>30件</option>
+                        <option value="40" {{ $limit == 40 ? 'selected' : '' }}>40件</option>
+                    </select>
+                </label>
+            </form>
+            <p>全試験数：{{ $params->total() }}件（{{ $params->currentPage() }}/{{ $params->lastPage() }}）</p>
+        </div>
+        {{-- <p class="mt-6 text-right" style="margin-right: 10%;">全試験数：{{ $params->total() }}件（{{ $params->currentPage() }}/{{ $params->lastPage() }}）</p> --}}
         <div class="table_outer">
             <table class="table">
                 <tr>
@@ -66,7 +80,7 @@
                     <td>{{ $param->result }}N/㎟</td>
                     <td><a href="{{ route('admin.result_detail', ['id'=>$param->id]) }}"><i class="fa-solid fa-circle-info add2"></i></a></a></td>
                     <td><a href="{{ route('admin.result_edit', ['id'=>$param->id]) }}"><i class="fa-regular fa-pen-to-square add2"></i></a></td>
-                    <td><a href="{{ route('admin.result_delete', ['id'=>$param->id]) }}" onclick="return confirm('本当に削除しますか？')"><i class="fa-regular fa-trash-can add2"></i></a></td>
+                    <td><a href="#"  data-url="{{ route('admin.result_delete', ['id'=>$param->id]) }}" class="delete" ><i class="fa-regular fa-trash-can add2"></i></a></td>
                     <td><a href="{{ route('admin.result_pdf',['id'=>$param->id]) }}"  target="_blank"><i class="fa-solid fa-file-arrow-down add2"></i></a></td>
                 </tr>
                 @endforeach
@@ -164,7 +178,7 @@
                         <td>{{ $search->result }}N/㎟</td>
                         <td><a href="{{ route('admin.result_detail', ['id'=>$search->id]) }}"><i class="fa-solid fa-circle-info add2"></i></a></a></td>
                         <td><a href="{{ route('admin.result_edit', ['id'=>$search->id]) }}"><i class="fa-regular fa-pen-to-square add2"></i></a></td>
-                        <td><a href="{{ route('admin.result_delete', ['id'=>$search->id]) }}" onclick="return confirm('本当に削除しますか？')"><i class="fa-regular fa-trash-can add2"></i></a></td>
+                        <td><a herf="#" data-url="{{ route('admin.result_delete', ['id'=>$search->id]) }}" class="delete"><i class="fa-regular fa-trash-can add2"></i></a></td>
                         <td><a href="{{ route('admin.result_pdf',['id'=>$search->id]) }}"  target="_blank"><i class="fa-solid fa-file-arrow-down add2"></i></a></td>
                     </tr>
                     @endforeach

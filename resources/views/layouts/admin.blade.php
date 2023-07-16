@@ -13,15 +13,16 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+        {{-- sweetalert2 --}}
+        {{-- <script src="sweetalert2.min.js"></script> --}}
+        {{-- <link rel="stylesheet" href="{{ asset('node_modules/sweetalert2/dist/sweetalert2.min.css') }}"> --}}
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.6/flowbite.min.js"></script>
+        
     </head>
     <body class="font-sans antialiased">
-        <div
-        {{-- class="min-h-screen" --}}
-        {{-- bg-gray-100" --}}
-        >
+        <div>
             @include('layouts.admin_navigation')
 
             <!-- Page Heading -->
@@ -38,6 +39,7 @@
                 {{ $slot }}
             </main>
         </div>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="{{ asset('js/register.js') }}"></script> 
     </body>
 </html>

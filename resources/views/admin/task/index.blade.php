@@ -37,7 +37,8 @@
                         <td><a href="{{ route('admin.taskregister', ['id'=>$nottask->id]) }}"><i class="fa-solid fa-plus add2"></i></a></td>
                         <td><a href="{{ route('admin.task_detail', ['id'=>$nottask->id]) }}"><i class="fa-solid fa-circle-info add2"></i></a></td>
                         <td><a href="{{ route('admin.task_edit', ['id'=>$nottask->id]) }}"><i class="fa-regular fa-pen-to-square add2"></i></a></td>
-                        <td><a href="{{ route('admin.task_delete', ['id'=>$nottask->id]) }}" onclick="return confirm('本当に削除しますか？')"><i class="fa-regular fa-trash-can add2"></i></a></td>
+                        {{-- <td><a href="{{ route('admin.task_delete', ['id'=>$nottask->id]) }}" onclick="return confirm('本当に削除しますか？')"><i class="fa-regular fa-trash-can add2"></i></a></td> --}}
+                        <td><a herf="#" data-url="{{ route('admin.task_delete', ['id'=>$nottask->id]) }}" class="delete"><i class="fa-regular fa-trash-can add2"></i></a></td>
                     </tr>
                     @endforeach
                 </table>

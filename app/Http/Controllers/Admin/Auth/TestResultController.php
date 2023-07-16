@@ -74,6 +74,7 @@ class TestResultController extends Controller
     public function search(Request $rq)
     {
 
+        $limit = $rq->input('limit',10);
         $query = Testlist::query();
         $query->whereNotNull('result')->orderBy('test_day','desc')->orderBy('age');
 
@@ -116,12 +117,12 @@ class TestResultController extends Controller
         $min = $results->min('result');
         $max = $results->max('result');
 
-        $searches = $query->paginate(10);
+        $searches = $query->paginate($limit);
         $rq->session()->put('searches', $rq->query());
         $session = $rq->session()->get('searches');
         $rq->session()->put('searchUrl', $rq->fullUrl());
 
 
-        return view('admin.result.index',compact('searches','rq','avg','min','max','session','nosearch'));
+        return view('admin.result.index',compact('searches','rq','avg','min','max','session','nosearch','limit'));
     }
 }

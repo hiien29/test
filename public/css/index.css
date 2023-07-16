@@ -31,6 +31,7 @@ body{
 .table th {
     /* background-color: #9fa0a0; */
     background-color: #888a8a;
+    background-color: #6a6c6c;
     /* background-color: #7c8585; */
     /* background-color: #889090; */
     color: white;
@@ -200,17 +201,20 @@ border: 1.5px solid #79b5b1;
     color: #666;
 }
 
-.detail_header,
+/* .detail_header, */
 .detail_data {
-    padding: 1.5rem 0 1.5rem 1.5rem;
+    /* padding: 1.5rem 0 1.5rem 1.5rem; */
+    text-align: center;
 }
 
 .detail_header {
-    background-color: #888a8a;
+    background-color: #6a6c6c;
+    padding: 1.2rem 0 1.2rem;
     color: white;
     width: 20%;
     border-bottom: 1px solid #d9d9d9;
     border-right: 1px solid #ccc;
+    text-align: center;
 }
 
 .detail_inner .detail_border  {
@@ -267,8 +271,8 @@ border: 1.5px solid #79b5b1;
     font-size: 20px;
 }
 
-..detail_back i {
-    padding-right: 10rem;
+.detail_back i {
+    padding-right: 1rem;
 }
 /* editのスタイル */
 
@@ -281,7 +285,7 @@ border: 1.5px solid #79b5b1;
 .edit_outer h1 {
     text-align: center;
     font-weight: bold;
-    background-color: #888a8a;
+    background-color: #6a6c6c;
      /* #889090 */
     color: white;
     padding: 3% 0;
@@ -588,7 +592,7 @@ label i {
 }
 
 .log_outer th {
-    background-color: #888a8a;
+    background-color: #6a6c6c;
     color: white;
     height: 10%;
 }
@@ -607,7 +611,7 @@ input[type="password"]:focus,
 .edit_box textarea:focus {
     outline: none;
     border: 1px solid #67b5b7;
-    box-shadow: 0 0 0 2px #67b5b7;
+    box-shadow: 0 0 0 1px #67b5b7;
     /* background: white; */
 }
 
@@ -649,3 +653,4 @@ input[type="password"]:required:valid,
     font-size: 1em;
     cursor: pointer;
 }
+

@@ -3,7 +3,7 @@
     </x-slot>
 
 
-    <form action="{{ route('admin.result_update', ['id'=>$params->id]) }}" method="POST">
+    <form action="{{ route('admin.result_update', ['id'=>$params->id]) }}" method="POST" id="updateForm">
         @csrf
         <input type="hidden" name="previous" value="{{ request('previous') }}">
         <div class="edit_outer">
@@ -67,7 +67,7 @@
 
             <div class="edit_btn">
                 <a href="#" onclick="history.back()" class="edit__btn">戻る</a>
-                <button type="submit" onclick="return confirm('変更しますか？')" class="edit___btn">変更</button>
+                <button type="button" onclick="return Update()" class="edit___btn">変更</button>
             </div>
         </div>
     </form>

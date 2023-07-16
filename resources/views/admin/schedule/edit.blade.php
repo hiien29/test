@@ -2,7 +2,7 @@
     <x-slot name="header">
     </x-slot>
 
-    <form action="{{ route('admin.update', ['id'=>$params->id]) }}" method="POST">
+    <form action="{{ route('admin.update', ['id'=>$params->id]) }}" method="POST" id="updateForm">
         @csrf
         <div class="edit_outer">
             <h1>編集画面</h1>
@@ -57,7 +57,7 @@
 
             <div class="edit_btn">
                 <a href="#" onclick="history.back()" class="edit__btn">戻る</a>
-                <button type="submit" onclick="return confirm('変更しますか？')" class="edit___btn">変更</button>
+                <button type="button" onclick="return Update()" class="edit___btn">変更</button>
             </div>
     
         </div>
@@ -66,4 +66,4 @@
 
 </x-admin-layout>
 
-<script src="{{ asset('js/register.js') }}"></script>
+{{-- <script src="{{ asset('js/register.js') }}"></script> --}}

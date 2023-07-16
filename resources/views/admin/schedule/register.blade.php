@@ -15,7 +15,7 @@
             style="padding-top: 2%;;">{{ session('message') }}</p>
         @endif
     </div>
-    <form action="{{ route('admin.test_register') }}" method="POST">
+    <form action="{{ route('admin.test_register') }}" method="POST" id="registerForm">
         @csrf
         <div class="edit_outer">
             <h1>試験予定 登録</h1>
@@ -63,7 +63,7 @@
             </div>
             <div class="edit_btn">
                 <a href="{{ route('admin.schedule') }}" class="edit__btn">戻る</a>
-                <button type="submit" onclick="return confirm('登録しますか？')" class="edit___btn">登録</button>
+                <button type="button" onclick="return Register()" class="edit___btn">登録</button>
             </div>
         </div>
 

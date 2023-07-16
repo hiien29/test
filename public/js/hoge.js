@@ -13,3 +13,4 @@ document.addEventListener('DOMContentLoaded', function() {
     notTask.classList.remove('show');
     isNottaskVisible = false;
 });
+

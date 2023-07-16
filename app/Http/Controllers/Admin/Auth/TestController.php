@@ -49,12 +49,13 @@ class TestController extends Controller
 
     public function result(Request $rq): View
     {
+        $limit = $rq->input('limit',10);
         $params = Testlist::whereNotNull('result')
         ->orderBy('test_day','desc')
         ->orderBy('age')
-        ->paginate(10);
+        ->paginate($limit);
 
-        return view('admin.result.index',compact('params'));
+        return view('admin.result.index',compact('params','limit'));
     }
 
 
