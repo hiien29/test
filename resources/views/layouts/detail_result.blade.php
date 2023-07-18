@@ -37,7 +37,8 @@
             <th colspan="4" class="detail_comment">コメント</th>
         </tr>
         <tr>
-            <td  colspan="4" class="detail__comment">@foreach ($comments as $comment)
+            <td  colspan="4" class="detail__comment">&nbsp;
+                @foreach ($comments as $comment)
                 <div class="comment_box">
                     <p class="comment_user">{{ $comment->enterer }}（{{ date('Y/m/d H:i',strtotime($comment->created_at)) }}）</p>
                     <p class="comment_detail">{{ $comment->comment }}</p>

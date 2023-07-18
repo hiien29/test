@@ -26,34 +26,54 @@ function calculateAge() {
 
 
 // 削除時のすいーとアラート
-const deleteLinks = document.querySelectorAll('.delete');
-deleteLinks.forEach(link => {
-    link.addEventListener('click', function(event) {
-        event.preventDefault(); 
+// const deleteLinks = document.querySelectorAll('.delete');
+// deleteLinks.forEach(link => {
+//     link.addEventListener('click', function(event) {
+//         event.preventDefault(); 
 
-        const deleteUrl = link.getAttribute('data-url');
+//         const deleteUrl = link.getAttribute('data-url');
 
-        Swal.fire({
-            title: '本当に削除しますか？',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#aaa',
-            confirmButtonText: 'OK',
-            cancelButtonText: 'キャンセル'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire({
+//         Swal.fire({
+//             title: '本当に削除しますか？',
+//             icon: 'warning',
+//             showCancelButton: true,
+//             confirmButtonColor: '#3085d6',
+//             cancelButtonColor: '#aaa',
+//             confirmButtonText: 'OK',
+//             cancelButtonText: 'キャンセル'
+//         }).then((result) => {
+//             if (result.isConfirmed) {
+//                 Swal.fire({
+//                 title:'削除しました',
+//                 icon:'success'
+//             }).then(() => {
+//                     window.location.href = deleteUrl;
+//                 });
+//             }
+//         });
+//     });
+// });
+
+function Delete() {
+    Swal.fire({
+        title: '本当に削除しますか？',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#aaa',
+        confirmButtonText: 'OK',
+        cancelButtonText: 'キャンセル'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
                 title:'削除しました',
                 icon:'success'
             }).then(() => {
-                    window.location.href = deleteUrl;
-                });
-            }
+                document.getElementById('deleteForm').submit();
+            });
+        }
         });
-    });
-});
-
+}
 
 
 // 編集時のスイートアラート
@@ -102,15 +122,3 @@ function Register() {
         });
 }
 
-// script.js
-// console.log('JavaScriptファイルが読み込まれました');
-
-const box = document.getElementById('box');
-
-box.addEventListener('click', function() {
-    alert('しね');
-});
-
-function Click() {
-    alert('こんにちは');
-}

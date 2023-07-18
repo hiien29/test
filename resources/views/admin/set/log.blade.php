@@ -26,4 +26,8 @@
         </table>
     </div>
 
+    <div class="page">
+        {{ $logs->links() }}
+    </div>
+
 </x-admin-layout>

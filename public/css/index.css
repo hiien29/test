@@ -82,6 +82,10 @@ body{
     opacity: .5;
 }
 
+.test_count {
+    width: 85%;
+    margin: 0 auto;
+}
 
     /* 予定追加ボタン */
 .addbtn {
@@ -120,7 +124,7 @@ border: 1.5px solid #79b5b1;
 
 
 
-.test_count {
+.test__count {
     width: 60%;
     margin: 5% auto 0;
     justify-content: space-around;
@@ -132,7 +136,7 @@ border: 1.5px solid #79b5b1;
     border-radius: 10px;
 }
 
-.test_count:after {
+.test__count:after {
     background-color:#eee;
     border:none;
     content: '';
@@ -182,7 +186,7 @@ border: 1.5px solid #79b5b1;
 
 /* deteilのスタイル */
 .detail_table {
-    width: 60%;
+    width: 55%;
     margin: 2% auto 0;
     border-radius: 10px;
     border: 2px solid #aaa;
@@ -203,18 +207,20 @@ border: 1.5px solid #79b5b1;
 
 /* .detail_header, */
 .detail_data {
-    /* padding: 1.5rem 0 1.5rem 1.5rem; */
-    text-align: center;
+    /* padding-left: 1.2rem; */
+    padding: 1.2rem 0 1.2rem 1.2rem;
+    text-align: left;
 }
 
 .detail_header {
     background-color: #6a6c6c;
-    padding: 1.2rem 0 1.2rem;
+    padding-left: 1.2rem;
+    /* padding: 1.2rem 0 1.2rem 1.2rem; */
     color: white;
     width: 20%;
     border-bottom: 1px solid #d9d9d9;
     border-right: 1px solid #ccc;
-    text-align: center;
+    text-align: left;
 }
 
 .detail_inner .detail_border  {
@@ -232,13 +238,15 @@ border: 1.5px solid #79b5b1;
 
 .detail_comment {
     width: 100%;
+    background-color: #6a6c6c;
+    color: white;
     padding: 1.5rem 0 1.5rem 1.5rem;
-    /* background-color: #eee; */
 }
 
 .detail__comment {
-    width: 100%;
-    padding: 0 0 1.5rem 1.5rem;
+    min-width: 100%;
+    padding: 1.2rem 0 1.5rem 1.5rem;
+    min-height: 300px;
 }
 .comment_box {
     padding-left: 1.5rem;
@@ -562,7 +570,7 @@ label i {
     /* 一覧画面 */
 
 .log_outer {
-    width: 60%;
+    width: 70%;
     margin: 5% auto 0;
     text-align: center;
     border: 1px solid #aaa;

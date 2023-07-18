@@ -2,7 +2,7 @@
     <x-slot name="header">
     </x-slot>
     
-    <form action="{{ route('task_register',['id'=>$data->id])}}" method="POST">
+    <form action="{{ route('task_register',['id'=>$data->id])}}" method="POST" id="registerForm">
         @csrf
         <div class="edit_outer">
             <h1>試験結果 登録</h1>
@@ -51,7 +51,7 @@
             
             <div class="edit_btn">
                 <a href="#" onclick="history.back()" class="edit__btn">戻る</a>
-                <button type="submit" onclick="return confirm('登録しますか？')" class="edit___btn">登録</button>
+                <button type="button" onclick="return Register()" class="edit___btn">登録</button>
             </div>
         </div>
     </form>

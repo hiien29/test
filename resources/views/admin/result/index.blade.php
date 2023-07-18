@@ -80,7 +80,11 @@
                     <td>{{ $param->result }}N/㎟</td>
                     <td><a href="{{ route('admin.result_detail', ['id'=>$param->id]) }}"><i class="fa-solid fa-circle-info add2"></i></a></a></td>
                     <td><a href="{{ route('admin.result_edit', ['id'=>$param->id]) }}"><i class="fa-regular fa-pen-to-square add2"></i></a></td>
-                    <td><a href="#"  data-url="{{ route('admin.result_delete', ['id'=>$param->id]) }}" class="delete" ><i class="fa-regular fa-trash-can add2"></i></a></td>
+                    <td>
+                        <form action="{{ route('admin.result_delete', ['id'=>$param->id]) }}" method="GET" id="deleteForm">
+                            <button type="button" onclick="return Delete()"><i class="fa-regular fa-trash-can add2"></i></button>
+                        </form>
+                    </td>
                     <td><a href="{{ route('admin.result_pdf',['id'=>$param->id]) }}"  target="_blank"><i class="fa-solid fa-file-arrow-down add2"></i></a></td>
                 </tr>
                 @endforeach
@@ -144,7 +148,7 @@
 
     {{-- 検索結果該当あり --}}
         @if( $searches->count() > 0 )
-            <div class="flex test_count">
+            <div class="flex test__count">
                 <p class="text-xl font-bold statistic_font" style="margin-right: 24px;">平均結果：{{ round($avg,1) }}N/㎟</p>
                 <p class="text-xl font-bold statistic_font mx-6">最小値：{{ $min }}N/㎟</p>
                 <p class="text-xl font-bold statistic_font mx-6">最大値：{{ $max }}N/㎟</p>
@@ -178,7 +182,12 @@
                         <td>{{ $search->result }}N/㎟</td>
                         <td><a href="{{ route('admin.result_detail', ['id'=>$search->id]) }}"><i class="fa-solid fa-circle-info add2"></i></a></a></td>
                         <td><a href="{{ route('admin.result_edit', ['id'=>$search->id]) }}"><i class="fa-regular fa-pen-to-square add2"></i></a></td>
-                        <td><a herf="#" data-url="{{ route('admin.result_delete', ['id'=>$search->id]) }}" class="delete"><i class="fa-regular fa-trash-can add2"></i></a></td>
+
+                        <td>
+                            <form action="{{ route('admin.result_delete', ['id'=>$search->id]) }}" method="GET" id="deleteForm">
+                                <button type="button" onclick="return Delete()"><i class="fa-regular fa-trash-can add2"></i></button>
+                            </form>
+                        </td>
                         <td><a href="{{ route('admin.result_pdf',['id'=>$search->id]) }}"  target="_blank"><i class="fa-solid fa-file-arrow-down add2"></i></a></td>
                     </tr>
                     @endforeach

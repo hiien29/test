@@ -32,7 +32,11 @@
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->department_number }}</td>
                 <td>{{ $user->department_name }}</td>
-                <td><a href="{{ route('admin.user_delete',['id'=>$user->id]) }}" onclick="return confirm('削除しますか？')"><i class="fa-regular fa-trash-can add2"></i></a></td>
+                <td>
+                    <form action="{{ route('admin.user_delete',['id'=>$user->id]) }}" method="GET" id="deleteForm">
+                        <button type="button" onclick="return Delete()"><i class="fa-regular fa-trash-can add2"></i></button>
+                    </form>
+                </td>
             </tr>
             @endforeach
         </table>

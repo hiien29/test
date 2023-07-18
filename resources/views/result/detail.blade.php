@@ -1,11 +1,11 @@
 <x-app-layout>
     <x-slot name="header">
-        {{-- <div class="header">
-            <h1>詳細</h1>
-        </div> --}}
     </x-slot>
+    @include('layouts.detail_result')
+</x-app-layout>
 
-    <div class="detail_header">
+
+    {{-- <div class="detail_header">
         <h1>試験詳細</h1>
     </div>
 
@@ -65,4 +65,4 @@
     <div class="detail_back">
         <a href="#" onclick="history.back()"><i class="fa-solid fa-circle-arrow-left"></i>戻る</a>
     </div>
-</x-app-layout>
+</x-app-layout> --}}
