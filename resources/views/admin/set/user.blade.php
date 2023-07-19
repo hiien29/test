@@ -32,11 +32,7 @@
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->department_number }}</td>
                 <td>{{ $user->department_name }}</td>
-                <td>
-                    <form action="{{ route('admin.user_delete',['id'=>$user->id]) }}" method="GET" id="deleteForm">
-                        <button type="button" onclick="return Delete()"><i class="fa-regular fa-trash-can add2"></i></button>
-                    </form>
-                </td>
+                <td><a href="#" data-url="{{ route('admin.user_delete', ['id'=>$user->id]) }}"  onclick="return Delete(this)"><i class="fa-regular fa-trash-can add2"></i></a></td>
             </tr>
             @endforeach
         </table>

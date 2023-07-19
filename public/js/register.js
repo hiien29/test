@@ -54,7 +54,8 @@ function calculateAge() {
 //     });
 // });
 
-function Delete() {
+function Delete(link) {
+    var deleteUrl = link.getAttribute('data-url');
     Swal.fire({
         title: '本当に削除しますか？',
         icon: 'warning',
@@ -69,7 +70,7 @@ function Delete() {
                 title:'削除しました',
                 icon:'success'
             }).then(() => {
-                document.getElementById('deleteForm').submit();
+                window.location.href = deleteUrl;
             });
         }
         });

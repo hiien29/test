@@ -42,11 +42,12 @@
                         <td><a href="{{ route('task_detail', ['id'=>$nottask->id]) }}"><i class="fa-solid fa-circle-info add2"></i></a></td>
                         <td><a href="{{ route('task_edit', ['id'=>$nottask->id]) }}"><i class="fa-regular fa-pen-to-square add2"></i></a></td>
                         {{-- <td><a href="{{ route('task_delete', ['id'=>$nottask->id]) }}" onclick="return confirm('本当に削除しますか？')"><i class="fa-regular fa-trash-can add2"></i></a></td> --}}
-                        <td>
+                        {{-- <td>
                             <form action="{{ route('task_delete', ['id'=>$nottask->id]) }}" method="GET" id="deleteForm">
                                 <button type="button" onclick="return Delete()"><i class="fa-regular fa-trash-can add2"></i></button>
                             </form>
-                        </td>
+                        </td> --}}
+                        <td><a href="#" data-url="{{ route('task_delete', ['id'=>$nottask->id]) }}"  onclick="return Delete(this)"><i class="fa-regular fa-trash-can add2"></i></a></td>
                     </tr>
                     @endforeach
                 </table>
@@ -89,12 +90,7 @@
                     @endif
                     <td><a href="{{ route('task_detail', ['id'=>$param->id]) }}"><i class="fa-solid fa-circle-info add2"></i></a></td>
                     <td><a href="{{ route('task_edit', ['id'=>$param->id]) }}"><i class="fa-regular fa-pen-to-square add2"></i></a></td>
-                    {{-- <td><a href="{{ route('task_delete', ['id'=>$param->id]) }}" onclick="return confirm('本当に削除しますか？')"><i class="fa-regular fa-trash-can add2"></i></a></td> --}}
-                    <td>
-                        <form action="{{ route('task_delete', ['id'=>$param->id]) }}" method="GET" id="deleteForm">
-                            <button type="button" onclick="return Delete()"><i class="fa-regular fa-trash-can add2"></i></button>
-                        </form>
-                    </td>
+                    <td><a href="#" data-url="{{ route('task_delete', ['id'=>$param->id]) }}"  onclick="return Delete(this)"><i class="fa-regular fa-trash-can add2"></i></a></td>
                 </tr>
                 @endforeach
             </table>

@@ -50,12 +50,7 @@
                 <td>{{ $param->site }}</td>
                 <td><a href="{{ route('admin.detail', ['id'=>$param->id]) }}"><i class="fa-solid fa-circle-info add2"></i></a></td>
                 <td><a href="{{ route('admin.edit', ['id'=>$param->id]) }}"><i class="fa-regular fa-pen-to-square add2"></i></a></td>
-
-                <td>
-                    <form action="{{ route('admin.delete', ['id'=>$param->id]) }}" method="GET" id="deleteForm">
-                        <button type="button" onclick="return Delete()"><i class="fa-regular fa-trash-can add2"></i></button>
-                    </form>
-                </td>
+                <td><a href="#" data-url="{{ route('admin.delete', ['id'=>$param->id]) }}"  onclick="return Delete(this)"><i class="fa-regular fa-trash-can add2"></i></a></td>
             </tr>
             @endforeach
         </table>

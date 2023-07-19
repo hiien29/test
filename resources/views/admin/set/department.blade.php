@@ -57,11 +57,13 @@
                 <td>{{ $departments->firstItem() + $loop->index }}</td>
                 <td>{{ $department->number }}</td>
                 <td>{{ $department->name }}</td>
-                <td>
+                <td><a href="#" data-url="{{ route('admin.departments.delete', ['id'=>$department->id]) }}"  onclick="return Delete(this)"><i class="fa-regular fa-trash-can add2"></i></a></td>
+                {{-- <td>
                     <form action="{{ route('admin.departments.delete',['id'=>$department->id]) }}" method="GET" id="deleteForm">
+                        @csrf 
                         <button type="button" onclick="return Delete()"><i class="fa-regular fa-trash-can add2"></i></button>
                     </form>
-                </td>
+                </td> --}}
             </tr>
             @endforeach
             

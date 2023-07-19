@@ -16,13 +16,13 @@ class DepartmentSeeder extends Seeder
         DB::table('departments')->insert([
         [
             'number'=>'001',
-            'name' => '部署A',
+            'name' => '試験部署',
             'created_at' => now(),
             'updated_at' => now()
         ],
         [
             'number'=>'002',
-            'name' => '部署B',
+            'name' => '現場部署',
             'created_at' => now(),
             'updated_at' => now()
         ]

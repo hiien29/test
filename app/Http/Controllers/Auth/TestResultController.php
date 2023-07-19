@@ -110,6 +110,7 @@ class TestResultController extends Controller
             'updated_at' => now()
         ];
         Log::create($log);
+        
         $data->delete();
         return redirect()->back();
         

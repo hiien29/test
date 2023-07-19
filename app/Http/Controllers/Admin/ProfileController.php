@@ -87,6 +87,7 @@ class ProfileController extends Controller
 
     public function delete($id) {
         $data = Department::find($id);
+        dd($data);
         $data->delete();
         return Redirect::back()->with('message_', '削除しました。');
     }

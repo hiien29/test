@@ -50,6 +50,7 @@ class TestSetController extends Controller
 
     public function user_delete($id) {
         $data = User::find($id);
+        dd($data);
         $data->delete();
         return Redirect::back()->with('message','ユーザーを削除しました。');
     }

@@ -58,7 +58,7 @@
                 <th></th>
                 <th>ユーザー名</th>
                 <th>メールアドレス</th>
-                {{-- <th>削除</th> --}}
+                <th>削除</th>
             </tr>
 
             @foreach($admins as $admin)
@@ -66,7 +66,7 @@
                 <td>{{ $admins->firstItem() + $loop->index }}</td>
                 <td>{{ $admin->name }}</td>
                 <td>{{ $admin->email }}</td>
-                {{-- <td><a href="{{ route('admin.admin.delete',['id'=>$admin->id]) }}" onclick="return confirm('削除しますか？')"><i class="fa-regular fa-trash-can add2"></i></a></td> --}}
+                <td><a href="#" data-url="{{ route('admin.admin.delete', ['id'=>$admin->id]) }}"  onclick="return Delete(this)"><i class="fa-regular fa-trash-can add2"></i></a></td>
             </tr>
             @endforeach
             

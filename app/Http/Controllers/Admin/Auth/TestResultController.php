@@ -58,6 +58,7 @@ class TestResultController extends Controller
     public function delete($id)
     {
         $data = Testlist::find($id);
+        dd($data);
         $data->delete();
         return redirect()->back();
     }
