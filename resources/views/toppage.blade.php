@@ -60,12 +60,3 @@
 
         </body>
     </html>
-    
-    $ ln -s ~/public_html/test/enhide.shop/test/public/index.php ~/public_html/index.php
-$ ln -s ~/public_html/enhide.shop/test/public/.htaccess ~/public_html/.htaccess
-$ ln -s ~/public_html/enhide.shop/test/public/js ~/public_html/js
-$ ln -s ~/public_html/enhide.shop/test/public/css ~/public_html/css
-$ ln -s ~/public_html/enhide.shop/test/public/img ~/public_html/img
-$ ln -s ~/public_html/enhide.shop/test/public/mix-manifest.json ~/public_html/mix-manifest.json
-$ ln -s ~/public_html/enhide.shop/test/public/robots.txt ~/public_html/robots.txt
-$ ln -s ~/public_html/enhide.shop/test/public/favicon.ico  ~/public_html/favicon.ico
