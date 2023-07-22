@@ -116,7 +116,11 @@
     "wrappy": "^1.0.2",
     "yaml": "^2.3.1"
   },
+  "resolutions": {
+    "**/fsevents": "2.3.2"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC"
+  
 }

@@ -1,6 +1,7 @@
 
 <x-guest-layout>
     <x-auth-session-status class="mb-4" :status="session('status')" />
+    <p class="login_header">従業員用ログインページ</p>
     <form method="POST" action="{{ route('login') }}">
         @csrf
         <!-- Email Address -->
@@ -24,6 +25,10 @@
 
         <button type="submit" class="btn_">ログイン</button>
 
+        <div class="backtop" style="margin-bottom: 1rem;">
+            <a href="{{ route('toppage') }}">戻る</a>
+        </div>
+    
 
         <div class="pass">
             @if (Route::has('password.request'))
@@ -34,10 +39,7 @@
         </div>
     </form>
 
-    <div class="backtop">
-        <a href="{{ route('toppage') }}">戻る</a>
-    </div>
-
+    
     <p class="line"></p>
 
     <div class="btn__">

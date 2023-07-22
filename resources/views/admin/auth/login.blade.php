@@ -2,6 +2,7 @@
 <x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
+    <p class="login_header">管理者用ログインページ</p>
     <form method="POST" action="{{ route('admin.login') }}">
         @csrf
         <!-- Email Address -->

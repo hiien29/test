@@ -20,6 +20,8 @@ class TestlistTest extends TestCase
 
     //     $response->assertStatus(200);
     // }
+
+
     public function test_create_testlist(): void
     {
         $testlistData = [
@@ -41,4 +43,35 @@ class TestlistTest extends TestCase
         $this->assertInstanceOf(Testlist::class, $testlist);
         $this->assertDatabaseHas('testlists', $testlistData);
     }
+
+
+
+    // public function test_update_testlist(): void
+    // {
+    //     $testlist = Testlist::factory()->create();
+
+    //     $updatedData = [
+    //         'make_day' => '2023-07-19',
+    //         'test_day' => '2023-07-21',
+    //         // 更新する他の属性
+    //     ];
+
+    //     $response = $this->put('/testlists/' . $testlist->id, $updatedData);
+
+    //     $response->assertStatus(200);
+
+    //     $this->assertDatabaseHas('testlists', $updatedData);
+    // }
+
+    // public function test_delete_testlist(): void
+    // {
+    //     $testlist = Testlist::factory()->create();
+
+    //     $response = $this->delete('/testlists/' . $testlist->id);
+
+    //     $response->assertStatus(200);
+
+    //     $this->assertDatabaseMissing('testlists', ['id' => $testlist->id]);
+    // }
+
 }

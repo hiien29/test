@@ -34,8 +34,13 @@
             @vite(['resources/css/app.css', 'resources/js/app.js'])
         </head>
         <body class="font-sans text-gray-900 antialiased">
+
+            
             <div class="min-h-screen sm:pt-0 bg-gray-100 flex items-center">
 
+                {{-- <div class="flex justify-center" style="margin-bottom: 100px;">
+                    <img src="{{ asset('img/logo.png') }}" alt="" style="height: 200px;">
+                </div> --}}
                 <div class="flex select_inner">
                     <div class="bg-white shadow-md overflow-hidden select_box">
                         <a href="{{ route('admin.login') }}">
@@ -56,3 +61,11 @@
         </body>
     </html>
     
+    $ ln -s ~/public_html/test/enhide.shop/test/public/index.php ~/public_html/index.php
+$ ln -s ~/public_html/enhide.shop/test/public/.htaccess ~/public_html/.htaccess
+$ ln -s ~/public_html/enhide.shop/test/public/js ~/public_html/js
+$ ln -s ~/public_html/enhide.shop/test/public/css ~/public_html/css
+$ ln -s ~/public_html/enhide.shop/test/public/img ~/public_html/img
+$ ln -s ~/public_html/enhide.shop/test/public/mix-manifest.json ~/public_html/mix-manifest.json
+$ ln -s ~/public_html/enhide.shop/test/public/robots.txt ~/public_html/robots.txt
+$ ln -s ~/public_html/enhide.shop/test/public/favicon.ico  ~/public_html/favicon.ico
