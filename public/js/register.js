@@ -13,6 +13,7 @@ makeDay.addEventListener('change', function() {
 testDay.addEventListener('change', function() {
     makeDay.max = testDay.value;
     calculateAge();
+    checkTestDate();
 });
 //日数が自動で表示されるようにする
 function calculateAge() {
@@ -22,6 +23,33 @@ function calculateAge() {
     const timeDiff = testDate.getTime() - makeDate.getTime();
     const days = timeDiff / (1000 * 3600 * 24);
     age.value = days;
+}
+
+function checkTestDate() {
+    const today = new Date().toISOString().split('T')[0];
+    if (testDay.value < today) {
+        Swal.fire({
+            title: '過去の試験日を選択しています',
+            text: '試験日を変更しますか？',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#aaa',
+            confirmButtonText: '変更する',
+            cancelButtonText: '変更しない'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // 「はい」を選択した場合の処理（選択した日付を保持）
+                testDay.value = '';
+                calculateAge(); // 日数を表示
+            } else {
+                // 「いいえ」を選択した場合の処理（試験日を空にする）
+                calculateAge(); // 日数を表示
+            }
+        });
+
+        
+    }
 }
 
 

@@ -8,10 +8,25 @@
     <div style="width: 85%;margin: 5% auto 0;">
         <p class="addbtn"><a href="{{ route('testregister') }}">予定追加<i class="fa-solid fa-plus add"></i></a></p>
     </div>
-    <div style="width: 85%; margin: 0 auto;">
-        <p style="text-align: right">全試験数：{{ $params->total() }}件（{{ $params->currentPage() }}/{{ $params->lastPage() }}）</p>
-    </div>
 
+    {{-- <div style="width: 85%; margin: 0 auto;">
+        <p style="text-align: right">全試験数：{{ $params->total() }}件（{{ $params->currentPage() }}/{{ $params->lastPage() }}）</p>
+    </div> --}}
+
+    <div style="width: 85%; margin: 2% auto 0; flex" class="flex justify-between items-end">
+        <form action="{{ route('schedule') }}" method="GET">
+            <p style="font-size: .9rem;">表示件数</p>
+            <label class="selectbox-003">
+                <select name="limit" onchange="this.form.submit()">
+                    <option value="10" {{ $limit == 10 ? 'selected' : '' }}>10件</option>
+                    <option value="20" {{ $limit == 20 ? 'selected' : '' }}>20件</option>
+                    <option value="30" {{ $limit == 30 ? 'selected' : '' }}>30件</option>
+                    <option value="40" {{ $limit == 40 ? 'selected' : '' }}>40件</option>
+                </select>
+            </label>
+        </form>
+        <p>全試験数：{{ $params->total() }}件（{{ $params->currentPage() }}/{{ $params->lastPage() }}）</p>
+    </div>
     
     <div class="table_outer">
         <table class="table">

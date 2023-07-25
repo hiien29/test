@@ -20,7 +20,7 @@ class TestSetController extends Controller
 {
     
     public function log() {
-        $logs = Log::join('users','logs.user_id', '=', 'users.id')
+        $logs = Log::Leftjoin('users','logs.user_id', '=', 'users.id')
         ->select('logs.*', 'users.name')
         ->orderBy('logs.created_at', 'DESC')
         ->paginate(10);
@@ -50,7 +50,6 @@ class TestSetController extends Controller
 
     public function user_delete($id) {
         $data = User::find($id);
-        dd($data);
         $data->delete();
         return Redirect::back()->with('message','ユーザーを削除しました。');
     }

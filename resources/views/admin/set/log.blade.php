@@ -16,7 +16,11 @@
 
             @foreach($logs as $log)
             <tr>
+                @if( $log->user_id == NULL)
+                <td>退会済みユーザー</td>
+                @else
                 <td>{{ $log->name }}</td>
+                @endif
                 <td>{{ $log->action }}</td>
                 <td class="description">{{ $log->description }}</td>
                 <td>{{ date('Y/m/d H:i',strtotime($log->created_at)) }}</td>

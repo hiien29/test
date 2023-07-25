@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
 use App\Models\Department;
+use App\Models\Log;
 class ProfileController extends Controller
 {
     /**
@@ -46,13 +47,23 @@ class ProfileController extends Controller
     /**
      * Delete the user's account.
      */
-    public function destroy(Request $request): RedirectResponse
+    public function destroy(Request $request)
+    // : RedirectResponse
     {
         $request->validateWithBag('userDeletion', [
             'password' => ['required', 'current_password'],
         ]);
 
         $user = $request->user();
+
+        $log = [
+            'user_id' => NULL,
+            'action' => '削除',
+            'description' => $user->name.'さんがアカウントを削除しました。',
+            'created_at' => now(),
+            'updated_at' => now()
+        ];
+        Log::create($log);
 
         Auth::logout();
 

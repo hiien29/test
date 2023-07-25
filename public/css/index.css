@@ -257,7 +257,9 @@ border: 1.5px solid #79b5b1;
 }
 .comment_detail {
     padding-left: 1rem;
+    padding-right: 1.5rem;
     padding-bottom: .5rem;
+    white-space: pre-line;
 } 
 
 .detail_inner .indent {
@@ -319,6 +321,10 @@ border: 1.5px solid #79b5b1;
     border-radius: 5px;
     margin-top: 2%;
 }
+
+/* .edit_box textarea {
+    white-space: pre-wrap;
+} */
 
 .edit_btn {
     width: 55%;

@@ -129,7 +129,7 @@
         {{-- 検索結果該当あり --}}
 
             @if( $searches->count() > 0 )
-            <div class="flex test_count">
+            <div class="flex test__count">
                 <p class="text-xl font-bold statistic_font" style="margin-right: 24px;">平均結果：{{ round($avg,1) }}N/㎟</p>
                 <p class="text-xl font-bold statistic_font mx-6">最小値：{{ $min }}N/㎟</p>
                 <p class="text-xl font-bold statistic_font mx-6">最大値：{{ $max }}N/㎟</p>

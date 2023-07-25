@@ -10,13 +10,15 @@ use App\Models\Testlist;
 class TestController extends Controller
 {
     
-    public function create(): View
+    public function create(Request $rq): View
     {
+        $limit = $rq->input('limit',10);
         $params = Testlist::where('test_day','>',today())
         ->orderBy('test_day', 'asc')
         ->orderBy('age')
-        ->paginate(10);
-        return view('schedule.index',compact('params'));
+        ->paginate($limit);
+
+        return view('schedule.index',compact('params','limit'));
     }
 
     public function test(): View
