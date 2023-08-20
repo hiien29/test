@@ -39,5 +39,5 @@ PHP 自作
 MAMP/MySQL/PHP
 
 ## データベース
-データベース名:test
+データベース名:testあ
 
