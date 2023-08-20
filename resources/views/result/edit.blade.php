@@ -86,3 +86,6 @@
 
 </x-app-layout>
 <script src="{{ asset('js/register.js') }}"></script>
+
+
+
